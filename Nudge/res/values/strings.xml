@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Nudge</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_scheduled_messages">Scheduled Messages</string>
+    <string name="action_scheduled_messages">View Scheduled Messages</string>
+    <string name="action_new_message">New Reminder</string>
+
+</resources>
