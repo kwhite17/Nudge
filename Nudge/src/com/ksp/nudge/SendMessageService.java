@@ -42,15 +42,12 @@ public class SendMessageService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId){
-
 		return START_STICKY;
 	}
 
 	public void deliverOustandingMessages() throws ParseException{
-
 		MessageReaderDbHelper dbHelper = new MessageReaderDbHelper(this);
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
-
 		String[] projection = {
 				MessageEntry._ID,
 				MessageEntry.COLUMN_NAME_RECIPIENT,
@@ -58,9 +55,7 @@ public class SendMessageService extends Service {
 				MessageEntry.COLUMN_NAME_MESSAGE,
 				MessageEntry.COLUMN_NAME_FREQUENCY,
 		};
-
 		String sortOrder = MessageEntry.COLUMN_NAME_RECIPIENT + " DESC";
-
 		Cursor msgCursor = db.query(MessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
 
 		msgCursor.moveToFirst();

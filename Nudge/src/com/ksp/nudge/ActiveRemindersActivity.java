@@ -22,7 +22,7 @@ import com.ksp.database.MessageReaderContract.MessageEntry;
 import com.ksp.database.MessageReaderDbHelper;
 
 public class ActiveRemindersActivity extends Activity {
-	MessageReaderDbHelper dbHelper;
+	MessageReaderDbHelper databaseHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,13 @@ public class ActiveRemindersActivity extends Activity {
 		Intent serviceIntent = new Intent(this,SendMessageService.class);
 		this.startService(serviceIntent);
 
-		dbHelper = new MessageReaderDbHelper(this);
+		databaseHelper = new MessageReaderDbHelper(this);
 
 		SparseArray<String> activeMessages = readMsgsfromDb();
 		if (activeMessages.size() == 0){
 			displayIntroMsg();
 		}
 		else{
-			
 			int key = 0;
 			for(int i = 0; i < activeMessages.size(); i++) {
 				key = activeMessages.keyAt(i);
@@ -67,16 +66,12 @@ public class ActiveRemindersActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.active_reminders, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -98,25 +93,19 @@ public class ActiveRemindersActivity extends Activity {
 	}
 
 	private SparseArray<String> readMsgsfromDb() {
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
-
+		SQLiteDatabase database = databaseHelper.getReadableDatabase();
 		SparseArray<String> msgMap = new SparseArray<String>();
-
-
 		String[] projection = {
 				MessageEntry._ID,
 				MessageEntry.COLUMN_NAME_RECIPIENT,
 				MessageEntry.COLUMN_NAME_SEND_TIME,
 				MessageEntry.COLUMN_NAME_MESSAGE,
 		};
-
 		String sortOrder = MessageEntry.COLUMN_NAME_RECIPIENT + " DESC";
-
-		Cursor msgCursor = db.query(MessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
+		Cursor msgCursor = database.query(MessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
 
 		msgCursor.moveToFirst();
 		while (!msgCursor.isAfterLast()){
-
 			String recipient = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_RECIPIENT));
 			String message = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_MESSAGE));
 			String sendDate = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_SEND_TIME));
@@ -126,12 +115,10 @@ public class ActiveRemindersActivity extends Activity {
 			msgCursor.moveToNext();
 		}
 		msgCursor.close();
-
 		return msgMap;
 	}
 
 	public void addMessage(String message, final int btnId) {
-
 		LinearLayout reminderLayout = (LinearLayout) this.findViewById(R.id.ActiveRemindersLayout);
 		LinearLayout itemLayout = new LinearLayout(this);
 		LinearLayout messageLayout = new LinearLayout(this);
@@ -141,25 +128,25 @@ public class ActiveRemindersActivity extends Activity {
 		messageLayout.setOrientation(LinearLayout.HORIZONTAL);
 		buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-
 		messageLayout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1f));		
 
 		if (reminderLayout != null) {
 			TextView messageText = new TextView(this);
 			//			Button editBtn = new Button(this);
 			ImageButton deleteBtn = new ImageButton(this);
+			
+			messageText.setText(message);
 			deleteBtn.setBackgroundResource(R.drawable.ic_action_discard);
 			deleteBtn.setOnClickListener(new OnClickListener(){
 
 				@Override
 				public void onClick(View v) {
-					MessageHandler.deleteMessage(Integer.toString(btnId), dbHelper);
+					MessageHandler.deleteMessage(Integer.toString(btnId), databaseHelper);
 					changeActivity(ActiveRemindersActivity.class);
 				}
 
 			});
 			deleteBtn.setTag("delBtn" + Integer.toString(btnId));
-			messageText.setText(message);
 			//			editBtn.setText("Edit");
 			//			editBtn.setSingleLine(true);
 

@@ -31,7 +31,6 @@ public class MessageFormActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -52,13 +51,10 @@ public class MessageFormActivity extends Activity {
 
 				EditText phoneText = (EditText) findViewById(R.id.contactNameView);
 				String phoneNumber = phoneText.getEditableText().toString();
-
 				EditText msgText = (EditText) findViewById(R.id.msgText);
 				String msg = msgText.getEditableText().toString();
-
 				RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
 				String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
-
 				TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
 
 				System.out.println(writeMsgToDb(phoneNumber,
@@ -68,7 +64,6 @@ public class MessageFormActivity extends Activity {
 
 			}
 			Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
-
 
 			changeActivity(ActiveRemindersActivity.class);
 		}
@@ -83,8 +78,8 @@ public class MessageFormActivity extends Activity {
 
 		MessageReaderDbHelper dbHelper = new MessageReaderDbHelper(this);
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-
 		ContentValues rowValues = new ContentValues();
+
 		rowValues.put(MessageEntry.COLUMN_NAME_RECIPIENT, number);
 		rowValues.put(MessageEntry.COLUMN_NAME_SEND_TIME, time);
 		rowValues.put(MessageEntry.COLUMN_NAME_MESSAGE, msg);
@@ -151,8 +146,8 @@ public class MessageFormActivity extends Activity {
 
 			}
 			cursor.close();
-		} catch(NullPointerException e){
-			Log.i("ContactSelection", e.getMessage());
+		} catch(RuntimeException e){
+			Log.i("ContactSelection", "User backed out of contacts.");
 		}
 	}
 
