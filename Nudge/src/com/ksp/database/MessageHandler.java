@@ -12,7 +12,13 @@ import android.telephony.SmsManager;
 import com.ksp.database.MessageReaderContract.MessageEntry;
 
 public class MessageHandler {
-
+    
+    /**
+     * 
+     * @param dateTime, the current time at which the message is to be sent
+     * @param freq, the frequency with which the message is to be sent
+     * @return the String representing the next time to send a message
+     */
     public static String getNextSend(String dateTime, String freq) {
         Calendar time = Calendar.getInstance();
         try {
@@ -39,7 +45,14 @@ public class MessageHandler {
         }
         return DateFormat.getInstance().format(time.getTime());
     }
-
+    
+    /**
+     * 
+     * @param hour, the hour at which the message is to be sent
+     * @param min, the minute at which the message is to be sent
+     * @param freq, how often the message is to be sent
+     * @return the String representing the next the message is to be sent
+     */
     public static String getNextSend(int hour, int min, String freq){
         Calendar time = Calendar.getInstance();
 
@@ -64,13 +77,25 @@ public class MessageHandler {
         }
         return DateFormat.getInstance().format(time.getTime());
     }
-
+    
+    /**
+     * Sends an SMS message to the recipient
+     * @param phoneNumber, the repicient's phone number
+     * @param message, the message to send to the recipient
+     */
     public static void sendMessage(String phoneNumber,String message){
         SmsManager textManager = SmsManager.getDefault();
 
         textManager.sendTextMessage(phoneNumber, null, message.concat(" - sent by Nudge"), null, null);
     }
-
+    
+    /**
+     * 
+     * @param phoneNumber, the message recipient's phone number
+     * @param message, the message to be sent to the recipient
+     * @param sendTime, the time at which the message is to be sent
+     * @return a String representing the essential information about the message
+     */
     public static String formatMessage(String phoneNumber,String message, String sendTime){
         String recipient = "Recipient: " + phoneNumber + "\n";
         String msg = "Message: " + message + "\n";
@@ -78,7 +103,8 @@ public class MessageHandler {
 
         return recipient + msg + nextSend;
     }
-
+    
+    //TODO: MOVE TO MessageReaderDbHelper
     public static void deleteMessage(String id, MessageReaderDbHelper databaseHelper){
         SQLiteDatabase database = databaseHelper.getWritableDatabase();
         String selection = MessageEntry._ID + " LIKE ?";
@@ -87,6 +113,7 @@ public class MessageHandler {
         database.delete(MessageEntry.TABLE_NAME, selection, selectionArgs);
     }
 
+    //TODO: MOVE TO MessageReaderDbHelper
     public static void updateSendTime(String id, String sendDate, String frequency, MessageReaderDbHelper dbHelper){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String selection = MessageEntry._ID + " LIKE ?";
@@ -96,7 +123,13 @@ public class MessageHandler {
         sendTime.put(MessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency));
         db.update(MessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
     }
-
+    
+    /**
+     * 
+     * @param sendDate, the time the Message is to be sent
+     * @return a boolean indicating if it is time for the message to be sent
+     * @throws ParseException
+     */
     public static boolean isOutstandingMessage(String sendDate) throws ParseException {
         return DateFormat.getInstance().parse(sendDate).compareTo(new Date()) <= 0;
     }

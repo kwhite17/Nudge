@@ -14,5 +14,6 @@
     <string name="frequency_weekly">Weekly</string>
     <string name="frequency_monthly">Monthly</string>
     <string name="select_contact">Select</string>
+    <string name="instruction_message">&quot;No messages are scheduled. Tap '+' to begin!&quot;</string>
 
 </resources>

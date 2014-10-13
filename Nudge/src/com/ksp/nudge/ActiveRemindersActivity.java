@@ -37,7 +37,7 @@ public class ActiveRemindersActivity extends Activity {
 
         SparseArray<String> activeMessages = readMsgsfromDb();
         if (activeMessages.size() == 0){
-            displayIntroMsg();
+            displayInstructionMsg();
         }
         else{
             int key = 0;
@@ -48,20 +48,23 @@ public class ActiveRemindersActivity extends Activity {
         }
 
     }
-
-    private void displayIntroMsg() {
+    
+    /**
+     * Displays the instruction message when no messages are scheduled
+     */
+    private void displayInstructionMsg() {
         LinearLayout reminderLayout = (LinearLayout) findViewById(R.id.ActiveRemindersLayout);
-        RelativeLayout introLayout = new RelativeLayout(this);
-        TextView introTxtView = new TextView(this);
+        RelativeLayout instructionLayout = new RelativeLayout(this);
+        TextView instructionTxtView = new TextView(this);
         LayoutParams lp = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
-        introLayout.setGravity(Gravity.CENTER);
-        introLayout.setLayoutParams(lp);
-        introLayout.setId(R.id.introLayoutId);
-        introTxtView.setText("No messages are scheduled. Tap '+' to begin!");
+        instructionLayout.setGravity(Gravity.CENTER);
+        instructionLayout.setLayoutParams(lp);
+        instructionLayout.setId(R.id.introLayoutId);
+        instructionTxtView.setText(R.string.instruction_message);
 
-        reminderLayout.addView(introLayout);
-        introLayout.addView(introTxtView);
+        reminderLayout.addView(instructionLayout);
+        instructionLayout.addView(instructionTxtView);
     }
 
     @Override
@@ -91,7 +94,8 @@ public class ActiveRemindersActivity extends Activity {
     public void onBackPressed() {
         this.finish();
     }
-
+    
+    //TODO: move to db helper
     private SparseArray<String> readMsgsfromDb() {
         SQLiteDatabase database = databaseHelper.getReadableDatabase();
         SparseArray<String> msgMap = new SparseArray<String>();
@@ -117,8 +121,13 @@ public class ActiveRemindersActivity extends Activity {
         msgCursor.close();
         return msgMap;
     }
-
-    public void addMessage(String message, final int btnId) {
+    
+    /**
+     * Adds message to the active reminders screen
+     * @param message, the message to be added to the screen
+     * @param btnId, the id of the message in the database
+     */
+    public void addMessage(String message, final int messageId) {
         LinearLayout reminderLayout = (LinearLayout) this.findViewById(R.id.ActiveRemindersLayout);
         LinearLayout itemLayout = new LinearLayout(this);
         LinearLayout messageLayout = new LinearLayout(this);
@@ -141,12 +150,12 @@ public class ActiveRemindersActivity extends Activity {
 
                 @Override
                 public void onClick(View v) {
-                    MessageHandler.deleteMessage(Integer.toString(btnId), databaseHelper);
+                    MessageHandler.deleteMessage(Integer.toString(messageId), databaseHelper);
                     changeActivity(ActiveRemindersActivity.class);
                 }
 
             });
-            deleteBtn.setTag("delBtn" + Integer.toString(btnId));
+            deleteBtn.setTag("delBtn" + Integer.toString(messageId));
             //			editBtn.setText("Edit");
             //			editBtn.setSingleLine(true);
 
@@ -160,7 +169,11 @@ public class ActiveRemindersActivity extends Activity {
             System.out.println("Failure to add message...");
         }
     }
-
+    
+    /**
+     * 
+     * @param activityClass, the activity to be changed to
+     */
     private void changeActivity(Class<?> activityClass){
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);

@@ -27,15 +27,15 @@ import com.ksp.database.MessageReaderDbHelper;
 
 public class MessageFormActivity extends Activity { 
 
-    private static final int REQUEST_CONTACTS = 2;
+    private static final int REQUEST_CONTACTS = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button contactBtn = (Button) findViewById(R.id.selectContactBtn);
-        contactBtn.setOnClickListener(new OnClickListener(){
+        Button selectContactBtn = (Button) findViewById(R.id.selectContactBtn);
+        selectContactBtn.setOnClickListener(new OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -44,10 +44,15 @@ public class MessageFormActivity extends Activity {
 
         });
     }
-
-    protected void changeToActiveReminders(boolean fromMenu) {
+    
+    /**
+     * Changes to Active Reminders activity. May save message form data
+     * depending on how the method was triggered
+     * @param saveMessage, if the data in the message for should be saved
+     */
+    protected void changeToActiveReminders(boolean saveMessage) {
         try{
-            if (!fromMenu){
+            if (saveMessage){
 
                 EditText phoneText = (EditText) findViewById(R.id.contactNameView);
                 String phoneNumber = phoneText.getEditableText().toString();
@@ -57,7 +62,7 @@ public class MessageFormActivity extends Activity {
                 String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
                 TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
 
-                System.out.println(writeMsgToDb(phoneNumber,
+                Log.i("Saving Message", writeMsgToDb(phoneNumber,
                         MessageHandler.getNextSend(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), frequency),
                         msg,
                         frequency));
@@ -69,10 +74,11 @@ public class MessageFormActivity extends Activity {
         }
         catch(Exception e){
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
+            Log.e("Save Message Failed", e.getMessage());
         }
     }
-
+    
+    //TODO: move to dbhelper
     private String writeMsgToDb(String number, String time, String msg,
             String frequency) {
 
@@ -103,26 +109,40 @@ public class MessageFormActivity extends Activity {
         case R.id.action_settings:
             return true;
         case R.id.action_discard:
-            this.changeToActiveReminders(true);
+            this.changeToActiveReminders(false);
             break;
         case R.id.action_save:
-            this.changeToActiveReminders(false);
+            this.changeToActiveReminders(true);
             break;
         }
         return super.onOptionsItemSelected(item);
     }
-
+    
+    /**
+     * Returns to the main activity
+     */
     @Override
     public void onBackPressed(){
         changeActivity(ActiveRemindersActivity.class);
     }
-
+    
+    /**
+     * Starts an activity that allows the user to select a contact to send a 
+     * message to
+     */
     public void getContact() {
         Intent intent = new Intent(Intent.ACTION_PICK, 
-                ContactsContract.Contacts.CONTENT_URI);
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
         startActivityForResult(intent, REQUEST_CONTACTS);
     }
-
+    
+    /*
+     * Handles information about the contact selected as a result of the 
+     * getContact() method
+     * 
+     * (non-Javadoc)
+     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+     */
     @Override  
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         
@@ -149,6 +169,10 @@ public class MessageFormActivity extends Activity {
         }
     }
 
+    /**
+     * 
+     * @param activityClass, the activity to be changed to
+     */
     private void changeActivity(Class<?> activityClass){
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);
