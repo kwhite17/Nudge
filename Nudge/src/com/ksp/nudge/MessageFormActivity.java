@@ -27,7 +27,7 @@ import com.ksp.database.MessageReaderDbHelper;
 
 public class MessageFormActivity extends Activity { 
 
-    private static final int REQUEST_CONTACTPICKER = 2113;
+    private static final int REQUEST_CONTACTS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +91,6 @@ public class MessageFormActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.message_form, menu);
 
         return true;
@@ -99,9 +98,6 @@ public class MessageFormActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch(id){
         case R.id.action_settings:
@@ -123,17 +119,21 @@ public class MessageFormActivity extends Activity {
 
     public void getContact() {
         Intent intent = new Intent(Intent.ACTION_PICK, 
-                ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
-        startActivityForResult(intent, REQUEST_CONTACTPICKER);
+                ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(intent, REQUEST_CONTACTS);
     }
 
-    // Listen for results.
     @Override  
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        // See which child activity is calling us back.
-        //		super.onActivityResult(requestCode, resultCode, data);
+        
+        Uri result = null;
         try{
-            Uri result = data.getData();
+            result = data.getData();
+        } catch(RuntimeException e){
+            Log.i("ContactSelection", "User backed out of contacts.");
+        }
+        
+        if (result != null){
             String id = result.getLastPathSegment();
             Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,
                     Phone._ID + " = ?",
@@ -146,8 +146,6 @@ public class MessageFormActivity extends Activity {
 
             }
             cursor.close();
-        } catch(RuntimeException e){
-            Log.i("ContactSelection", "User backed out of contacts.");
         }
     }
 

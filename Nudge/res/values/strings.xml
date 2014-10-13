@@ -6,5 +6,13 @@
     <string name="title_activity_scheduled_messages">Scheduled Messages</string>
     <string name="action_scheduled_messages">View Scheduled Messages</string>
     <string name="action_new_message">New Reminder</string>
+    <string name="who_instruction">I want to tell</string>
+    <string name="when_instruction">At</string>
+    <string name="what_instruction">To</string>
+    <string name="frequency_once">Once</string>
+    <string name="frequency_daily">Daily</string>
+    <string name="frequency_weekly">Weekly</string>
+    <string name="frequency_monthly">Monthly</string>
+    <string name="select_contact">Select</string>
 
 </resources>

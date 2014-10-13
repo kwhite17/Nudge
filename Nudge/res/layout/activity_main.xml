@@ -14,8 +14,8 @@
         android:id="@+id/whoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I want to remind..." />
-
+        android:text="@string/who_instruction"/>
+    
     <RelativeLayout
         android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="Select..." />
+            android:text="@string/select_contact" />
 
         <EditText
             android:id="@+id/contactNameView"
@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:inputType="phone"
-            android:text="(000)000-0000" />
+            android:layout_toLeftOf="@+id/selectContactBtn"
+            android:inputType="phone" />
 
     </RelativeLayout>
 
@@ -44,7 +44,7 @@
         android:id="@+id/whenTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="At..." />
+        android:text="@string/when_instruction" />
 
     <TimePicker
         android:id="@+id/timePicker"
@@ -55,7 +55,7 @@
         android:id="@+id/whatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To..." />
+        android:text="@string/what_instruction" />
 
     <EditText
         android:id="@+id/msgText"
@@ -74,25 +74,25 @@
             android:id="@+id/RadioButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Once" />
-
+            android:text="@string/frequency_once"/>
+        
         <RadioButton
             android:id="@+id/RadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daily" />
+            android:text="@string/frequency_daily" />
 
         <RadioButton
             android:id="@+id/RadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weekly" />
+            android:text="@string/frequency_weekly" />
 
         <RadioButton
             android:id="@+id/RadioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monthly" />
+            android:text="@string/frequency_monthly" />
     </RadioGroup>
 
 </TableLayout>
