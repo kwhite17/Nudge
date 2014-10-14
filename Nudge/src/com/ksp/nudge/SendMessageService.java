@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
 
 import com.ksp.database.MessageHandler;
-import com.ksp.database.MessageReaderContract.MessageEntry;
-import com.ksp.database.MessageReaderDbHelper;
+import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
+import com.ksp.database.NudgeMessagesDbHelper;
 
 public class SendMessageService extends Service {
     Thread sendMsgThread;
@@ -46,25 +46,25 @@ public class SendMessageService extends Service {
     }
 
     public void deliverOustandingMessages() throws ParseException{
-        MessageReaderDbHelper dbHelper = new MessageReaderDbHelper(this);
+        NudgeMessagesDbHelper dbHelper = new NudgeMessagesDbHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
-                MessageEntry._ID,
-                MessageEntry.COLUMN_NAME_RECIPIENT,
-                MessageEntry.COLUMN_NAME_SEND_TIME,
-                MessageEntry.COLUMN_NAME_MESSAGE,
-                MessageEntry.COLUMN_NAME_FREQUENCY,
+                NudgeMessageEntry._ID,
+                NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER,
+                NudgeMessageEntry.COLUMN_NAME_SEND_TIME,
+                NudgeMessageEntry.COLUMN_NAME_MESSAGE,
+                NudgeMessageEntry.COLUMN_NAME_FREQUENCY,
         };
-        String sortOrder = MessageEntry.COLUMN_NAME_RECIPIENT + " DESC";
-        Cursor msgCursor = db.query(MessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
+        String sortOrder = NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
+        Cursor msgCursor = db.query(NudgeMessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
 
         msgCursor.moveToFirst();
         while (!msgCursor.isAfterLast()){
-            String id = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry._ID));
-            String recipient = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_RECIPIENT));
-            String message = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_MESSAGE));
-            String sendDate = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_SEND_TIME));
-            String frequency = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_FREQUENCY));
+            String id = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry._ID));
+            String recipient = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER));
+            String message = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_MESSAGE));
+            String sendDate = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_SEND_TIME));
+            String frequency = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_FREQUENCY));
 
             if (MessageHandler.isOutstandingMessage(sendDate)){
                 MessageHandler.sendMessage(recipient, message);

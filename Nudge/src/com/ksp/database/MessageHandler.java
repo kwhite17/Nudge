@@ -9,7 +9,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.telephony.SmsManager;
 
-import com.ksp.database.MessageReaderContract.MessageEntry;
+import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 
 public class MessageHandler {
     
@@ -104,24 +104,24 @@ public class MessageHandler {
         return recipient + msg + nextSend;
     }
     
-    //TODO: MOVE TO MessageReaderDbHelper
-    public static void deleteMessage(String id, MessageReaderDbHelper databaseHelper){
+    //TODO: MOVE TO NudgeMessagesDbHelper
+    public static void deleteMessage(String id, NudgeMessagesDbHelper databaseHelper){
         SQLiteDatabase database = databaseHelper.getWritableDatabase();
-        String selection = MessageEntry._ID + " LIKE ?";
+        String selection = NudgeMessageEntry._ID + " LIKE ?";
         String[] selectionArgs = { id };
 
-        database.delete(MessageEntry.TABLE_NAME, selection, selectionArgs);
+        database.delete(NudgeMessageEntry.TABLE_NAME, selection, selectionArgs);
     }
 
-    //TODO: MOVE TO MessageReaderDbHelper
-    public static void updateSendTime(String id, String sendDate, String frequency, MessageReaderDbHelper dbHelper){
+    //TODO: MOVE TO NudgeMessagesDbHelper
+    public static void updateSendTime(String id, String sendDate, String frequency, NudgeMessagesDbHelper dbHelper){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        String selection = MessageEntry._ID + " LIKE ?";
+        String selection = NudgeMessageEntry._ID + " LIKE ?";
         String[] selectionArgs = { id };
         ContentValues sendTime = new ContentValues();
 
-        sendTime.put(MessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency));
-        db.update(MessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
+        sendTime.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency));
+        db.update(NudgeMessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
     }
     
     /**

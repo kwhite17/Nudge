@@ -1,10 +1,8 @@
 package com.ksp.nudge;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -22,12 +20,12 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.ksp.database.MessageHandler;
-import com.ksp.database.MessageReaderContract.MessageEntry;
-import com.ksp.database.MessageReaderDbHelper;
+import com.ksp.database.NudgeMessagesDbHelper;
 
 public class MessageFormActivity extends Activity { 
 
     private static final int REQUEST_CONTACTS = 1;
+    private String contactNumber = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +42,7 @@ public class MessageFormActivity extends Activity {
 
         });
     }
-    
+
     /**
      * Changes to Active Reminders activity. May save message form data
      * depending on how the method was triggered
@@ -55,17 +53,17 @@ public class MessageFormActivity extends Activity {
             if (saveMessage){
 
                 EditText phoneText = (EditText) findViewById(R.id.contactNameView);
-                String phoneNumber = phoneText.getEditableText().toString();
+                String contactName = phoneText.getEditableText().toString();
                 EditText msgText = (EditText) findViewById(R.id.msgText);
                 String msg = msgText.getEditableText().toString();
                 RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
                 String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
                 TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
 
-                Log.i("Saving Message", writeMsgToDb(phoneNumber,
-                        MessageHandler.getNextSend(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), frequency),
+                Log.i("Saving Message", new NudgeMessagesDbHelper(this).writeMsgToDb(contactName,
+                        contactNumber,
                         msg,
-                        frequency));
+                        MessageHandler.getNextSend(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), frequency), frequency));
 
             }
             Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
@@ -76,23 +74,6 @@ public class MessageFormActivity extends Activity {
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
             Log.e("Save Message Failed", e.getMessage());
         }
-    }
-    
-    //TODO: move to dbhelper
-    private String writeMsgToDb(String number, String time, String msg,
-            String frequency) {
-
-        MessageReaderDbHelper dbHelper = new MessageReaderDbHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues rowValues = new ContentValues();
-
-        rowValues.put(MessageEntry.COLUMN_NAME_RECIPIENT, number);
-        rowValues.put(MessageEntry.COLUMN_NAME_SEND_TIME, time);
-        rowValues.put(MessageEntry.COLUMN_NAME_MESSAGE, msg);
-        rowValues.put(MessageEntry.COLUMN_NAME_FREQUENCY, frequency);
-
-        long insertId = db.insert(MessageEntry.TABLE_NAME, null, rowValues);
-        return (insertId == -1) ? "Insertion failed": "Insertion successful";
     }
 
     @Override
@@ -117,7 +98,7 @@ public class MessageFormActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-    
+
     /**
      * Returns to the main activity
      */
@@ -125,7 +106,7 @@ public class MessageFormActivity extends Activity {
     public void onBackPressed(){
         changeActivity(ActiveRemindersActivity.class);
     }
-    
+
     /**
      * Starts an activity that allows the user to select a contact to send a 
      * message to
@@ -135,7 +116,7 @@ public class MessageFormActivity extends Activity {
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
         startActivityForResult(intent, REQUEST_CONTACTS);
     }
-    
+
     /*
      * Handles information about the contact selected as a result of the 
      * getContact() method
@@ -145,24 +126,25 @@ public class MessageFormActivity extends Activity {
      */
     @Override  
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        
+
         Uri result = null;
         try{
             result = data.getData();
         } catch(RuntimeException e){
             Log.i("ContactSelection", "User backed out of contacts.");
         }
-        
+
         if (result != null){
             String id = result.getLastPathSegment();
             Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,
                     Phone._ID + " = ?",
                     new String[] {id}, null);
-            int phoneIdx = cursor.getColumnIndex(Phone.NUMBER);
+            
+            int contactNameIndex= cursor.getColumnIndex(Phone.DISPLAY_NAME);
             if (cursor.moveToFirst())
             {
-
-                ((EditText) this.findViewById(R.id.contactNameView)).setText(cursor.getString(phoneIdx));
+                contactNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
+                ((EditText) this.findViewById(R.id.contactNameView)).setText(cursor.getString(contactNameIndex));
 
             }
             cursor.close();

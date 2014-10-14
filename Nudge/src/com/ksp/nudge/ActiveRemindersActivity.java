@@ -2,9 +2,8 @@ package com.ksp.nudge;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.Menu;
@@ -18,11 +17,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ksp.database.MessageHandler;
-import com.ksp.database.MessageReaderContract.MessageEntry;
-import com.ksp.database.MessageReaderDbHelper;
+import com.ksp.database.NudgeMessagesDbHelper;
 
 public class ActiveRemindersActivity extends Activity {
-    MessageReaderDbHelper databaseHelper;
+    NudgeMessagesDbHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +31,7 @@ public class ActiveRemindersActivity extends Activity {
         Intent serviceIntent = new Intent(this,SendMessageService.class);
         this.startService(serviceIntent);
 
-        databaseHelper = new MessageReaderDbHelper(this);
-
-        SparseArray<String> activeMessages = readMsgsfromDb();
+        SparseArray<String> activeMessages = new NudgeMessagesDbHelper(this).readMsgsfromDb();
         if (activeMessages.size() == 0){
             displayInstructionMsg();
         }
@@ -95,33 +91,6 @@ public class ActiveRemindersActivity extends Activity {
         this.finish();
     }
     
-    //TODO: move to db helper
-    private SparseArray<String> readMsgsfromDb() {
-        SQLiteDatabase database = databaseHelper.getReadableDatabase();
-        SparseArray<String> msgMap = new SparseArray<String>();
-        String[] projection = {
-                MessageEntry._ID,
-                MessageEntry.COLUMN_NAME_RECIPIENT,
-                MessageEntry.COLUMN_NAME_SEND_TIME,
-                MessageEntry.COLUMN_NAME_MESSAGE,
-        };
-        String sortOrder = MessageEntry.COLUMN_NAME_RECIPIENT + " DESC";
-        Cursor msgCursor = database.query(MessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
-
-        msgCursor.moveToFirst();
-        while (!msgCursor.isAfterLast()){
-            String recipient = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_RECIPIENT));
-            String message = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_MESSAGE));
-            String sendDate = msgCursor.getString(msgCursor.getColumnIndex(MessageEntry.COLUMN_NAME_SEND_TIME));
-
-            msgMap.put(msgCursor.getInt(msgCursor.getColumnIndex(MessageEntry._ID)), MessageHandler.formatMessage(recipient, message, sendDate));
-
-            msgCursor.moveToNext();
-        }
-        msgCursor.close();
-        return msgMap;
-    }
-    
     /**
      * Adds message to the active reminders screen
      * @param message, the message to be added to the screen
@@ -166,7 +135,7 @@ public class ActiveRemindersActivity extends Activity {
             itemLayout.addView(buttonLayout);
             reminderLayout.addView(itemLayout);
         } else {
-            System.out.println("Failure to add message...");
+            Log.w("Display Message Failed","Failure to add message...");
         }
     }
     
