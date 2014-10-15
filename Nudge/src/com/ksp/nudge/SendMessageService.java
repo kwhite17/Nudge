@@ -68,10 +68,11 @@ public class SendMessageService extends Service {
 
             if (MessageHandler.isOutstandingMessage(sendDate)){
                 MessageHandler.sendMessage(recipient, message);
+                NudgeMessagesDbHelper databaseHelper = new NudgeMessagesDbHelper(this);
                 if (frequency.equals("Once")){
-                    MessageHandler.deleteMessage(id, dbHelper);
+                    databaseHelper.deleteMessage(id);
                 } else{
-                    MessageHandler.updateSendTime(id, sendDate, frequency, dbHelper);
+                    databaseHelper.updateSendTime(id, sendDate, frequency);
                 }
             }
 

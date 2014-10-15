@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class MessageFormActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_message_form);
 
         Button selectContactBtn = (Button) findViewById(R.id.selectContactBtn);
         selectContactBtn.setOnClickListener(new OnClickListener(){
@@ -52,8 +53,11 @@ public class MessageFormActivity extends Activity {
         try{
             if (saveMessage){
 
-                EditText phoneText = (EditText) findViewById(R.id.contactNameView);
-                String contactName = phoneText.getEditableText().toString();
+                TextView phoneText = (TextView) findViewById(R.id.contactNameView);
+                String contactName = phoneText.getText().toString();
+                if (contactName.contains("[")){
+                    throw new Exception();
+                }
                 EditText msgText = (EditText) findViewById(R.id.msgText);
                 String msg = msgText.getEditableText().toString();
                 RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
@@ -64,22 +68,21 @@ public class MessageFormActivity extends Activity {
                         contactNumber,
                         msg,
                         MessageHandler.getNextSend(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), frequency), frequency));
-
+                Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             }
-            Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
-
+            else{
+                Toast.makeText(this, "Message deleted!", Toast.LENGTH_SHORT).show();
+            }
             changeActivity(ActiveRemindersActivity.class);
         }
         catch(Exception e){
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
-            Log.e("Save Message Failed", e.getMessage());
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.message_form, menu);
-
         return true;
     }
 
@@ -139,12 +142,12 @@ public class MessageFormActivity extends Activity {
             Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,
                     Phone._ID + " = ?",
                     new String[] {id}, null);
-            
+
             int contactNameIndex= cursor.getColumnIndex(Phone.DISPLAY_NAME);
             if (cursor.moveToFirst())
             {
                 contactNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
-                ((EditText) this.findViewById(R.id.contactNameView)).setText(cursor.getString(contactNameIndex));
+                ((TextView) this.findViewById(R.id.contactNameView)).setText(cursor.getString(contactNameIndex));
 
             }
             cursor.close();

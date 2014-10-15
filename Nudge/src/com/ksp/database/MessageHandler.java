@@ -5,11 +5,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
 import android.telephony.SmsManager;
-
-import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 
 public class MessageHandler {
     
@@ -102,26 +98,6 @@ public class MessageHandler {
         String nextSend = "Next Send: " + sendTime + "\n";
 
         return recipient + msg + nextSend;
-    }
-    
-    //TODO: MOVE TO NudgeMessagesDbHelper
-    public static void deleteMessage(String id, NudgeMessagesDbHelper databaseHelper){
-        SQLiteDatabase database = databaseHelper.getWritableDatabase();
-        String selection = NudgeMessageEntry._ID + " LIKE ?";
-        String[] selectionArgs = { id };
-
-        database.delete(NudgeMessageEntry.TABLE_NAME, selection, selectionArgs);
-    }
-
-    //TODO: MOVE TO NudgeMessagesDbHelper
-    public static void updateSendTime(String id, String sendDate, String frequency, NudgeMessagesDbHelper dbHelper){
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        String selection = NudgeMessageEntry._ID + " LIKE ?";
-        String[] selectionArgs = { id };
-        ContentValues sendTime = new ContentValues();
-
-        sendTime.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency));
-        db.update(NudgeMessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
     }
     
     /**

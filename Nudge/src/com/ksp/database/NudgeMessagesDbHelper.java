@@ -101,6 +101,34 @@ public class NudgeMessagesDbHelper extends SQLiteOpenHelper {
         msgCursor.close();
         return msgMap;
     }
+    
+    /**
+     * Deletes a message from the database based on its id
+     * @param id, the id of the message to delete
+     */
+    public void deleteMessage(String id){
+        SQLiteDatabase database = this.getWritableDatabase();
+        String selection = NudgeMessageEntry._ID + " LIKE ?";
+        String[] selectionArgs = { id };
+    
+        database.delete(NudgeMessageEntry.TABLE_NAME, selection, selectionArgs);
+    }
+    
+    /**
+     * Updates the send tme of a recurring message in the database
+     * @param id, the id of the database entry to update
+     * @param sendDate, the current send time of the message
+     * @param frequency, how often the message is supposed to be sent
+     */
+    public void updateSendTime(String id, String sendDate, String frequency){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selection = NudgeMessageEntry._ID + " LIKE ?";
+        String[] selectionArgs = { id };
+        ContentValues sendTime = new ContentValues();
+    
+        sendTime.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency));
+        db.update(NudgeMessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
+    }
 
 
 }

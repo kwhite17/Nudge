@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ksp.database.MessageHandler;
 import com.ksp.database.NudgeMessagesDbHelper;
 
 public class ActiveRemindersActivity extends Activity {
@@ -53,7 +52,6 @@ public class ActiveRemindersActivity extends Activity {
         RelativeLayout instructionLayout = new RelativeLayout(this);
         TextView instructionTxtView = new TextView(this);
         LayoutParams lp = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-
         instructionLayout.setGravity(Gravity.CENTER);
         instructionLayout.setLayoutParams(lp);
         instructionLayout.setId(R.id.introLayoutId);
@@ -114,12 +112,11 @@ public class ActiveRemindersActivity extends Activity {
             ImageButton deleteBtn = new ImageButton(this);
 
             messageText.setText(message);
-            deleteBtn.setBackgroundResource(R.drawable.ic_action_discard);
+            deleteBtn.setBackgroundResource(R.drawable.ic_action_discard_dark);
             deleteBtn.setOnClickListener(new OnClickListener(){
-
                 @Override
                 public void onClick(View v) {
-                    MessageHandler.deleteMessage(Integer.toString(messageId), databaseHelper);
+                    new NudgeMessagesDbHelper(ActiveRemindersActivity.this).deleteMessage(Integer.toString(messageId));
                     changeActivity(ActiveRemindersActivity.class);
                 }
 

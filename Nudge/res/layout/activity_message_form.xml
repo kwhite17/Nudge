@@ -27,16 +27,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="@string/select_contact" />
+            android:text="@string/contact_button_text" />
 
-        <EditText
+        <TextView
             android:id="@+id/contactNameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/selectContactBtn"
-            android:inputType="phone" />
+            android:text="@string/select_contact_instruction" />
 
     </RelativeLayout>
 
