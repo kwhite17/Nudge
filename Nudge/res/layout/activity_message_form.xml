@@ -52,6 +52,12 @@
         android:layout_height="wrap_content"
         android:onClick="showTimePickerDialog" />
 
+    <Button
+        android:id="@+id/chooseDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showDatePickerDialog" />
+
     <TextView
         android:id="@+id/whatTextView"
         android:layout_width="wrap_content"
