@@ -46,10 +46,11 @@
         android:layout_height="wrap_content"
         android:text="@string/when_instruction" />
 
-    <TimePicker
-        android:id="@+id/timePicker"
+    <Button
+        android:id="@+id/chooseTimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="showTimePickerDialog" />
 
     <TextView
         android:id="@+id/whatTextView"

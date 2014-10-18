@@ -1,12 +1,18 @@
 package com.ksp.nudge;
 
+import java.util.Calendar;
+
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,14 +33,17 @@ public class MessageFormActivity extends Activity {
 
     private static final int REQUEST_CONTACTS = 1;
     private String contactNumber = "";
+    protected int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+    protected String period = currentHour >= 12 ? "PM":"AM";
+    protected int currentMinute = Calendar.getInstance().get(Calendar.MINUTE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
 
-        Button selectContactBtn = (Button) findViewById(R.id.selectContactBtn);
-        selectContactBtn.setOnClickListener(new OnClickListener(){
+        Button selectContactButton = (Button) findViewById(R.id.selectContactBtn);
+        selectContactButton.setOnClickListener(new OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -42,6 +51,10 @@ public class MessageFormActivity extends Activity {
             }
 
         });
+        
+        Button chooseTimeButton = (Button) findViewById(R.id.chooseTimeButton);
+        chooseTimeButton.setText("Edit Current Send Time: " + this.currentHour +
+                ":" + this.currentMinute + " " + this.period);
     }
 
     /**
@@ -62,12 +75,11 @@ public class MessageFormActivity extends Activity {
                 String msg = msgText.getEditableText().toString();
                 RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
                 String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
-                TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
 
                 Log.i("Saving Message", new NudgeMessagesDbHelper(this).writeMsgToDb(contactName,
                         contactNumber,
                         msg,
-                        MessageHandler.getNextSend(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), frequency), frequency));
+                        MessageHandler.getNextSend(this.currentHour, this.currentMinute, frequency), frequency));
                 Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             }
             else{
@@ -153,6 +165,11 @@ public class MessageFormActivity extends Activity {
             cursor.close();
         }
     }
+    
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
 
     /**
      * 
@@ -163,4 +180,34 @@ public class MessageFormActivity extends Activity {
         startActivity(intent);
         finish();
     }
+    
+    public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
+        
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default values for the picker
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hour, minute,
+                    DateFormat.is24HourFormat(getActivity()));
+        }
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            MessageFormActivity currentActivity = (MessageFormActivity)this.getActivity();
+            currentActivity.currentHour = hourOfDay;
+            currentActivity.currentMinute = minute;
+            String period = hourOfDay >= 12 ? "PM":"AM";
+            
+            Button chooseTimeButton = (Button) currentActivity.findViewById(R.id.chooseTimeButton);
+            chooseTimeButton.setText("Edit Current Send Time: " + 
+            currentActivity.currentHour + ":" + currentActivity.currentMinute 
+            + " " + period);
+        }
+    }
+    
+    
 }
