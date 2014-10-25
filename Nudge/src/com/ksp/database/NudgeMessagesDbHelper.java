@@ -115,18 +115,19 @@ public class NudgeMessagesDbHelper extends SQLiteOpenHelper {
     }
     
     /**
-     * Updates the send tme of a recurring message in the database
+     * Updates the send time of a recurring message in the database
+     * @param messageContext the context in which this method is being called
      * @param id, the id of the database entry to update
      * @param sendDate, the current send time of the message
      * @param frequency, how often the message is supposed to be sent
      */
-    public void updateSendTime(String id, String sendDate, String frequency){
+    public void updateSendTime(String id, String sendDate, String frequency, Context messageContext){
         SQLiteDatabase db = this.getWritableDatabase();
         String selection = NudgeMessageEntry._ID + " LIKE ?";
         String[] selectionArgs = { id };
         ContentValues sendTime = new ContentValues();
     
-        sendTime.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency));
+        sendTime.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency, messageContext));
         db.update(NudgeMessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
     }
 

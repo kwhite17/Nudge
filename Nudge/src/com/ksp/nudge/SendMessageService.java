@@ -1,50 +1,53 @@
 package com.ksp.nudge;
 
 import java.text.ParseException;
+import java.util.Calendar;
 
-import android.app.Service;
+import android.app.AlarmManager;
+import android.app.IntentService;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.IBinder;
 
 import com.ksp.database.MessageHandler;
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 import com.ksp.database.NudgeMessagesDbHelper;
 
-public class SendMessageService extends Service {
-    Thread sendMsgThread;
-
-    @Override
-    public IBinder onBind(Intent arg0) {
-        return null;
+public class SendMessageService extends IntentService {
+    public static final String SERVICE_NAME = "MESSAGE_SERVICE";
+    public SendMessageService() {
+        super(SERVICE_NAME);
     }
 
-    @Override
-    public void onCreate(){
-        sendMsgThread = new Thread(new Runnable(){
-
-            @Override
-            public void run() {
-                while (true){
-                    try {
-                        Thread.sleep(60000);
-                        deliverOustandingMessages();
-                    } catch (InterruptedException | ParseException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-        });
-        sendMsgThread.start();
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        return START_STICKY;
+        try {
+            deliverOustandingMessages();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return START_REDELIVER_INTENT;
     }
 
+    @Override
+    protected void onHandleIntent(Intent intent) {
+        try {
+            deliverOustandingMessages();
+            this.stopSelf();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+    /**
+     * Delivers any messages queued to be sent and the times for when the message
+     * is supposed to be sent
+     * @throws ParseException
+     */
     public void deliverOustandingMessages() throws ParseException{
         NudgeMessagesDbHelper dbHelper = new NudgeMessagesDbHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -72,14 +75,26 @@ public class SendMessageService extends Service {
                 if (frequency.equals("Once")){
                     databaseHelper.deleteMessage(id);
                 } else{
-                    databaseHelper.updateSendTime(id, sendDate, frequency);
+                    databaseHelper.updateSendTime(id, sendDate, frequency, this);
                 }
             }
 
             msgCursor.moveToNext();
         }
         msgCursor.close();
-
     }
-
+    
+    /**
+     * Is responsible for scheduling the next message
+     * @param messageContext, the context in which this function is called
+     * @param messageTime, the time for the next message to be scheduled
+     */
+    public static void setServiceAlarm(Context messageContext, Calendar messageTime) {
+        Intent sendMessageIntent = new Intent(messageContext, SendMessageService.class);
+        PendingIntent pendingMessageIntent = PendingIntent.getService(messageContext, 
+                (int)System.currentTimeMillis(), sendMessageIntent, PendingIntent.FLAG_ONE_SHOT);
+        AlarmManager messageAlarm = (AlarmManager)
+                messageContext.getSystemService(Context.ALARM_SERVICE);
+        messageAlarm.set(AlarmManager.RTC_WAKEUP, messageTime.getTimeInMillis(), pendingMessageIntent);        
+    }
 }

@@ -5,17 +5,21 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.content.Context;
 import android.telephony.SmsManager;
+
+import com.ksp.nudge.SendMessageService;
 
 public class MessageHandler {
     
     /**
      * 
+     * @param messageContext the context in which we are calculating the next send time
      * @param dateTime, the current time at which the message is to be sent
      * @param freq, the frequency with which the message is to be sent
      * @return the String representing the next time to send a message
      */
-    public static String getNextSend(String dateTime, String freq) {
+    public static String getNextSend(String dateTime, String freq, Context messageContext) {
         Calendar time = Calendar.getInstance();
         try {
             time.setTime(DateFormat.getInstance().parse(dateTime));
@@ -39,21 +43,18 @@ public class MessageHandler {
                 break;
             }
         }
+        
+        SendMessageService.setServiceAlarm(messageContext, time);
         return DateFormat.getInstance().format(time.getTime());
     }
-    
+
     /**
      * 
-     * @param hour, the hour at which the message is to be sent
-     * @param min, the minute at which the message is to be sent
-     * @param freq, how often the message is to be sent
+     * @param time, the Calendar representation of the current time
+     * @param messageContext the context in which we are calculating the next send time
      * @return the String representing the next the message is to be sent
      */
-    public static String getNextSend(int hour, int min, String freq){
-        Calendar time = Calendar.getInstance();
-
-        time.set(Calendar.HOUR_OF_DAY, hour);
-        time.set(Calendar.MINUTE,min);
+    public static String getNextSend(Calendar time, String freq, Context messageContext){
 
         if (time.before(Calendar.getInstance())){
             switch(freq){
@@ -71,6 +72,7 @@ public class MessageHandler {
                 break;
             }
         }
+        SendMessageService.setServiceAlarm(messageContext, time);
         return DateFormat.getInstance().format(time.getTime());
     }
     

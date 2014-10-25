@@ -1,13 +1,15 @@
 package com.ksp.nudge;
 
 import java.util.Calendar;
-import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -35,23 +37,17 @@ import com.ksp.database.NudgeMessagesDbHelper;
 public class MessageFormActivity extends Activity { 
 
     private static final int REQUEST_CONTACTS = 1;
-    private final String currentSendDateKey = "currentSendDate";
-    private final String currentSendMonthKey = "currentSendMonth";
-    private final String currentSendYearKey = "currentSendYear";
-    private final String currentSendHourKey = "currentSendHour";
-    private final String currentDisplayHourKey = "currentDisplayHour";
-    private final String currentSendMinuteKey = "currentSendMinute";
     private String contactNumber = "";
-    protected HashMap<String,Integer> dateTimeMap;
+    protected Calendar currentSendDate = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
 
-        initializeDateTimeMap();
-        String period = this.dateTimeMap.get(this.currentSendHourKey) >= 12? "PM":"AM";
-        
+        String period = this.currentSendDate.get(Calendar.HOUR_OF_DAY) >= 12? "PM":"AM";
+        int currentDisplayHour = this.getCurrentDisplayTime(this.currentSendDate.get(Calendar.HOUR_OF_DAY));
+
         Button selectContactButton = (Button) findViewById(R.id.selectContactBtn);
         selectContactButton.setOnClickListener(new OnClickListener(){
 
@@ -64,80 +60,14 @@ public class MessageFormActivity extends Activity {
 
         Button chooseTimeButton = (Button) findViewById(R.id.chooseTimeButton);
         chooseTimeButton.setText("Edit Current Send Time: " + 
-                this.dateTimeMap.get(this.currentDisplayHourKey) +":" + 
-                this.dateTimeMap.get(this.currentSendMinuteKey) + " " + period);
-        
+                currentDisplayHour +":" + 
+                this.currentSendDate.get(Calendar.MINUTE) + " " + period);
+
         Button chooseDateButton = (Button) findViewById(R.id.chooseDateButton);
         chooseDateButton.setText("Edit Current Send Date: " + 
-                (this.dateTimeMap.get(this.currentSendMonthKey) + 1) + "/" + 
-                this.dateTimeMap.get(this.currentSendDateKey) + "/" + 
-                this.dateTimeMap.get(this.currentSendYearKey));
-    }
-    
-    /**
-     * Initializes the date time map that stores the results of user inputs
-     * for date/time values
-     */
-    private void initializeDateTimeMap() {
-        this.dateTimeMap = new HashMap<String,Integer>();
-        Calendar currentCalendar = Calendar.getInstance();
-        dateTimeMap.put(this.currentSendMonthKey, currentCalendar.get(Calendar.MONTH));
-        dateTimeMap.put(this.currentSendDateKey, currentCalendar.get(Calendar.DATE));
-        dateTimeMap.put(this.currentSendYearKey, currentCalendar.get(Calendar.YEAR));
-        dateTimeMap.put(this.currentSendHourKey, currentCalendar.get(Calendar.HOUR_OF_DAY));
-        dateTimeMap.put(this.currentSendMinuteKey, currentCalendar.get(Calendar.MINUTE));
-        
-        int displayHour = dateTimeMap.get(this.currentSendHourKey);
-        if (displayHour == 0){
-            displayHour = 12;
-        } else if (displayHour > 12){
-            displayHour -= 12;
-        }
-        dateTimeMap.put(this.currentDisplayHourKey, displayHour);
-    }
-
-    /**
-     * Changes to Active Reminders activity. May save message form data
-     * depending on how the method was triggered
-     * @param saveMessage, if the data in the message for should be saved
-     */
-    protected void changeToActiveReminders(boolean saveMessage) {
-        try{
-            if (saveMessage){
-
-                TextView phoneText = (TextView) findViewById(R.id.contactNameView);
-                String contactName = phoneText.getText().toString();
-                if (contactName.contains("[")){
-                    throw new Exception();
-                }
-                EditText msgText = (EditText) findViewById(R.id.msgText);
-                String msg = msgText.getEditableText().toString();
-                RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
-                String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
-
-                Log.i("Saving Message", new NudgeMessagesDbHelper(this).writeMsgToDb(contactName,
-                        contactNumber,
-                        msg,
-                        MessageHandler.getNextSend(this.dateTimeMap.get(this.currentSendHourKey), 
-                                this.dateTimeMap.get(this.currentSendMinuteKey), frequency), 
-                                frequency));
-                
-                Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                Toast.makeText(this, "Message deleted!", Toast.LENGTH_SHORT).show();
-            }
-            changeActivity(ActiveRemindersActivity.class);
-        }
-        catch(Exception e){
-            Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.message_form, menu);
-        return true;
+                (this.currentSendDate.get(Calendar.MONTH)+1) + "/" + 
+                this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" + 
+                this.currentSendDate.get(Calendar.YEAR));
     }
 
     @Override
@@ -162,6 +92,64 @@ public class MessageFormActivity extends Activity {
     @Override
     public void onBackPressed(){
         changeActivity(ActiveRemindersActivity.class);
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.message_form, menu);
+        return true;
+    }
+
+    /**
+     * Changes to Active Reminders activity. May save message form data
+     * depending on how the method was triggered
+     * @param saveMessage, if the data in the message for should be saved
+     */
+    protected void changeToActiveReminders(boolean saveMessage) {
+        try{
+            if (saveMessage){
+
+                TextView phoneText = (TextView) findViewById(R.id.contactNameView);
+                String contactName = phoneText.getText().toString();
+                if (contactName.contains("[")){
+                    throw new Exception();
+                }
+                EditText msgText = (EditText) findViewById(R.id.msgText);
+                String msg = msgText.getEditableText().toString();
+                RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
+                String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
+
+                Log.i("Saving Message", new NudgeMessagesDbHelper(this).writeMsgToDb(contactName,
+                        contactNumber,
+                        msg,
+                        MessageHandler.getNextSend(this.currentSendDate, frequency, this), 
+                        frequency));
+
+                Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this, "Message deleted!", Toast.LENGTH_SHORT).show();
+            }
+            changeActivity(ActiveRemindersActivity.class);
+        }
+        catch(Exception e){
+            Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    /**
+     * 
+     * @param currentSendTime, the 24-hour representation of the send time
+     * @return the 12-hour representation of the send time
+     */
+    protected int getCurrentDisplayTime(int currentSendTime){
+        int currentDisplayTime = currentSendTime;
+        if (currentSendTime == 0){
+            currentDisplayTime = 12;
+        } else if (currentSendTime > 12){
+            currentDisplayTime -= 12;
+        }
+        return currentDisplayTime;
     }
 
     /**
@@ -208,17 +196,6 @@ public class MessageFormActivity extends Activity {
         }
     }
 
-    public void showTimePickerDialog(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getFragmentManager(), "timePicker");
-    }
-    
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "datePicker");
-    }
-
-
     /**
      * 
      * @param activityClass, the activity to be changed to
@@ -229,20 +206,35 @@ public class MessageFormActivity extends Activity {
         finish();
     }
 
-    public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
 
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    public static class TimePickerFragment extends DialogFragment
+    implements TimePickerDialog.OnTimeSetListener{
+        
+        /*
+         * (non-Javadoc)
+         * @see android.app.DialogFragment#onCreateDialog(android.os.Bundle)
+         * 
+         * Sets the Time to the current time
+         */
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current time as the default values for the picker
             final Calendar c = Calendar.getInstance();
             int hour = c.get(Calendar.HOUR_OF_DAY);
             int minute = c.get(Calendar.MINUTE);
 
-            // Create a new instance of TimePickerDialog and return it
             return new TimePickerDialog(getActivity(), this, hour, minute,
                     DateFormat.is24HourFormat(getActivity()));
         }
-        
+
         /*
          * (non-Javadoc)
          * @see android.app.TimePickerDialog.OnTimeSetListener#onTimeSet(android.widget.TimePicker, int, int)
@@ -253,32 +245,30 @@ public class MessageFormActivity extends Activity {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             MessageFormActivity currentActivity = (MessageFormActivity)this.getActivity();
-            currentActivity.dateTimeMap.put(currentActivity.currentSendHourKey,hourOfDay);
-            currentActivity.dateTimeMap.put(currentActivity.currentSendMinuteKey,minute);
+            currentActivity.currentSendDate.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            currentActivity.currentSendDate.set(Calendar.MINUTE, minute);
             String period = hourOfDay >= 12? "PM":"AM";
-            
-            int displayHour = hourOfDay;
-            if (hourOfDay == 0){
-                displayHour = 12;
-            } else if (hourOfDay > 12){
-                displayHour -= 12;
-            }
-            currentActivity.dateTimeMap.put(currentActivity.currentDisplayHourKey, displayHour);
-            
+            int currentDisplayHour = currentActivity.getCurrentDisplayTime(hourOfDay);
+
             Button chooseTimeButton = (Button) currentActivity.findViewById(R.id.chooseTimeButton);
             chooseTimeButton.setText("Edit Current Send Time: " + 
-                    currentActivity.dateTimeMap.get(currentActivity.currentDisplayHourKey)
-                    + ":" + currentActivity.dateTimeMap.get(currentActivity.currentSendMinuteKey) 
+                    currentDisplayHour + ":" + 
+                    currentActivity.currentSendDate.get(Calendar.MINUTE)
                     + " " + period);
         }
     }
 
     public static class DatePickerFragment extends DialogFragment
     implements DatePickerDialog.OnDateSetListener {
-
+        
+        /*
+         * (non-Javadoc)
+         * @see android.app.DialogFragment#onCreateDialog(android.os.Bundle)
+         * 
+         * Sets the date to the current date
+         */
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
             final Calendar c = Calendar.getInstance();
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
@@ -286,7 +276,7 @@ public class MessageFormActivity extends Activity {
 
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
-        
+
         /*
          * (non-Javadoc)
          * @see android.app.DatePickerDialog.OnDateSetListener#onDateSet(android.widget.DatePicker, int, int, int)
@@ -298,10 +288,10 @@ public class MessageFormActivity extends Activity {
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                 int dayOfMonth) {
             MessageFormActivity currentActivity = (MessageFormActivity)this.getActivity();
-            currentActivity.dateTimeMap.put(currentActivity.currentSendMonthKey,monthOfYear);
-            currentActivity.dateTimeMap.put(currentActivity.currentSendDateKey,dayOfMonth);
-            currentActivity.dateTimeMap.put(currentActivity.currentSendYearKey,year);
-            
+            currentActivity.currentSendDate.set(Calendar.MONTH, monthOfYear);
+            currentActivity.currentSendDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            currentActivity.currentSendDate.set(Calendar.YEAR, year);
+
             Button chooseDateButton = (Button) currentActivity.findViewById(R.id.chooseDateButton);
             chooseDateButton.setText("Edit Current Send Date: " + (monthOfYear+1)
                     + "/" + dayOfMonth + "/" + year);
