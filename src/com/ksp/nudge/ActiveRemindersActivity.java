@@ -3,6 +3,7 @@ package com.ksp.nudge;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -43,7 +44,7 @@ public class ActiveRemindersActivity extends Activity {
         }
 
     }
-    
+
     /**
      * Displays the instruction message when no messages are scheduled
      */
@@ -88,23 +89,23 @@ public class ActiveRemindersActivity extends Activity {
     public void onBackPressed() {
         this.finish();
     }
-    
+
     /**
      * Adds message to the active reminders screen
      * @param message, the message to be added to the screen
-     * @param btnId, the id of the message in the database
+     * @param messageId, the id of the message in the database
      */
     public void addMessage(String message, final int messageId) {
         LinearLayout reminderLayout = (LinearLayout) this.findViewById(R.id.ActiveRemindersLayout);
-        LinearLayout itemLayout = new LinearLayout(this);
+        CardView messageCard = new CardView(this);
         LinearLayout messageLayout = new LinearLayout(this);
         LinearLayout buttonLayout = new LinearLayout(this);
+        LinearLayout cardLayout = new LinearLayout(this);
 
-        itemLayout.setOrientation(LinearLayout.HORIZONTAL);
-        messageLayout.setOrientation(LinearLayout.HORIZONTAL);
-        buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
-
-        messageLayout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1f));		
+        messageCard.setContentPadding(5,5,0,0);
+        cardLayout.setOrientation(LinearLayout.HORIZONTAL);
+        cardLayout.setGravity(Gravity.CENTER_VERTICAL);
+        messageLayout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1f));
 
         if (reminderLayout != null) {
             TextView messageText = new TextView(this);
@@ -128,16 +129,17 @@ public class ActiveRemindersActivity extends Activity {
             messageLayout.addView(messageText);
             //			buttonLayout.addView(editBtn);
             buttonLayout.addView(deleteBtn);
-            itemLayout.addView(messageLayout);
-            itemLayout.addView(buttonLayout);
-            reminderLayout.addView(itemLayout);
+            cardLayout.addView(messageLayout);
+            cardLayout.addView(buttonLayout);
+            messageCard.addView(cardLayout);
+            reminderLayout.addView(messageCard);
         } else {
             Log.w("Display Message Failed","Failure to add message...");
         }
     }
-    
+
     /**
-     * 
+     *
      * @param activityClass, the activity to be changed to
      */
     private void changeActivity(Class<?> activityClass){
