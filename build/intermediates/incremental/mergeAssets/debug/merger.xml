@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="21.0.0" >
+        <source path="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.0/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/home/kevin/Development/git/Nudge/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/kevin/Development/git/Nudge/build-types/debug/assets" />
+    </dataSet>
+
+</merger>

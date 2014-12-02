@@ -1,0 +1,6 @@
+ -Upon selection of a contact, replace "Select" with the contact's name and type.
+ -Display what kind of number you are messaging in addition to the contact you are messaging
+ 
+ Future releases
+ - Message multiple people at the same time
+ - Display a history of previous sent messages
