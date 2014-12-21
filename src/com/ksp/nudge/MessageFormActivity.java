@@ -1,6 +1,5 @@
 package com.ksp.nudge;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -11,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.support.v7.app.ActionBarActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -22,7 +22,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -32,10 +31,11 @@ import com.ksp.database.NudgeMessagesDbHelper;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class MessageFormActivity extends Activity {
+public class MessageFormActivity extends ActionBarActivity {
 
     private static final int REQUEST_CONTACTS = 1;
     private String contactNumber = "";
+    private String contactRecipientInfo = "";
     protected Calendar currentSendDate = Calendar.getInstance();
 
     @Override
@@ -43,8 +43,8 @@ public class MessageFormActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
 
-        Button selectContactButton = (Button) findViewById(R.id.selectContactBtn);
-        selectContactButton.setOnClickListener(new OnClickListener(){
+        Button chooseContactButton = (Button) findViewById(R.id.chooseContactButton);
+        chooseContactButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -69,8 +69,6 @@ public class MessageFormActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(id){
-            case R.id.action_settings:
-                return true;
             case R.id.action_discard:
                 this.changeToActiveReminders(false);
                 break;
@@ -104,21 +102,19 @@ public class MessageFormActivity extends Activity {
         try{
             if (saveMessage){
 
-                TextView phoneText = (TextView) findViewById(R.id.contactNameView);
-                String contactName = phoneText.getText().toString();
-                if (contactName.contains("[")){
+                if (contactRecipientInfo.equals("")){
                     throw new Exception();
                 }
                 EditText msgText = (EditText) findViewById(R.id.msgText);
                 String msg = msgText.getEditableText().toString();
                 RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
-                String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).getText().toString();
+                String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).
+                        getText().toString();
 
-                Log.i("Saving Message", new NudgeMessagesDbHelper(this).writeMsgToDb(contactName,
-                        contactNumber,
-                        msg,
-                        MessageHandler.getNextSend(this.currentSendDate, frequency, this),
-                        frequency));
+                Log.i("Saving Message", new NudgeMessagesDbHelper(this).
+                        writeMsgToDb(contactRecipientInfo, contactNumber, msg,
+                                MessageHandler.getNextSend(this.currentSendDate, frequency, this),
+                                frequency));
 
                 Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             }
@@ -168,8 +164,14 @@ public class MessageFormActivity extends Activity {
             int contactNameIndex= cursor.getColumnIndex(Phone.DISPLAY_NAME);
             if (cursor.moveToFirst())
             {
+                String contactNumberType = " (".concat((String) Phone.getTypeLabel(this.getResources(),cursor
+                        .getInt(cursor.getColumnIndex(Phone.TYPE)),"")).concat( ")");
+                String contactName = cursor.getString(contactNameIndex);
+                contactRecipientInfo = contactName.concat(contactNumberType);
                 contactNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
-                ((TextView) this.findViewById(R.id.contactNameView)).setText(cursor.getString(contactNameIndex));
+
+                ((Button) this.findViewById(R.id.chooseContactButton)).
+                        setText("Current Contact: ".concat(contactRecipientInfo));
 
             }
             cursor.close();

@@ -1,18 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.remindme.ActiveRemindersActivity" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ksp.nudge.ActiveRemindersActivity" >
 
     <item android:id="@+id/new_reminder" 
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:icon="@drawable/ic_action_new"
         android:title="@string/action_new_message"></item>
-    
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-    
 
 </menu>
 <!-- From: file:/home/kevin/Development/git/Nudge/res/menu/active_reminders.xml -->

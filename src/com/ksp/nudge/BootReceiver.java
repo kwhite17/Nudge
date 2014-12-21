@@ -1,9 +1,5 @@
 package com.ksp.nudge;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Calendar;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +9,10 @@ import android.util.Log;
 
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 import com.ksp.database.NudgeMessagesDbHelper;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Calendar;
 
 public class BootReceiver extends BroadcastReceiver {
     public BootReceiver() {

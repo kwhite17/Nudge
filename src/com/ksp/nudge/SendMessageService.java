@@ -1,8 +1,5 @@
 package com.ksp.nudge;
 
-import java.text.ParseException;
-import java.util.Calendar;
-
 import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.PendingIntent;
@@ -14,6 +11,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.ksp.database.MessageHandler;
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 import com.ksp.database.NudgeMessagesDbHelper;
+
+import java.text.ParseException;
+import java.util.Calendar;
 
 public class SendMessageService extends IntentService {
     public static final String SERVICE_NAME = "MESSAGE_SERVICE";

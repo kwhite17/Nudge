@@ -1,8 +1,8 @@
 package com.ksp.nudge;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.util.SparseArray;
@@ -19,14 +19,12 @@ import android.widget.TextView;
 
 import com.ksp.database.NudgeMessagesDbHelper;
 
-public class ActiveRemindersActivity extends Activity {
-    NudgeMessagesDbHelper databaseHelper;
+public class ActiveRemindersActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_reminders);
-
         this.setTitle(R.string.title_activity_scheduled_messages);
         Intent serviceIntent = new Intent(this,SendMessageService.class);
         this.startService(serviceIntent);
@@ -71,9 +69,7 @@ public class ActiveRemindersActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }else if (id == R.id.new_reminder){
+        if (id == R.id.new_reminder){
             changeActivity(MessageFormActivity.class);
         }
         return super.onOptionsItemSelected(item);
@@ -82,7 +78,7 @@ public class ActiveRemindersActivity extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        changeActivity(this.getClass());;
+        changeActivity(this.getClass());
     }
 
     @Override
