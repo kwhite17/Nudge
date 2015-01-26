@@ -190,8 +190,10 @@
     <string name="frequency_monthly">Monthly</string>
     <string name="frequency_once">Once</string>
     <string name="frequency_weekly">Weekly</string>
+    <string name="hello_world">Hello world!</string>
     <string name="instruction_message">"No messages are scheduled. Tap '+' to begin!"</string>
     <string name="select_contact_instruction">[Press \'Select\' to choose a recipient.]</string>
+    <string name="title_activity_active_nudges">Active Nudges</string>
     <string name="title_activity_scheduled_messages">Scheduled Messages</string>
     <string name="what_instruction">What should I say when I nudge them?</string>
     <string name="when_instruction">When should I start nudging?</string>

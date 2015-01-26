@@ -1,14 +1,14 @@
 package com.ksp.database;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-
 import android.content.Context;
 import android.telephony.SmsManager;
 
 import com.ksp.nudge.SendMessageService;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MessageHandler {
     
@@ -86,7 +86,10 @@ public class MessageHandler {
 
         textManager.sendTextMessage(phoneNumber, null, message.concat(" - sent by Nudge"), null, null);
     }
-    
+
+
+
+    //TODO: DELETE METHOD AFTER TESTING
     /**
      * 
      * @param phoneNumber, the message recipient's phone number

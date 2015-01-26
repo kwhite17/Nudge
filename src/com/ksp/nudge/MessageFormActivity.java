@@ -84,7 +84,7 @@ public class MessageFormActivity extends ActionBarActivity {
      */
     @Override
     public void onBackPressed(){
-        changeActivity(ActiveRemindersActivity.class);
+        changeActivity(ActiveNudgesActivity.class);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class MessageFormActivity extends ActionBarActivity {
             else{
                 Toast.makeText(this, "Message deleted!", Toast.LENGTH_SHORT).show();
             }
-            changeActivity(ActiveRemindersActivity.class);
+            changeActivity(ActiveNudgesActivity.class);
         }
         catch(Exception e){
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();

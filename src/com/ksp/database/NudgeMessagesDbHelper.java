@@ -70,7 +70,9 @@ public class NudgeMessagesDbHelper extends SQLiteOpenHelper {
         long insertId = db.insert(NudgeMessageEntry.TABLE_NAME, null, rowValues);
         return (insertId == -1) ? "Insertion failed": "Insertion successful";
     }
-    
+
+
+    //TODO: DELETE METHOD AFTER TESTING
     /**
      * Reads all the message from the database
      * @return a SparseArray containing all the messages in the database
@@ -100,6 +102,21 @@ public class NudgeMessagesDbHelper extends SQLiteOpenHelper {
         }
         msgCursor.close();
         return msgMap;
+    }
+
+    public Cursor readMessagesFromDatabase(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String[] databaseColumns = {
+                NudgeMessagesContract.NudgeMessageEntry._ID,
+                NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME,
+                NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_MESSAGE,
+                NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME
+        };
+        String sortOrder = NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME + " DESC";
+        Cursor databaseCursor = database.query(NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME,
+                databaseColumns, null, null, null, null, sortOrder);
+
+        return databaseCursor;
     }
     
     /**
