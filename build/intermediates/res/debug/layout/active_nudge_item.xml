@@ -3,48 +3,63 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        card_view:cardElevation="2dp">
 
-        <TextView
-            android:id="@+id/nudgeRecipientText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/nudgeMessageText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/nudgeSendDateText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/nudgeRecipientText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/nudgeMessageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+                <TextView
+                    android:id="@+id/nudgeSendDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-        <ImageButton
-            android:id="@+id/nudgeDiscardButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_action_discard_dark"/>
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/nudgeEditButton"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_edit"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/nudgeDiscardButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_delete_grey"/>
+
+                <ImageButton
+                    android:id="@+id/nudgeEditButton"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_edit"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
 
 </LinearLayout><!-- From: file:/home/kevin/Development/git/Nudge/res/layout/active_nudge_item.xml -->

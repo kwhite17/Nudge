@@ -2,8 +2,12 @@
 <resources>
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values-v21/styles.xml -->
     <eat-comment/>
+    <style name="ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@color/actionBarColor</item>
+    </style>
     <style name="AppBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
         <!-- API 21 theme customizations can go here. -->
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
     </style>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
     <eat-comment/>

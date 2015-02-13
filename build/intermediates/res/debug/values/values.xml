@@ -18,6 +18,11 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <!-- From: file:/home/kevin/Development/git/Nudge/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="actionBarColor">#009688</color>
+    <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="background_floating_material_dark">#ff424242</color>
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
@@ -61,6 +66,12 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <!-- From: file:/home/kevin/Development/git/Nudge/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="raisedButtonColor">#00BCD4</color>
+    <color name="raisedButtonTextColor">#FFFFFF</color>
+    <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="ripple_material_light">#40000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
@@ -145,6 +156,11 @@
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
     <item name="dialog_fixed_width_major" type="dimen">320dp</item>
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
+    <!-- From: file:/home/kevin/Development/git/Nudge/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="diameter">56dp</dimen>
+    <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
     <item name="action_bar_activity_content" type="id"/>
@@ -184,14 +200,14 @@
     <string name="action_scheduled_messages">View Scheduled Messages</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">Nudge</string>
-    <string name="contact_button_text">Current Contact: [Select a Contact]</string>
+    <string name="contact_button_text">[Select a Contact]</string>
     <string name="frequency_daily">Daily</string>
     <string name="frequency_instruction">How often should I nudge them?</string>
     <string name="frequency_monthly">Monthly</string>
     <string name="frequency_once">Once</string>
     <string name="frequency_weekly">Weekly</string>
     <string name="hello_world">Hello world!</string>
-    <string name="instruction_message">"No messages are scheduled. Tap '+' to begin!"</string>
+    <string name="instruction_message">"No active nudges. Tap '+' to begin!"</string>
     <string name="select_contact_instruction">[Press \'Select\' to choose a recipient.]</string>
     <string name="title_activity_active_nudges">Active Nudges</string>
     <string name="title_activity_scheduled_messages">Scheduled Messages</string>
@@ -200,6 +216,10 @@
     <string name="who_instruction">Who would you like me to nudge?</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values/styles.xml -->
     <eat-comment/>
+    <style name="ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@color/actionBarColor</item>
+        <item name="background">@color/actionBarColor</item>
+    </style>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--
             Theme customizations available in newer API levels can go in
@@ -209,6 +229,9 @@
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <!--<item name="android:background">@color/appBackgroundColor</item>-->
     </style>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>

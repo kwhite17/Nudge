@@ -74,6 +74,7 @@ public class SendMessageService extends IntentService {
                 NudgeMessagesDbHelper databaseHelper = new NudgeMessagesDbHelper(this);
                 if (frequency.equals("Once")){
                     databaseHelper.deleteMessage(id);
+                    ActiveNudgesActivity.getNudgeAdapter().refreshAdapter(databaseHelper);
                 } else{
                     databaseHelper.updateSendTime(id, sendDate, frequency, this);
                 }

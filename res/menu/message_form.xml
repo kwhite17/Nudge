@@ -5,12 +5,12 @@
 
     <item
         android:id="@+id/action_save"
-        android:icon="@drawable/ic_action_save"
+        android:icon="@drawable/ic_save_white"
         app:showAsAction="always"
         android:title="Save"/>
     <item
         android:id="@+id/action_discard"
-        android:icon="@drawable/ic_action_discard"
+        android:icon="@drawable/ic_delete_white"
         android:orderInCategory="100"
         app:showAsAction="always"
         android:title="Discard"/>

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.CardView;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +23,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -43,7 +45,7 @@ public class MessageFormActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
 
-        Button chooseContactButton = (Button) findViewById(R.id.chooseContactButton);
+        CardView chooseContactButton = (CardView) findViewById(R.id.chooseContactButton);
         chooseContactButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -53,14 +55,14 @@ public class MessageFormActivity extends ActionBarActivity {
 
         });
 
-        Button chooseTimeButton = (Button) findViewById(R.id.chooseTimeButton);
+        TextView chooseTimeText = (TextView) findViewById(R.id.chooseTimeText);
         String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
                 .format(this.currentSendDate.getTime());
-        chooseTimeButton.setText("Edit Initial Send Time: " + timeString);
+        chooseTimeText.setText("Select a Time: " + timeString);
 
-        Button chooseDateButton = (Button) findViewById(R.id.chooseDateButton);
-        chooseDateButton.setText("Edit Current Send Date: " +
-                (this.currentSendDate.get(Calendar.MONTH)+1) + "/" +
+        TextView chooseDateText = (TextView) findViewById(R.id.chooseDateText);
+        chooseDateText.setText("Select a Date: " +
+                (this.currentSendDate.get(Calendar.MONTH) + 1) + "/" +
                 this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
                 this.currentSendDate.get(Calendar.YEAR));
     }
@@ -170,8 +172,8 @@ public class MessageFormActivity extends ActionBarActivity {
                 contactRecipientInfo = contactName.concat(contactNumberType);
                 contactNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
 
-                ((Button) this.findViewById(R.id.chooseContactButton)).
-                        setText("Current Contact: ".concat(contactRecipientInfo));
+                ((TextView) this.findViewById(R.id.chooseContactText)).
+                        setText("Change Contact: ".concat(contactRecipientInfo));
 
             }
             cursor.close();
@@ -231,8 +233,8 @@ public class MessageFormActivity extends ActionBarActivity {
             currentActivity.currentSendDate.set(Calendar.MINUTE, minute);
             String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
                     .format(currentActivity.currentSendDate.getTime());
-            Button chooseTimeButton = (Button) currentActivity.findViewById(R.id.chooseTimeButton);
-            chooseTimeButton.setText("Edit Current Send Time: " + timeString);
+            TextView chooseTimeText = (TextView) currentActivity.findViewById(R.id.chooseTimeText);
+            chooseTimeText.setText("Edit Current Send Time: " + timeString);
         }
     }
 
@@ -270,8 +272,8 @@ public class MessageFormActivity extends ActionBarActivity {
             currentActivity.currentSendDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             currentActivity.currentSendDate.set(Calendar.YEAR, year);
 
-            Button chooseDateButton = (Button) currentActivity.findViewById(R.id.chooseDateButton);
-            chooseDateButton.setText("Edit Current Send Date: " + (monthOfYear+1)
+            TextView chooseDateText = (TextView) currentActivity.findViewById(R.id.chooseDateText);
+            chooseDateText.setText("Edit Current Send Date: " + (monthOfYear + 1)
                     + "/" + dayOfMonth + "/" + year);
         }
     }

@@ -44,10 +44,15 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
             @Override
             public void onClick(View v) {
                 databaseHelper.deleteMessage(nudgeId);
-                Cursor newCursor = databaseHelper.readMessagesFromDatabase();
-                changeCursor(newCursor);
-                notifyDataSetChanged();
+                refreshAdapter(databaseHelper);
             }
         });
+    }
+
+    public void refreshAdapter(NudgeMessagesDbHelper databaseHelper){
+        this.getCursor().close();
+        Cursor newCursor = databaseHelper.readMessagesFromDatabase();
+        changeCursor(newCursor);
+        notifyDataSetChanged();
     }
 }
