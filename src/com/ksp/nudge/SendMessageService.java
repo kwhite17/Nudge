@@ -9,8 +9,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.ksp.database.MessageHandler;
+import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
-import com.ksp.database.NudgeMessagesDbHelper;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -49,7 +49,7 @@ public class SendMessageService extends IntentService {
      * @throws ParseException
      */
     public void deliverOustandingMessages() throws ParseException{
-        NudgeMessagesDbHelper dbHelper = new NudgeMessagesDbHelper(this);
+        NudgeDatabaseHelper dbHelper = new NudgeDatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
                 NudgeMessageEntry._ID,
@@ -71,7 +71,7 @@ public class SendMessageService extends IntentService {
 
             if (MessageHandler.isOutstandingMessage(sendDate)){
                 MessageHandler.sendMessage(recipient, message);
-                NudgeMessagesDbHelper databaseHelper = new NudgeMessagesDbHelper(this);
+                NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
                 if (frequency.equals("Once")){
                     databaseHelper.deleteMessage(id);
                     ActiveNudgesActivity.getNudgeAdapter().refreshAdapter(databaseHelper);

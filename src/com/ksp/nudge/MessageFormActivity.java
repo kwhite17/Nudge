@@ -18,7 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -28,7 +27,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.ksp.database.MessageHandler;
-import com.ksp.database.NudgeMessagesDbHelper;
+import com.ksp.database.NudgeDatabaseHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -113,8 +112,8 @@ public class MessageFormActivity extends ActionBarActivity {
                 String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).
                         getText().toString();
 
-                Log.i("Saving Message", new NudgeMessagesDbHelper(this).
-                        writeMsgToDb(contactRecipientInfo, contactNumber, msg,
+                Log.i("Saving Message", new NudgeDatabaseHelper(this).
+                        writeMessageToDb(contactRecipientInfo, contactNumber, msg,
                                 MessageHandler.getNextSend(this.currentSendDate, frequency, this),
                                 frequency));
 

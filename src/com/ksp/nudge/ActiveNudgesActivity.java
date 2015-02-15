@@ -1,7 +1,9 @@
 package com.ksp.nudge;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -10,7 +12,7 @@ import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 
-import com.ksp.database.NudgeMessagesDbHelper;
+import com.ksp.database.NudgeDatabaseHelper;
 
 
 public class ActiveNudgesActivity extends ActionBarActivity {
@@ -69,18 +71,31 @@ public class ActiveNudgesActivity extends ActionBarActivity {
     }
 
     private void buildListView() {
-        NudgeMessagesDbHelper databaseHelper = new NudgeMessagesDbHelper(this);
-        Cursor databaseCursor = databaseHelper.readMessagesFromDatabase();
-        int[] adapterColumns = new int[]{R.id.nudgeRecipientText,R.id.nudgeMessageText,R.id.nudgeSendDateText};
-        nudgeAdapter = new NudgeCursorAdapter(this,R.layout.active_nudge_item,
-                databaseCursor, databaseCursor.getColumnNames(), adapterColumns,
-                CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        ListView activeNudgeList = (ListView) findViewById(R.id.activeNudgeList);
-        activeNudgeList.setEmptyView(findViewById(R.id.instructionText));
-        activeNudgeList.setAdapter(nudgeAdapter);
+        ((ListView) findViewById(R.id.activeNudgeList)).setEmptyView(findViewById(R.id.instructionText));
+        new GetActiveNudgesTask().execute(this);
     }
 
     public static NudgeCursorAdapter getNudgeAdapter(){
         return nudgeAdapter;
+    }
+
+    private class GetActiveNudgesTask extends AsyncTask<Context,Void,Cursor>{
+
+        @Override
+        protected Cursor doInBackground(Context... contexts) {
+            NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(contexts[0]);
+            Cursor databaseCursor = databaseHelper.readMessagesFromDatabase();
+
+            return databaseCursor;
+        }
+
+        protected void onPostExecute(Cursor result){
+            int[] adapterColumns = new int[]{R.id.nudgeRecipientText,
+                    R.id.nudgeMessageText,R.id.nudgeSendDateText};
+            ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(getApplicationContext(),
+                    R.layout.active_nudge_item, result, result.getColumnNames(),
+                    adapterColumns, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+            ((ListView)findViewById(R.id.activeNudgeList)).setAdapter(ActiveNudgesActivity.nudgeAdapter);
+        }
     }
 }

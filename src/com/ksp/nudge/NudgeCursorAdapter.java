@@ -9,8 +9,8 @@ import android.widget.ImageButton;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.database.NudgeMessagesContract;
-import com.ksp.database.NudgeMessagesDbHelper;
 
 
 public class NudgeCursorAdapter extends SimpleCursorAdapter{
@@ -34,7 +34,7 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
         TextView messageView = (TextView) view.findViewById(R.id.nudgeMessageText);
         TextView sendDateView = (TextView) view.findViewById(R.id.nudgeSendDateText);
         ImageButton discardButton = (ImageButton) view.findViewById(R.id.nudgeDiscardButton);
-        final NudgeMessagesDbHelper databaseHelper = new NudgeMessagesDbHelper(context);
+        final NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(context);
         final String nudgeId = cursor.getString(cursor.getColumnIndex(NudgeMessagesContract.NudgeMessageEntry._ID));
 
         recipientView.setText("Recipient: ".concat(cursor.getString(cursor.getColumnIndex(NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME))));
@@ -49,7 +49,7 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
         });
     }
 
-    public void refreshAdapter(NudgeMessagesDbHelper databaseHelper){
+    public void refreshAdapter(NudgeDatabaseHelper databaseHelper){
         this.getCursor().close();
         Cursor newCursor = databaseHelper.readMessagesFromDatabase();
         changeCursor(newCursor);

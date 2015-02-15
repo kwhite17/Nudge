@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ksp.database.NudgeMessagesDbHelper;
+import com.ksp.database.NudgeDatabaseHelper;
 
 public class ActiveRemindersActivity extends ActionBarActivity {
 
@@ -29,7 +29,7 @@ public class ActiveRemindersActivity extends ActionBarActivity {
         Intent serviceIntent = new Intent(this,SendMessageService.class);
         this.startService(serviceIntent);
 
-        SparseArray<String> activeMessages = new NudgeMessagesDbHelper(this).readMsgsfromDb();
+        SparseArray<String> activeMessages = new NudgeDatabaseHelper(this).readMsgsfromDb();
         if (activeMessages.size() == 0){
             displayInstructionMsg();
         }
@@ -113,7 +113,7 @@ public class ActiveRemindersActivity extends ActionBarActivity {
             deleteBtn.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    new NudgeMessagesDbHelper(ActiveRemindersActivity.this).deleteMessage(Integer.toString(messageId));
+                    new NudgeDatabaseHelper(ActiveRemindersActivity.this).deleteMessage(Integer.toString(messageId));
                     changeActivity(ActiveRemindersActivity.class);
                 }
 

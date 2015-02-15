@@ -7,8 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
-import com.ksp.database.NudgeMessagesDbHelper;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -26,16 +26,14 @@ public class BootReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
-        NudgeMessagesDbHelper databaseHelper = new NudgeMessagesDbHelper(context);
-        SQLiteDatabase database = databaseHelper.getReadableDatabase();
-        String[] projection = new String[]{NudgeMessageEntry.COLUMN_NAME_SEND_TIME};
-        String sortOrder = NudgeMessageEntry.COLUMN_NAME_SEND_TIME + " DESC";
-        Cursor cursor = database.query(NudgeMessageEntry.TABLE_NAME, projection,
-                null, null, null, null, sortOrder);
-        
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            String dateTime = cursor.getString(cursor.getColumnIndex(projection[0]));
+        NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(context);
+        Cursor sendTimeCursor = databaseHelper.getSendTimesFromDatabase();
+
+        //Register times in OS for SendMessageService to check for outstanding messages
+        sendTimeCursor.moveToFirst();
+        while (!sendTimeCursor.isAfterLast()){
+            String dateTime = sendTimeCursor.getString(sendTimeCursor.
+                    getColumnIndex(NudgeMessageEntry.COLUMN_NAME_SEND_TIME));
             Calendar dateTimeCalendar = Calendar.getInstance();
             try {
                 dateTimeCalendar.setTime(DateFormat.getInstance().parse(dateTime));
@@ -43,8 +41,8 @@ public class BootReceiver extends BroadcastReceiver {
             } catch (ParseException e) {
                 Log.e(e.getMessage(), "Rescheduling Message on Reboot Error");
             }
-            cursor.moveToNext();
+            sendTimeCursor.moveToNext();
         }
-        cursor.close();
+        sendTimeCursor.close();
     }
 }
