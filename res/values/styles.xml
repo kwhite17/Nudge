@@ -24,5 +24,4 @@
         <item name="android:background">@color/actionBarColor</item>
         <item name="background">@color/actionBarColor</item>
     </style>
-
 </resources>

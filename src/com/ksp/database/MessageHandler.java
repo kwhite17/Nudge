@@ -97,13 +97,13 @@ public class MessageHandler {
      * @param sendTime, the time at which the message is to be sent
      * @return a String representing the essential information about the message
      */
-    public static String formatMessage(String phoneNumber,String message, String sendTime){
-        String recipient = "Recipient: " + phoneNumber + "\n";
-        String msg = "Message: " + message + "\n";
-        String nextSend = "Next Send: " + sendTime + "\n";
-
-        return recipient + msg + nextSend;
-    }
+//    public static String formatMessage(String phoneNumber,String message, String sendTime){
+//        String recipient = "Recipient: " + phoneNumber + "\n";
+//        String msg = "Message: " + message + "\n";
+//        String nextSend = "Next Send: " + sendTime + "\n";
+//
+//        return recipient + msg + nextSend;
+//    }
     
     /**
      * 

@@ -15,9 +15,20 @@
     <string name="frequency_weekly">Weekly</string>
     <string name="frequency_monthly">Monthly</string>
     <string name="contact_button_text">[Select a Contact]</string>
-    <string name="instruction_message">"No active nudges. Tap '+' to begin!"</string>
+    <string name="instruction_message">"No active nudges. Tap \'+\' to begin!"</string>
     <string name="select_contact_instruction">[Press \'Select\' to choose a recipient.]</string>
     <string name="title_activity_active_nudges">Active Nudges</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_about_nudge">About Nudge</string>
+    <string name="subtitle_donate_to_developer">Fund My Whiskey</string>
+    <string name="subtitle_donate_to_artist">Buy the Artist Beer</string>
+    <string name="developer_donation_text">If Nudge has simplified your life in any way, please consider
+    helping fund my next whiskey purchase buy making a contribution below:</string>
+    <string name="artist_donation_text">Nudge used to have a very ugly icon. Without Joey\'s help,
+    this app wouldn\'t look half as good as it does now. Whether the icon itself or the color style,
+    Joey\'s insight helped give Nudge some personality. So even if you find the functionality
+    itself mediocre, please consider making a contribution to Joey so he can make more awesome icons
+    in the future!</string>
+    <string name="title_activity_splash_screen">Automated Text Messaging</string>
 
 </resources>

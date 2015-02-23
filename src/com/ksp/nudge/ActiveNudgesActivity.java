@@ -23,7 +23,6 @@ public class ActiveNudgesActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_nudges);
-        this.setTitle(R.string.title_activity_active_nudges);
         buildListView();
 
         findViewById(R.id.newNudgeButton).setOnClickListener(new View.OnClickListener() {

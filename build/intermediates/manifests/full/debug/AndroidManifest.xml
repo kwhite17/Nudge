@@ -29,25 +29,22 @@
             android:label="@string/action_new_message" >
         </activity>
         <activity
-            android:name="com.ksp.nudge.ActiveRemindersActivity"
-            android:label="@string/title_activity_scheduled_messages" >
-        </activity>
-        <activity
             android:name="com.ksp.nudge.ActiveNudgesActivity"
             android:label="@string/title_activity_active_nudges" >
         </activity>
-
-        <activity-alias
-            android:name="com.ksp.nudge.MainActivityAlias"
-            android:icon="@drawable/nudge_icon"
-            android:label="@string/app_name"
-            android:targetActivity="com.ksp.nudge.ActiveNudgesActivity" >
+        <activity
+            android:name="com.ksp.nudge.SplashScreenActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>
+        </activity>
+        <activity
+            android:name="com.ksp.nudge.AboutNudgeActivity"
+            android:label="@string/title_activity_about_nudge" >
+        </activity>
 
         <service
             android:name="com.ksp.nudge.SendMessageService"

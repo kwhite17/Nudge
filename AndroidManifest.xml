@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
@@ -29,25 +28,26 @@
             android:name=".MessageFormActivity"
             android:label="@string/action_new_message" >
         </activity>
-        <activity
-            android:name=".ActiveRemindersActivity"
-            android:label="@string/title_activity_scheduled_messages" >
-        </activity>
+
         <activity
             android:name=".ActiveNudgesActivity"
             android:label="@string/title_activity_active_nudges" >
         </activity>
-        <activity-alias
-            android:name=".MainActivityAlias"
-            android:icon="@drawable/nudge_icon"
-            android:label="@string/app_name"
-            android:targetActivity=".ActiveNudgesActivity" >
+
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>
+        </activity>
+
+        <activity
+            android:name=".AboutNudgeActivity"
+            android:label="@string/title_activity_about_nudge" >
+        </activity>
 
         <service
             android:name=".SendMessageService"
