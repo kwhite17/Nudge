@@ -26,6 +26,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.ksp.database.MessageHandler;
 import com.ksp.database.NudgeDatabaseHelper;
 
@@ -64,6 +67,8 @@ public class MessageFormActivity extends ActionBarActivity {
                 (this.currentSendDate.get(Calendar.MONTH) + 1) + "/" +
                 this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
                 this.currentSendDate.get(Calendar.YEAR));
+
+        displayContactShowcaseView();
     }
 
     @Override
@@ -177,6 +182,61 @@ public class MessageFormActivity extends ActionBarActivity {
             }
             cursor.close();
         }
+    }
+
+    private void displayContactShowcaseView(){
+        ShowcaseView contactShowcaseView = new ShowcaseView.Builder(this)
+                .setTarget(new ViewTarget(R.id.chooseContactButton, this))
+                .setContentTitle(R.string.choose_recipient_instruction_title)
+                .setContentText(R.string.choose_recipient_instruction_text)
+                .singleShot(R.id.chooseContactButton)
+                .setShowcaseEventListener(new OnShowcaseEventListener() {
+                    @Override
+                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+                        showcaseView.setVisibility(View.GONE);
+                        displayDateTimeShowcaseView();
+                    }
+
+                    @Override
+                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                    }
+                })
+                .build();
+        contactShowcaseView.setButtonText("Next");
+        contactShowcaseView.setStyle(R.style.ShowcaseViewDark);
+
+    }
+
+    private void displayDateTimeShowcaseView(){
+        ShowcaseView dateShowcaseView =new ShowcaseView.Builder(this)
+                .setTarget(new ViewTarget(R.id.chooseTimeButton,this))
+                .setContentTitle(R.string.choose_send_datetime_instruction_title)
+                .setContentText(R.string.choose_send_datetime_instruction_text)
+                .singleShot(R.id.chooseDateButton)
+                .setShowcaseEventListener(new OnShowcaseEventListener() {
+                    @Override
+                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+                        showcaseView.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                    }
+                })
+                .build();
+        dateShowcaseView.setStyle(R.style.ShowcaseViewDark);
     }
 
     /**

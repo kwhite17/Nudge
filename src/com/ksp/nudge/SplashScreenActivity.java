@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 public class SplashScreenActivity extends Activity{
 
-    private static int SPLASH_TIME_OUT = 5000;
+    private static int SPLASH_TIME_OUT = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

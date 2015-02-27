@@ -15,4 +15,5 @@
         android:src="@drawable/ic_add_white_18dp"
         android:background="@drawable/oval"
         android:adjustViewBounds="false" />
+
 </FrameLayout><!-- From: file:/home/kevin/Development/git/Nudge/res/layout/activity_active_nudges.xml -->

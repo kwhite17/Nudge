@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MessageFormActivity"
-            android:label="@string/action_new_message" >
+            android:label="@string/title_activity_message_form" >
         </activity>
         <activity
             android:name=".ActiveRemindersActivity"

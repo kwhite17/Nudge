@@ -13,4 +13,8 @@
     <style name="ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
         <item name="android:background">@color/actionBarColor</item>
     </style>
+
+    <style name="ShowcaseViewDark" parent="ShowcaseView">
+        <item name="sv_backgroundColor">@color/background_material_dark</item>
+    </style>
 </resources>

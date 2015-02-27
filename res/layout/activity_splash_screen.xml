@@ -14,7 +14,7 @@
         android:layout_centerInParent="true"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/nudge_feature_graphic"
+        android:src="@drawable/nudge_splash_graphic"
         android:id="@+id/imageView" />
 
 

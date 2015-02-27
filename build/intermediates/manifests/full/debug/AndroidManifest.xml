@@ -26,7 +26,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.ksp.nudge.MessageFormActivity"
-            android:label="@string/action_new_message" >
+            android:label="@string/title_activity_message_form" >
         </activity>
         <activity
             android:name="com.ksp.nudge.ActiveNudgesActivity"

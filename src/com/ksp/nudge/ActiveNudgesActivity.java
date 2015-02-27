@@ -11,7 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ActionViewTarget;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.ksp.database.NudgeDatabaseHelper;
 
 
@@ -25,12 +29,25 @@ public class ActiveNudgesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_active_nudges);
         buildListView();
 
+        final ShowcaseView nudgeButtonShowcase = new ShowcaseView.Builder(this,true).setTarget(new ViewTarget(R.id.newNudgeButton,this))
+                .setContentTitle(R.string.title_activity_message_form)
+                .setContentText(R.string.new_nudge_instruction_text)
+                .singleShot(R.id.newNudgeButton)
+                .hideOnTouchOutside()
+                .build();
+
+        nudgeButtonShowcase.hideButton();
+        nudgeButtonShowcase.setStyle(R.style.ShowcaseViewDark);
+
         findViewById(R.id.newNudgeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nudgeButtonShowcase.hide();
                 changeActivity(MessageFormActivity.class);
             }
         });
+
+
     }
 
     @Override
