@@ -27,25 +27,7 @@ public class MessageHandler {
             e.printStackTrace();
         }
 
-        if (time.before(Calendar.getInstance())){
-            switch(freq){
-            case "Once":
-                time.add(Calendar.DATE, 1);
-                break;
-            case "Daily":
-                time.add(Calendar.DATE, 1);
-                break;
-            case "Weekly":
-                time.add(Calendar.DATE, 7);
-                break;
-            case "Monthly":
-                time.add(Calendar.MONTH, 1);
-                break;
-            }
-        }
-        
-        SendMessageService.setServiceAlarm(messageContext, time);
-        return DateFormat.getInstance().format(time.getTime());
+        return getNextSend(time,freq,messageContext);
     }
 
     /**
@@ -83,27 +65,8 @@ public class MessageHandler {
      */
     public static void sendMessage(String phoneNumber,String message){
         SmsManager textManager = SmsManager.getDefault();
-
-        textManager.sendTextMessage(phoneNumber, null, message.concat(" - sent by Nudge"), null, null);
+        textManager.sendTextMessage(phoneNumber, null, message, null, null);
     }
-
-
-
-    //TODO: DELETE METHOD AFTER TESTING
-    /**
-     * 
-     * @param phoneNumber, the message recipient's phone number
-     * @param message, the message to be sent to the recipient
-     * @param sendTime, the time at which the message is to be sent
-     * @return a String representing the essential information about the message
-     */
-//    public static String formatMessage(String phoneNumber,String message, String sendTime){
-//        String recipient = "Recipient: " + phoneNumber + "\n";
-//        String msg = "Message: " + message + "\n";
-//        String nextSend = "Next Send: " + sendTime + "\n";
-//
-//        return recipient + msg + nextSend;
-//    }
     
     /**
      * 

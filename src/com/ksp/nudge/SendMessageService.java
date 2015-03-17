@@ -21,7 +21,6 @@ public class SendMessageService extends IntentService {
         super(SERVICE_NAME);
     }
 
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
         try {
@@ -40,12 +39,10 @@ public class SendMessageService extends IntentService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
     }
     
     /**
-     * Delivers any messages queued to be sent and the times for when the message
-     * is supposed to be sent
+     * Delivers any messages queued to be sent and updates the send times for recurring messages
      * @throws ParseException
      */
     public void deliverOustandingMessages() throws ParseException{
@@ -79,7 +76,6 @@ public class SendMessageService extends IntentService {
                     databaseHelper.updateSendTime(id, sendDate, frequency, this);
                 }
             }
-
             msgCursor.moveToNext();
         }
         msgCursor.close();

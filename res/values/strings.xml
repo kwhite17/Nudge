@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Nudge</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_message_form">Create a Nudge</string>
     <string name="title_activity_splash_screen">Automated Text Messaging</string>
     <string name="title_activity_active_nudges">Active Nudges</string>
     <string name="title_activity_about_nudge">About Nudge</string>
-
     <string name="who_instruction">Who would you like me to nudge?</string>
     <string name="when_instruction">When should I start nudging?</string>
     <string name="what_instruction">What should I say when I nudge them?</string>
@@ -18,8 +16,6 @@
     <string name="frequency_monthly">Monthly</string>
     <string name="contact_button_text">[Select a Contact]</string>
     <string name="instruction_message">"No active nudges. Tap \'+\' to begin!"</string>
-    <string name="select_contact_instruction">[Press \'Select\' to choose a recipient.]</string>
-
     <string name="subtitle_donate_to_developer">Fund My Whiskey</string>
     <string name="subtitle_donate_to_artist">Buy the Artist Beer</string>
     <string name="developer_donation_text">If Nudge has simplified your life in any way, please consider
@@ -29,14 +25,13 @@
     Joey\'s insight helped give Nudge some personality. So even if you find the functionality
     itself mediocre, please consider making a contribution to Joey so he can make more awesome icons
     in the future!</string>
-
     <string name="new_nudge_instruction_text">Press this button start creating your first Nudge!
     </string>
     <string name="choose_recipient_instruction_title">Choose a Recipient</string>
     <string name="choose_recipient_instruction_text">Press this button to select a recipient
-    from your contact list.</string>
+    from your contact list.Tap the black area to continue.</string>
     <string name="choose_send_datetime_instruction_title">Choose a Send Date and Time</string>
-    <string name="choose_send_datetime_instruction_text">Nudge will send your first (or only)
-    message at this date and time.
+    <string name="choose_send_datetime_instruction_text">Nudge starts sending your messages at this date and
+    time.Tap the black area to begin creating a message!
     </string>
 </resources>

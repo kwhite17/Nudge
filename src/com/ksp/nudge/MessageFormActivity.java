@@ -36,7 +36,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MessageFormActivity extends ActionBarActivity {
-
     private static final int REQUEST_CONTACTS = 1;
     private String contactNumber = "";
     private String contactRecipientInfo = "";
@@ -48,6 +47,11 @@ public class MessageFormActivity extends ActionBarActivity {
         setContentView(R.layout.activity_message_form);
 
         CardView chooseContactButton = (CardView) findViewById(R.id.chooseContactButton);
+        TextView chooseTimeText = (TextView) findViewById(R.id.chooseTimeText);
+        TextView chooseDateText = (TextView) findViewById(R.id.chooseDateText);
+        String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
+                .format(this.currentSendDate.getTime());
+
         chooseContactButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -56,18 +60,11 @@ public class MessageFormActivity extends ActionBarActivity {
             }
 
         });
-
-        TextView chooseTimeText = (TextView) findViewById(R.id.chooseTimeText);
-        String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
-                .format(this.currentSendDate.getTime());
         chooseTimeText.setText("Select a Time: " + timeString);
-
-        TextView chooseDateText = (TextView) findViewById(R.id.chooseDateText);
         chooseDateText.setText("Select a Date: " +
                 (this.currentSendDate.get(Calendar.MONTH) + 1) + "/" +
                 this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
                 this.currentSendDate.get(Calendar.YEAR));
-
         displayContactShowcaseView();
     }
 
@@ -121,7 +118,6 @@ public class MessageFormActivity extends ActionBarActivity {
                         writeMessageToDb(contactRecipientInfo, contactNumber, msg,
                                 MessageHandler.getNextSend(this.currentSendDate, frequency, this),
                                 frequency));
-
                 Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             }
             else{
@@ -153,7 +149,6 @@ public class MessageFormActivity extends ActionBarActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-
         Uri result = null;
         try{
             result = data.getData();
@@ -166,8 +161,8 @@ public class MessageFormActivity extends ActionBarActivity {
             Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,
                     Phone._ID + " = ?",
                     new String[] {id}, null);
-
             int contactNameIndex= cursor.getColumnIndex(Phone.DISPLAY_NAME);
+
             if (cursor.moveToFirst())
             {
                 String contactNumberType = " (".concat((String) Phone.getTypeLabel(this.getResources(),cursor
@@ -184,6 +179,9 @@ public class MessageFormActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Displays the ShowcaseView to show instructions on first launch
+     */
     private void displayContactShowcaseView(){
         ShowcaseView contactShowcaseView = new ShowcaseView.Builder(this)
                 .setTarget(new ViewTarget(R.id.chooseContactButton, this))
@@ -208,14 +206,18 @@ public class MessageFormActivity extends ActionBarActivity {
                     }
                 })
                 .build();
-        contactShowcaseView.setButtonText("Next");
+        contactShowcaseView.setHideOnTouchOutside(true);
+        contactShowcaseView.hideButton();
         contactShowcaseView.setStyle(R.style.ShowcaseViewDark);
 
     }
 
+    /**
+     * Displays the ShowcaseView to show instructions on first launch
+     */
     private void displayDateTimeShowcaseView(){
         ShowcaseView dateShowcaseView =new ShowcaseView.Builder(this)
-                .setTarget(new ViewTarget(R.id.chooseTimeButton,this))
+                .setTarget(new ViewTarget(R.id.chooseDateButton,this))
                 .setContentTitle(R.string.choose_send_datetime_instruction_title)
                 .setContentText(R.string.choose_send_datetime_instruction_text)
                 .singleShot(R.id.chooseDateButton)
@@ -236,6 +238,8 @@ public class MessageFormActivity extends ActionBarActivity {
                     }
                 })
                 .build();
+        dateShowcaseView.setHideOnTouchOutside(true);
+        dateShowcaseView.hideButton();
         dateShowcaseView.setStyle(R.style.ShowcaseViewDark);
     }
 

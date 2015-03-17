@@ -5,14 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.SparseArray;
 
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 
 public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "NudgeMessages.db";
-
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
     private static final String SQL_CREATE_ENTRIES =
@@ -60,50 +58,19 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues rowValues = new ContentValues();
-
         rowValues.put(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER, number);
         rowValues.put(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME, name);
         rowValues.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, time);
         rowValues.put(NudgeMessageEntry.COLUMN_NAME_MESSAGE, msg);
         rowValues.put(NudgeMessageEntry.COLUMN_NAME_FREQUENCY, frequency);
-
         long insertId = database.insert(NudgeMessageEntry.TABLE_NAME, null, rowValues);
         return (insertId == -1) ? "Insertion failed": "Insertion successful";
     }
 
-
-//    //TODO: DELETE METHOD AFTER TESTING
-//    /**
-//     * Reads all the message from the database
-//     * @return a SparseArray containing all the messages in the database
-//     */
-//    public SparseArray<String> readMessagesfromDb() {
-//        SQLiteDatabase database = this.getReadableDatabase();
-//        SparseArray<String> msgMap = new SparseArray<String>();
-//        String[] projection = {
-//                NudgeMessageEntry._ID,
-//                NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME,
-//                NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER,
-//                NudgeMessageEntry.COLUMN_NAME_SEND_TIME,
-//                NudgeMessageEntry.COLUMN_NAME_MESSAGE,
-//        };
-//        String sortOrder = NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME + " DESC";
-//        Cursor msgCursor = database.query(NudgeMessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
-//
-//        msgCursor.moveToFirst();
-//        while (!msgCursor.isAfterLast()){
-//            String recipient = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME));
-//            String message = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_MESSAGE));
-//            String sendDate = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_SEND_TIME));
-//
-//            msgMap.put(msgCursor.getInt(msgCursor.getColumnIndex(NudgeMessageEntry._ID)), MessageHandler.formatMessage(recipient, message, sendDate));
-//
-//            msgCursor.moveToNext();
-//        }
-//        msgCursor.close();
-//        return msgMap;
-//    }
-
+    /**
+     *
+     * @return a cursor containing all message data in the database
+     */
     public Cursor readMessagesFromDatabase(){
         SQLiteDatabase database = this.getReadableDatabase();
         String[] databaseColumns = {
@@ -115,10 +82,13 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         String sortOrder = NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME + " DESC";
         Cursor databaseCursor = database.query(NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME,
                 databaseColumns, null, null, null, null, sortOrder);
-
         return databaseCursor;
     }
 
+    /**
+     *
+     * @return A cursor containing all the message send times from the database
+     */
     public Cursor getSendTimesFromDatabase(){
         SQLiteDatabase database = this.getReadableDatabase();
         String[] projection = new String[]{NudgeMessageEntry.COLUMN_NAME_SEND_TIME};
@@ -135,7 +105,6 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         String selection = NudgeMessageEntry._ID + " LIKE ?";
         String[] selectionArgs = { id };
-    
         database.delete(NudgeMessageEntry.TABLE_NAME, selection, selectionArgs);
     }
     
@@ -151,10 +120,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         String selection = NudgeMessageEntry._ID + " LIKE ?";
         String[] selectionArgs = { id };
         ContentValues sendTime = new ContentValues();
-    
         sendTime.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, MessageHandler.getNextSend(sendDate, frequency, messageContext));
         db.update(NudgeMessageEntry.TABLE_NAME, sendTime, selection, selectionArgs);
     }
-
-
 }
