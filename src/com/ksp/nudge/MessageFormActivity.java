@@ -16,12 +16,15 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -66,6 +69,16 @@ public class MessageFormActivity extends ActionBarActivity {
                 this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
                 this.currentSendDate.get(Calendar.YEAR));
         displayContactShowcaseView();
+
+        final ScrollView scrollView = (ScrollView) findViewById(R.id.formActivityId);
+        scrollView.getViewTreeObserver()
+                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        Log.i("New Layout Height: ", Integer.toString(scrollView.getHeight()));
+                        scrollView.smoothScrollTo(0,(int) findViewById(R.id.FrequencyGroup).getY());
+                    }
+                });
     }
 
     @Override
@@ -92,7 +105,7 @@ public class MessageFormActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.message_form, menu);
+        getMenuInflater().inflate(R.menu.menu_message_form, menu);
         return true;
     }
 

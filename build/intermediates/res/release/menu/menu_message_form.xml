@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ksp.nudge.MessageFormActivity" >
+
+    <item
+        android:id="@+id/action_save"
+        android:icon="@drawable/ic_save_white"
+        app:showAsAction="always"
+        android:title="Save"/>
+    <item
+        android:id="@+id/action_discard"
+        android:icon="@drawable/ic_delete_white"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Discard"/>
+</menu><!-- From: file:/home/kevin/Development/git/Nudge/res/menu/menu_message_form.xml -->

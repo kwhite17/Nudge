@@ -16,20 +16,6 @@
         <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-77557f0cfbc83e383cfff266c109300a93fee842.jar" />
     </item>
     <item
-        jar="/home/kevin/Development/Source/Android/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/support-annotations-21.0.3-b4213d5c58ee2005f98959fe7e6ca314bfdb7698.jar" />
-    </item>
-    <item
-        jar="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-e723387f1da3d733084a418876d29ab6da8fa233.jar" />
-    </item>
-    <item
         jar="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -37,11 +23,32 @@
         <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-f446fd81f193bc2e42270fc5ad7e8a6933ef3f05.jar" />
     </item>
     <item
-        jar="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/classes.jar"
+        jar="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="80fcc7078dfa968bec4d1daa1f7177f3853c0b1c">
-        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-2eb7ce1afbed4d0cb6fad97f529732f98881e88b.jar" />
+        sha1="f2b8a750df2a5d485d0c40b379b44371c5e6d98d">
+        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-45cec6b136d12142d02e536bbfc3c9d900c1cdfc.jar" />
+    </item>
+    <item
+        jar="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8b3d9a7b348d8bcfb4d740dfaf70bc374cdae9d6">
+        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-7906216d9fedc981d55762dc47c9258d5fb00fb6.jar" />
+    </item>
+    <item
+        jar="/home/kevin/Development/Source/Android/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/support-annotations-22.0.0-c0f603921cb7e8a9031b7cef96a4d0bb174b8580.jar" />
+    </item>
+    <item
+        jar="/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-e723387f1da3d733084a418876d29ab6da8fa233.jar" />
     </item>
 
 </items>

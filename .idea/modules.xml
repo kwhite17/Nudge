@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Nudge.iml" filepath="$PROJECT_DIR$/Nudge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/ShowcaseView/ShowcaseView.iml" filepath="$PROJECT_DIR$/libs/ShowcaseView/ShowcaseView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/ShowcaseView/library/library.iml" filepath="$PROJECT_DIR$/libs/ShowcaseView/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,8 @@
 /home/kevin/Development/git/Nudge/build/intermediates/classes/release
-/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/support-annotations-21.0.3-b4213d5c58ee2005f98959fe7e6ca314bfdb7698.jar
+/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/support-annotations-22.0.0-c0f603921cb7e8a9031b7cef96a4d0bb174b8580.jar
 /home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-f446fd81f193bc2e42270fc5ad7e8a6933ef3f05.jar
-/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-2eb7ce1afbed4d0cb6fad97f529732f98881e88b.jar
+/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-45cec6b136d12142d02e536bbfc3c9d900c1cdfc.jar
+/home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-7906216d9fedc981d55762dc47c9258d5fb00fb6.jar
 /home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/internal_impl-21.0.3-3ae4ad5ab8d328c6cf0509fc8d713b41ca8d9e54.jar
 /home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-77557f0cfbc83e383cfff266c109300a93fee842.jar
 /home/kevin/Development/git/Nudge/build/intermediates/pre-dexed/release/classes-e723387f1da3d733084a418876d29ab6da8fa233.jar
