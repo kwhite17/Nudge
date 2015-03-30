@@ -47,130 +47,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.ksp.nudge" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d3243b6-1422-43db-8354-9f894294cd59" name="Default" comment="Spatial improvements on the UI; Scheduled messages display as cards">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/annotations.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/classes.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/classes.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-hdpi-v4/fab_bg_mini.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-mdpi-v4/fab_bg_mini.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-xhdpi-v4/fab_bg_mini.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-xxhdpi-v4/fab_bg_mini.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-xxxhdpi-v4/fab_bg_mini.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-hdpi-v4/fab_bg_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-mdpi-v4/fab_bg_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-xhdpi-v4/fab_bg_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-xxhdpi-v4/fab_bg_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/drawable-xxxhdpi-v4/fab_bg_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/aapt/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/getbase/floatingactionbutton/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/release/com/getbase/floatingactionbutton/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/R.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable/button.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable/button_normal.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable/cling_button_bg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/floatingactionbutton_1_9_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/layout/handy.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/library_5_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/proguard.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/layout/showcase_button.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/res/values/values.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/Nudge.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/dexedLibs/android-support-v4-db5638f8169183d4f14b232c56ee1de9.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/jarlist.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-hdpi/ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-hdpi/ic_action_discard_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-hdpi/ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-hdpi/ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-hdpi/ic_action_save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-mdpi/ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-mdpi/ic_action_discard_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-mdpi/ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-mdpi/ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-mdpi/ic_action_save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-xhdpi/ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-xhdpi/ic_action_discard_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-xhdpi/ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-xhdpi/ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-xhdpi/ic_action_save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/crunch/drawable-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable/button.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable/button_normal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable/cling_button_bg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/layout/handy.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/layout/showcase_button.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/ShowcaseView" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/libs.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_discard_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_delete_black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_discard_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_delete_black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_discard_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_delete_black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/oval.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/R.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-hdpi-v4/btn_cling_normal.9.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-hdpi-v4/btn_cling_normal.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-hdpi-v4/btn_cling_pressed.9.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-hdpi-v4/btn_cling_pressed.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-hdpi-v4/cling.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-hdpi-v4/cling.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-hdpi-v4/hand.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-hdpi-v4/hand.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-mdpi-v4/btn_cling_normal.9.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-mdpi-v4/btn_cling_normal.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-mdpi-v4/btn_cling_pressed.9.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-mdpi-v4/btn_cling_pressed.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-mdpi-v4/cling.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-mdpi-v4/cling.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-mdpi-v4/hand.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-mdpi-v4/hand.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-xhdpi-v4/btn_cling_normal.9.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-xhdpi-v4/btn_cling_normal.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-xhdpi-v4/btn_cling_pressed.9.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-xhdpi-v4/btn_cling_pressed.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-xhdpi-v4/cling.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-xhdpi-v4/cling.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-xhdpi-v4/cling_bleached.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-xhdpi-v4/cling_bleached.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/drawable-xhdpi-v4/hand.png" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/drawable-xhdpi-v4/hand.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/Nudge.libs.ShowcaseView/library/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/intermediates/res/debug/layout/activity_message_form.xml" afterPath="$PROJECT_DIR$/res/layout/message_form.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/layout/activity_message_form.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/debug/layout/message_form.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/menu/message_form.xml" afterPath="$PROJECT_DIR$/res/menu/menu_message_form.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/buildConfig/debug/com/ksp/nudge/BuildConfig.java" afterPath="$PROJECT_DIR$/build/generated/source/buildConfig/debug/com/ksp/nudge/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/buildConfig/release/com/ksp/nudge/BuildConfig.java" afterPath="$PROJECT_DIR$/build/generated/source/buildConfig/release/com/ksp/nudge/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Nudge.iml" afterPath="$PROJECT_DIR$/Nudge.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/cardview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/cardview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/github/amlcurran/showcaseview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/github/amlcurran/showcaseview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/ksp/nudge/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/ksp/nudge/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/release/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/release/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/release/android/support/v7/cardview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/release/android/support/v7/cardview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/release/com/github/amlcurran/showcaseview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/release/com/github/amlcurran/showcaseview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/release/com/ksp/nudge/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/release/com/ksp/nudge/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_active_nudges.xml" afterPath="$PROJECT_DIR$/res/layout/activity_active_nudges.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_message_form.xml" afterPath="$PROJECT_DIR$/res/layout/activity_message_form.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/dimens.xml" afterPath="$PROJECT_DIR$/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/tmp/dex/release/inputList.txt" afterPath="$PROJECT_DIR$/build/intermediates/tmp/dex/release/inputList.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1d3243b6-1422-43db-8354-9f894294cd59" name="Default" comment="Spatial improvements on the UI; Scheduled messages display as cards" />
     <ignored path="Nudge.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1547,8 +1424,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1354" y="-4" width="1932" height="1058" extended-state="7" />
-    <editor active="true" />
+    <frame x="1354" y="-4" width="1932" height="1058" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
