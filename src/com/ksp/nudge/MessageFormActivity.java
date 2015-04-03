@@ -16,15 +16,13 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -54,7 +52,6 @@ public class MessageFormActivity extends ActionBarActivity {
         TextView chooseDateText = (TextView) findViewById(R.id.chooseDateText);
         String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
                 .format(this.currentSendDate.getTime());
-
         chooseContactButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -68,17 +65,28 @@ public class MessageFormActivity extends ActionBarActivity {
                 (this.currentSendDate.get(Calendar.MONTH) + 1) + "/" +
                 this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
                 this.currentSendDate.get(Calendar.YEAR));
-        displayContactShowcaseView();
-
         final ScrollView scrollView = (ScrollView) findViewById(R.id.formActivityId);
         scrollView.getViewTreeObserver()
                 .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
                         Log.i("New Layout Height: ", Integer.toString(scrollView.getHeight()));
-                        scrollView.smoothScrollTo(0,(int) findViewById(R.id.FrequencyGroup).getY());
+                        scrollView.smoothScrollTo(0,(int) findViewById(R.id.frequencyBarLabel).getY());
                     }
                 });
+        ((SeekBar) findViewById(R.id.frequencyBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView progressBarLabel = (TextView) findViewById(R.id.frequencyBarLabel);
+                String[] frequencies = getResources().getStringArray(R.array.frequencyArray);
+                progressBarLabel.setText(frequencies[progress]);
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+        displayContactShowcaseView();
     }
 
     @Override
@@ -86,10 +94,10 @@ public class MessageFormActivity extends ActionBarActivity {
         int id = item.getItemId();
         switch(id){
             case R.id.action_discard:
-                this.changeToActiveReminders(false);
+                this.changeToActiveNudges(false);
                 break;
             case R.id.action_save:
-                this.changeToActiveReminders(true);
+                this.changeToActiveNudges(true);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -114,27 +122,25 @@ public class MessageFormActivity extends ActionBarActivity {
      * depending on how the method was triggered
      * @param saveMessage, if the data in the message for should be saved
      */
-    protected void changeToActiveReminders(boolean saveMessage) {
+    protected void changeToActiveNudges(boolean saveMessage) {
         try{
             if (saveMessage){
 
                 if (contactRecipientInfo.equals("")){
                     throw new Exception();
                 }
-                EditText msgText = (EditText) findViewById(R.id.msgText);
-                String msg = msgText.getEditableText().toString();
-                RadioGroup freqGroup = (RadioGroup) findViewById(R.id.FrequencyGroup);
-                String frequency =((RadioButton) findViewById(freqGroup.getCheckedRadioButtonId())).
-                        getText().toString();
+                String message = ((EditText) findViewById(R.id.msgText)).getEditableText().toString();
+                String frequency =((TextView) findViewById(R.id.frequencyBarLabel)).getText()
+                        .toString();
 
                 Log.i("Saving Message", new NudgeDatabaseHelper(this).
-                        writeMessageToDb(contactRecipientInfo, contactNumber, msg,
+                        writeMessageToDb(contactRecipientInfo, contactNumber, message,
                                 MessageHandler.getNextSend(this.currentSendDate, frequency, this),
                                 frequency));
                 Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             }
             else{
-                Toast.makeText(this, "Message deleted!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Message discarded!", Toast.LENGTH_SHORT).show();
             }
             changeActivity(ActiveNudgesActivity.class);
         }

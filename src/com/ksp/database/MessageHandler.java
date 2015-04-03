@@ -52,6 +52,10 @@ public class MessageHandler {
             case "Monthly":
                 time.add(Calendar.MONTH, 1);
                 break;
+            case "Monthly: Last Day":
+                time.add(Calendar.MONTH,1);
+                time.set(Calendar.DATE,time.getActualMaximum(Calendar.DATE));
+                break;
             }
         }
         SendMessageService.setServiceAlarm(messageContext, time);

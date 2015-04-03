@@ -10,10 +10,6 @@
     <string name="when_instruction">When should I start nudging?</string>
     <string name="what_instruction">What should I say when I nudge them?</string>
     <string name="frequency_instruction">How often should I nudge them?</string>
-    <string name="frequency_once">Once</string>
-    <string name="frequency_daily">Daily</string>
-    <string name="frequency_weekly">Weekly</string>
-    <string name="frequency_monthly">Monthly</string>
     <string name="contact_button_text">[Select a Contact]</string>
     <string name="instruction_message">"No active nudges. Tap \'+\' to begin!"</string>
     <string name="subtitle_donate_to_developer">Fund My Whiskey</string>
@@ -34,4 +30,11 @@
     <string name="choose_send_datetime_instruction_text">Nudge starts sending your messages at this date and
     time.Tap the black area to begin creating a message!
     </string>
+    <string-array name="frequencyArray">
+        <item>Once</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Monthly: Last Day</item>
+    </string-array>
 </resources>

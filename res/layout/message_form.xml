@@ -5,7 +5,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:rowCount="9"
+    android:rowCount="12"
     android:columnCount="1"
     android:useDefaultMargins="true">
 
@@ -171,39 +171,59 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_row="7" />
 
-    <RadioGroup
-        android:id="@+id/FrequencyGroup"
+    <SeekBar
+        android:id="@+id/frequencyBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_column="0"
         android:layout_columnSpan="1"
         android:layout_gravity="fill_horizontal"
-        android:layout_row="8">
+        android:layout_row="8"
+        android:max="4"
+        android:progress="2"/>
 
-        <RadioButton
-            android:id="@+id/RadioButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frequency_once"/>
+    <TextView
+        android:id="@+id/frequencyBarLabel"
+        android:layout_column="0"
+        android:layout_columnSpan="1"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="9"
+        android:gravity="center"
+        android:labelFor="@id/frequencyBar"
+        android:text="Weekly"/>
 
-        <RadioButton
-            android:id="@+id/RadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frequency_daily" />
+    <!--<RadioGroup-->
+        <!--android:id="@+id/FrequencyGroup"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_column="0"-->
+        <!--android:layout_columnSpan="1"-->
+        <!--android:layout_gravity="fill_horizontal"-->
+        <!--android:layout_row="8">-->
 
-        <RadioButton
-            android:id="@+id/RadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frequency_weekly" />
+        <!--<RadioButton-->
+            <!--android:id="@+id/RadioButton1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/frequency_once"/>-->
 
-        <RadioButton
-            android:id="@+id/RadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frequency_monthly" />
-    </RadioGroup>
+        <!--<RadioButton-->
+            <!--android:id="@+id/RadioButton2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/frequency_daily" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/RadioButton3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/frequency_weekly" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/RadioButton4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/frequency_monthly" />-->
+    <!--</RadioGroup>-->
 
 </GridLayout>
