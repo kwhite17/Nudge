@@ -1,568 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidConfiguredLogFilters">
-    <filters>
-      <filter>
-        <option name="name" value="app: com.ksp.nudge" />
-        <option name="packageNamePattern" value="com.ksp.nudge" />
-      </filter>
-    </filters>
-  </component>
-  <component name="AndroidLayouts">
-    <shared>
-      <config>
-        <devices>
-          <device id="Galaxy Nexus" />
-          <device id="Nexus S" />
-          <device id="Nexus One" />
-          <device id="Nexus 4" />
-          <device id="Nexus 6" />
-        </devices>
-      </config>
-    </shared>
-    <layouts>
-      <layout url="file://$PROJECT_DIR$/res/layout/active_nudge_item.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/res/layout/activity_active_nudges_list.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/res/layout/activity_splash_screen.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/res/layout/message_form.xml">
-        <config>
-          <theme>@style/AppTheme</theme>
-        </config>
-      </layout>
-    </layouts>
-  </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.ksp.nudge" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d3243b6-1422-43db-8354-9f894294cd59" name="Default" comment="Spatial improvements on the UI; Scheduled messages display as cards">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/source/buildConfig/release/com/ksp/nudge/BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/source/r/release/android/support/v7/appcompat/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/source/r/release/android/support/v7/cardview/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/source/r/release/com/getbase/floatingactionbutton/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/source/r/release/com/github/amlcurran/showcaseview/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/source/r/release/com/ksp/nudge/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$bool.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$integer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/appcompat/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/cardview/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/cardview/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/cardview/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/cardview/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/cardview/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/android/support/v7/cardview/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/getbase/floatingactionbutton/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/getbase/floatingactionbutton/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/getbase/floatingactionbutton/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/getbase/floatingactionbutton/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/getbase/floatingactionbutton/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/getbase/floatingactionbutton/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/database/MessageHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/database/NudgeDatabaseHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/database/NudgeMessagesContract$NudgeMessageEntry.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/database/NudgeMessagesContract.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/AboutNudgeActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity$GetActiveNudgesTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/BootReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$DatePickerFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$TimePickerFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/NudgeCursorAdapter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/NudgeCursorAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$bool.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$integer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SendMessageService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$bool.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$integer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/appcompat/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/cardview/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/cardview/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/cardview/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/cardview/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/cardview/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/android/support/v7/cardview/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/getbase/floatingactionbutton/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/getbase/floatingactionbutton/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/getbase/floatingactionbutton/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/getbase/floatingactionbutton/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/getbase/floatingactionbutton/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/getbase/floatingactionbutton/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/github/amlcurran/showcaseview/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/database/MessageHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/database/NudgeDatabaseHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/database/NudgeMessagesContract$NudgeMessageEntry.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/database/NudgeMessagesContract.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/AboutNudgeActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/ActiveNudgesActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/ActiveNudgesActivity$GetActiveNudgesTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/ActiveNudgesActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/BootReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity$DatePickerFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity$TimePickerFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/MessageFormActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/NudgeCursorAdapter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/NudgeCursorAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$bool.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$integer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/SendMessageService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/SplashScreenActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/release/com/ksp/nudge/SplashScreenActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex/release/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/R.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/anim/abc_fade_in.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/anim/abc_fade_out.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/anim/abc_slide_in_bottom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/anim/abc_slide_in_top.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/anim/abc_slide_out_bottom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/anim/abc_slide_out_top.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_background_cache_hint_selector_material_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_background_cache_hint_selector_material_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_primary_text_disable_only_material_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_primary_text_disable_only_material_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_primary_text_material_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_primary_text_material_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_search_url_text.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_secondary_text_material_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/color/abc_secondary_text_material_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_btn_check_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_btn_check_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_btn_radio_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_btn_radio_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_btn_switch_to_on_mtrl_00001.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_btn_switch_to_on_mtrl_00012.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_cab_background_top_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_clear_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_commit_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_go_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_menu_paste_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_menu_selectall_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_menu_share_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_ic_voice_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_divider_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_focused_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_longpressed_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_popup_background_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_switch_track_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_tab_indicator_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_textfield_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_textfield_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_textfield_search_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-hdpi/abc_textfield_search_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-hdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-hdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-hdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-hdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-mdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-mdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-mdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-mdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xhdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xhdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xhdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xhdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxhdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxhdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxhdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxxhdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxxhdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-ldrtl-xxxhdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_btn_check_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_btn_check_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_btn_radio_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_btn_radio_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00001.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00012.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_cab_background_top_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_clear_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_go_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_menu_paste_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_menu_selectall_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_menu_share_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_ic_voice_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_divider_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_focused_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_longpressed_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_menu_hardkey_panel_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_popup_background_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_switch_track_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_tab_indicator_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_textfield_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_textfield_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_textfield_search_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_btn_check_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_btn_check_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_btn_radio_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_btn_radio_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00001.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00012.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_cab_background_top_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_clear_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_commit_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_go_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_menu_paste_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_menu_selectall_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_menu_share_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_ic_voice_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_divider_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_focused_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_longpressed_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_menu_hardkey_panel_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_popup_background_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_switch_track_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_tab_indicator_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_textfield_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_textfield_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_textfield_search_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xhdpi/abc_textfield_search_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_btn_check_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_btn_check_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_btn_radio_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_btn_radio_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_btn_switch_to_on_mtrl_00001.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_btn_switch_to_on_mtrl_00012.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_cab_background_top_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_clear_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_commit_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_go_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_menu_paste_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_menu_selectall_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_menu_share_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_ic_voice_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_divider_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_focused_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_longpressed_holo.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_menu_hardkey_panel_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_popup_background_mtrl_mult.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_switch_track_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_tab_indicator_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_textfield_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_textfield_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_textfield_search_activated_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxhdpi/abc_textfield_search_default_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_btn_check_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_btn_check_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_btn_radio_to_on_mtrl_000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_btn_radio_to_on_mtrl_015.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_btn_switch_to_on_mtrl_00001.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_btn_switch_to_on_mtrl_00012.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_ab_back_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_clear_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_menu_cut_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_menu_paste_mtrl_am_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_menu_selectall_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_ic_voice_search_api_mtrl_alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_spinner_mtrl_am_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_switch_track_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable-xxxhdpi/abc_tab_indicator_mtrl_alpha.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_btn_check_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_btn_radio_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_cab_background_internal_bg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_cab_background_top_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_edit_text_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_item_background_holo_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_item_background_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_list_selector_background_transition_holo_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_list_selector_background_transition_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_list_selector_holo_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_list_selector_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_switch_thumb_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_tab_indicator_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/drawable/abc_textfield_search_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout-v11/abc_screen_content_include.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_bar_title_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_bar_up_container.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_bar_view_list_nav_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_menu_item_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_menu_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_mode_bar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_action_mode_close_item_material.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_activity_chooser_view.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_activity_chooser_view_include.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_activity_chooser_view_list_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_expanded_menu_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_list_menu_item_checkbox.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_list_menu_item_icon.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_list_menu_item_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_list_menu_item_radio.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_popup_menu_item_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_screen_content_include.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_screen_simple.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_screen_simple_overlay_action_mode.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_screen_toolbar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_search_dropdown_item_icons_2line.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_search_view.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/abc_simple_dropdown_hint.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/layout/support_simple_spinner_dropdown_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-af/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-am/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ar/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-bg/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-bn-rBD/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ca/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-cs/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-da/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-de/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-el/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-en-rGB/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-en-rIN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-es-rUS/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-es/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-et-rEE/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-eu-rES/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-fa/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-fi/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-fr-rCA/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-fr/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-gl-rES/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-hi/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-hr/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-hu/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-hy-rAM/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-in/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-is-rIS/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-it/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-iw/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ja/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ka-rGE/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-kk-rKZ/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-km-rKH/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-kn-rIN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ko/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ky-rKG/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-land/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-large/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-lo-rLA/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-lt/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-lv/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-mk-rMK/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ml-rIN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-mn-rMN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-mr-rIN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ms-rMY/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-my-rMM/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-nb/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ne-rNP/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-nl/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-pl/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-port/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-pt-rPT/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-pt/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ro/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ru/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-si-rLK/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sk/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sl/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sr/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sv/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sw/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sw600dp/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ta-rIN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-te-rIN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-th/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-tl/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-tr/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-uk/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ur-rPK/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-uz-rUZ/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v11/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v14/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v17/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-vi/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-w360dp/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-w480dp/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-w500dp/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-w600dp/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-w720dp/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-xlarge-land/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-xlarge/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-zh-rCN/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-zh-rHK/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-zh-rTW/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-zu/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/aidl/android/support/v4/app/INotificationSideChannel.aidl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/classes-45cec6b136d12142d02e536bbfc3c9d900c1cdfc.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/classes-77557f0cfbc83e383cfff266c109300a93fee842.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/classes-7906216d9fedc981d55762dc47c9258d5fb00fb6.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/classes-e723387f1da3d733084a418876d29ab6da8fa233.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/classes-f446fd81f193bc2e42270fc5ad7e8a6933ef3f05.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/internal_impl-21.0.3-3ae4ad5ab8d328c6cf0509fc8d713b41ca8d9e54.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/release/support-annotations-22.0.0-c0f603921cb7e8a9031b7cef96a4d0bb174b8580.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/tmp/dex/release/inputList.txt" afterPath="" />
+    <list default="true" id="e603ae94-6d44-4884-a17f-45783c2ac51e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/kevin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/database/MessageHandler.java" afterPath="$PROJECT_DIR$/src/com/ksp/database/MessageHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Nudge.iml" afterPath="$PROJECT_DIR$/Nudge.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/cardview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/cardview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/getbase/floatingactionbutton/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/getbase/floatingactionbutton/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/github/amlcurran/showcaseview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/github/amlcurran/showcaseview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/ksp/nudge/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/ksp/nudge/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/message_form.xml" afterPath="$PROJECT_DIR$/res/layout/message_form.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Nudge.iws" />
     <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -570,73 +26,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
-  <component name="Commander">
-    <leftPanel />
-    <rightPanel />
-    <splitter proportion="0.5" />
-  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Nudge" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MessageHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ksp/database/MessageHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1494">
-              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageFormActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.606414" vertical-offset="1708" max-vertical-offset="6228">
-              <caret line="141" column="17" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#3219:3818" expanded="false" />
-                <element signature="method#onProgressChanged#0;class#3219:3818" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindManager">
-    <FindUsagesManager>
-      <setting name="OPEN_NEW_TAB" value="true" />
-    </FindUsagesManager>
-  </component>
-  <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$USER_HOME$/keystores/android.jks" />
-    <option name="KEY_ALIAS" value="android key" />
-  </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="kwhite17" />
-      </list>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
-    <option name="tasksExpandState">
-      <map>
-        <entry key="" value="true" />
-        <entry key="Nudge/" value="false" />
-      </map>
-    </option>
     <option name="availableProjects">
       <map>
         <entry>
@@ -1137,7 +537,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2855533895148" />
+        <entry key="$PROJECT_DIR$" value="2855714149971" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1233,252 +633,6 @@
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$" />
-                      </ExternalModuleBuildClasspathPojo>
-                    </value>
-                  </entry>
-                  <entry key="$PROJECT_DIR$/libs">
-                    <value>
-                      <ExternalModuleBuildClasspathPojo>
-                        <option name="entries">
-                          <list>
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/appcompat-v7/21.0.3/appcompat-v7-21.0.3.aar" />
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/cardview-v7/21.0.3/cardview-v7-21.0.3.aar" />
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getbase/floatingactionbutton/1.9.0/85b387d3e5b0028b5f4f93a0654dfe03aed2631a/floatingactionbutton-1.9.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getbase/floatingactionbutton/1.9.0/fb558177ace2158ebda8877737d089bdf93a426b/floatingactionbutton-1.9.0.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.amlcurran.showcaseview/library/5.0.0/b45e3ca00d580293f08286fc772ecbb6f90d576d/library-5.0.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.amlcurran.showcaseview/library/5.0.0/bb9f9039c4be7208b630a2b679a04b7383e570c5/library-5.0.0.aar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.0.0/sdklib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.0.0/sdklib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.0.0/common-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.0.0/common-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.0.0/dvlib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.0.0/dvlib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                          </list>
-                        </option>
-                        <option name="path" value="$PROJECT_DIR$/libs" />
-                      </ExternalModuleBuildClasspathPojo>
-                    </value>
-                  </entry>
-                  <entry key="$PROJECT_DIR$/libs/ShowcaseView">
-                    <value>
-                      <ExternalModuleBuildClasspathPojo>
-                        <option name="entries">
-                          <list>
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/appcompat-v7/21.0.3/appcompat-v7-21.0.3.aar" />
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/cardview-v7/21.0.3/cardview-v7-21.0.3.aar" />
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getbase/floatingactionbutton/1.9.0/85b387d3e5b0028b5f4f93a0654dfe03aed2631a/floatingactionbutton-1.9.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getbase/floatingactionbutton/1.9.0/fb558177ace2158ebda8877737d089bdf93a426b/floatingactionbutton-1.9.0.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.amlcurran.showcaseview/library/5.0.0/b45e3ca00d580293f08286fc772ecbb6f90d576d/library-5.0.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.amlcurran.showcaseview/library/5.0.0/bb9f9039c4be7208b630a2b679a04b7383e570c5/library-5.0.0.aar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.0.0/sdklib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.0.0/sdklib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.0.0/common-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.0.0/common-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.0.0/dvlib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.0.0/dvlib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                          </list>
-                        </option>
-                        <option name="path" value="$PROJECT_DIR$/libs/ShowcaseView" />
-                      </ExternalModuleBuildClasspathPojo>
-                    </value>
-                  </entry>
-                  <entry key="$PROJECT_DIR$/libs/ShowcaseView/library">
-                    <value>
-                      <ExternalModuleBuildClasspathPojo>
-                        <option name="entries">
-                          <list>
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/appcompat-v7/21.0.3/appcompat-v7-21.0.3.aar" />
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/cardview-v7/21.0.3/cardview-v7-21.0.3.aar" />
-                            <option value="$PROJECT_DIR$/../../Source/Android/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getbase/floatingactionbutton/1.9.0/85b387d3e5b0028b5f4f93a0654dfe03aed2631a/floatingactionbutton-1.9.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getbase/floatingactionbutton/1.9.0/fb558177ace2158ebda8877737d089bdf93a426b/floatingactionbutton-1.9.0.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.amlcurran.showcaseview/library/5.0.0/b45e3ca00d580293f08286fc772ecbb6f90d576d/library-5.0.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.amlcurran.showcaseview/library/5.0.0/bb9f9039c4be7208b630a2b679a04b7383e570c5/library-5.0.0.aar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.0.0/gradle-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.0.0/lint-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.0.0/builder-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.0.0/lint-checks-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.0.0/sdk-common-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.0.0/sdklib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.0.0/sdklib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.0.0/common-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.0.0/common-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.0.0/builder-test-api-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.0.0/ddmlib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.0.0/manifest-merger-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.0.0/builder-model-1.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.0.0/lint-api-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.0.0/dvlib-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.0.0/dvlib-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.0.0/layoutlib-api-24.0.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                          </list>
-                        </option>
-                        <option name="path" value="$PROJECT_DIR$/libs/ShowcaseView/library" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
@@ -1598,46 +752,12 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="changedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/res/values-v11/styles.xml" />
-        <option value="$PROJECT_DIR$/res/values-v14/styles.xml" />
-        <option value="/Groovy Console" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/ActiveRemindersActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/test_activity_active_nudges.xml" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/res/menu/menu_active_nudges.xml" />
-        <option value="$PROJECT_DIR$/res/menu/active_reminders.xml" />
-        <option value="$PROJECT_DIR$/res/menu/message_form.xml" />
-        <option value="$PROJECT_DIR$/res/layout/active_nudge_item.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/oval.xml" />
-        <option value="$PROJECT_DIR$/src/com/ksp/database/NudgeMessagesDbHelper.java" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_about_nudge.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_splash_screen.xml" />
-        <option value="$PROJECT_DIR$/res/values-v21/styles.xml" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/SplashScreenActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java" />
-        <option value="$PROJECT_DIR$/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_form.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_message_form.xml" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/ActiveNudgesActivity.java" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_active_nudges.xml" />
-        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/ksp/database/MessageHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/layout/message_form.xml" />
-      </list>
+    <option name="externalProjectsViewState">
+      <projects_view />
     </option>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1354" />
@@ -1645,18 +765,15 @@
     <option name="width" value="1932" />
     <option name="height" value="1058" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
-  </component>
-  <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -1671,45 +788,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1717,10 +795,6 @@
               <option name="myItemId" value="Nudge" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1730,56 +804,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Nudge" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1828,90 +852,22 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/Personal_Projects/Android/Nudge" />
-    <property name="options.lastSelected" value="preferences.sourceCode.General" />
-    <property name="options.splitter.main.proportions" value="0.3175" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
-    <property name="android.project.structure.last.selected" value="Nudge" />
-    <property name="android.project.structure.proportion" value="0.15" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
-    <property name="FullScreen" value="false" />
-    <property name="ExportApk.ApkPath" value="$USER_HOME$/Dropbox/Personal_Projects/Android/Nudge" />
-    <property name="ExportApk.Flavors" value="" />
-    <property name="ExportApk.BuildType" value="release" />
-    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4_API_19" />
-    <property name="LayoutCode.rearrangeEntriesXML" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="184" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="469" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/res/drawable" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="dynamic.classpath" value="false" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/res/drawable" />
-      <recent name="$PROJECT_DIR$/res/drawable-xhdpi" />
-      <recent name="$PROJECT_DIR$/res/drawable-mdpi" />
-      <recent name="$PROJECT_DIR$/res/drawable-hdpi" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.ksp.nudge" />
-    </key>
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
-    </key>
   </component>
   <component name="RunManager" selected="Android Application.Nudge">
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -1924,6 +880,46 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1935,6 +931,7 @@
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -1952,67 +949,13 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
+        <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="Nudge" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -2033,8 +976,10 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <RunnerSettings RunnerId="AndroidDebugRunner" />
-      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
       <method />
     </configuration>
     <list size="1">
@@ -2052,553 +997,57 @@
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SliceManager">
-    <option name="analysisUIOptions">
-      <AnalysisUIOptions />
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1d3243b6-1422-43db-8354-9f894294cd59" name="Default" comment="" />
-      <created>1415055352481</created>
-      <updated>1415055352481</updated>
+      <changelist id="e603ae94-6d44-4884-a17f-45783c2ac51e" name="Default" comment="" />
+      <created>1428263488634</created>
+      <option name="number" value="Default" />
+      <updated>1428263488634</updated>
     </task>
-    <task id="LOCAL-00001" summary="Spatial improvements on the UI; Scheduled messages display as cards">
-      <created>1415079238038</created>
-      <updated>1415079238038</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TodoView" selected-index="0">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1354" y="-4" width="1932" height="1058" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2454739" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32772166" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659933" sideWeight="0.17684887" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325477" sideWeight="0.20234291" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15487674" sideWeight="0.5016835" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3237569" sideWeight="0.5745474" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2121547" sideWeight="0.8434505" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23170732" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.49917355" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1544196" sideWeight="0.4983165" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32596686" sideWeight="0.8231511" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.66739607" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293979" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17891374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32596686" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29711753" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22209945" sideWeight="0.15654951" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13844515" sideWeight="0.50163937" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32596686" sideWeight="0.20234291" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23170732" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.157082" sideWeight="0.49836066" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32707182" sideWeight="0.8232162" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.66739607" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281768" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2944622" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32596686" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32486188" sideWeight="0.5747312" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22209945" sideWeight="0.8434505" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.49917355" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29711753" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
-  </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
-    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_NEW_TODO" value="false" />
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
-    </option>
-    <MESSAGE value="Spatial improvements on the UI; Scheduled messages display as cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spatial improvements on the UI; Scheduled messages display as cards" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/message_form.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2946" max-vertical-offset="4212">
-          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="6642">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#3219:3818" expanded="false" />
-            <element signature="method#onProgressChanged#0;class#3219:3818" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="774">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1368">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-          <folding>
-            <element signature="e#539#557#0" expanded="true" />
-            <element signature="e#759#796#0" expanded="true" />
-            <element signature="e#913#951#0" expanded="true" />
-            <element signature="e#1068#1086#0" expanded="true" />
-            <element signature="e#1404#1440#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Source/Android/sources/android-21/android/widget/LinearLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323442" vertical-offset="32464" max-vertical-offset="33426">
-          <caret line="1891" column="15" selection-start-line="1891" selection-start-column="15" selection-end-line="1891" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.directory">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10682493" vertical-offset="0" max-vertical-offset="674">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Source/Android/sources/android-21/android/widget/SimpleCursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53061223" vertical-offset="270" max-vertical-offset="7146">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Source/Android/sources/android-21/android/view/LayoutInflater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="2982" max-vertical-offset="17658">
-          <caret line="217" column="33" selection-start-line="217" selection-start-column="33" selection-end-line="217" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Source/Android/sources/android-21/android/widget/CursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918" vertical-offset="7222" max-vertical-offset="8100">
-          <caret line="443" column="19" selection-start-line="443" selection-start-column="19" selection-end-line="443" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1024735" vertical-offset="6" max-vertical-offset="1116">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_active_nudges_list.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.230769" vertical-offset="0" max-vertical-offset="432">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="878">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proguard-project.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="878">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="216">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-core-2.2.1.jar!/org/gradle/api/artifacts/dsl/RepositoryHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.485348" vertical-offset="59" max-vertical-offset="630">
-          <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/active_nudge_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40140846" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/ic_add_white_18dp.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/menu_message_form.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43373495" vertical-offset="0" max-vertical-offset="664">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/menu_active_nudges.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
-          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Source/Android/sources/android-21/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33233532" vertical-offset="281928" max-vertical-offset="368352">
-          <caret line="16080" column="16" selection-start-line="16080" selection-start-column="16" selection-end-line="16080" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9451115" vertical-offset="0" max-vertical-offset="2232">
-          <caret line="71" column="67" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/NudgeMessagesContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33962265" vertical-offset="0" max-vertical-offset="583">
-          <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2161235" vertical-offset="108" max-vertical-offset="756">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47512865" vertical-offset="65" max-vertical-offset="756">
-          <caret line="31" column="87" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89536875" vertical-offset="0" max-vertical-offset="900">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89536875" vertical-offset="0" max-vertical-offset="1584">
-          <caret line="44" column="96" selection-start-line="44" selection-start-column="96" selection-end-line="44" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-v21/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37049744" vertical-offset="0" max-vertical-offset="583">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/SplashScreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_splash_screen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="648">
-          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Source/Android/sources/android-21/android/widget/ScrollView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323398" vertical-offset="27947" max-vertical-offset="31662">
-          <caret line="1618" column="16" selection-start-line="1618" selection-start-column="16" selection-end-line="1618" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_about_nudge.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11162791" vertical-offset="0" max-vertical-offset="645">
-          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_message_form.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="306">
-          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/classes.jar!/com/getbase/floatingactionbutton/FloatingActionButton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1926041" vertical-offset="864" max-vertical-offset="2196">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.9.0/classes.jar!/com/getbase/floatingactionbutton/AddFloatingActionButton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13867489" vertical-offset="0" max-vertical-offset="649">
-          <caret line="6" column="90" selection-start-line="6" selection-start-column="90" selection-end-line="6" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/ActiveNudgesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45400593" vertical-offset="0" max-vertical-offset="1998">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="548">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66765577" vertical-offset="0" max-vertical-offset="674">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-w820dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="713">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/ic_delete_grey.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/ic_delete_grey.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.082004555" vertical-offset="0" max-vertical-offset="878">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_active_nudges.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2746479" vertical-offset="0" max-vertical-offset="852">
-          <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
-          <folding>
-            <element signature="e#685#718#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.123006836" vertical-offset="0" max-vertical-offset="1188">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding>
-            <element signature="e#539#557#0" expanded="true" />
-            <element signature="e#759#796#0" expanded="true" />
-            <element signature="e#913#951#0" expanded="true" />
-            <element signature="e#1068#1086#0" expanded="true" />
-            <element signature="e#1404#1440#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10250569" vertical-offset="0" max-vertical-offset="1152">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8441755" vertical-offset="0" max-vertical-offset="828">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/message_form.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6636364" vertical-offset="2946" max-vertical-offset="4212">
-          <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/MessageHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1494">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.606414" vertical-offset="1708" max-vertical-offset="6228">
-          <caret line="141" column="17" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#3219:3818" expanded="false" />
-            <element signature="method#onProgressChanged#0;class#3219:3818" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <watches-manager />
   </component>
 </project>
-
