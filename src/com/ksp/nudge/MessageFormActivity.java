@@ -14,11 +14,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -41,6 +44,7 @@ public class MessageFormActivity extends ActionBarActivity {
     private String contactNumber = "";
     private String contactRecipientInfo = "";
     protected Calendar currentSendDate = Calendar.getInstance();
+    private SparseArray<int[]> showcaseViewData = new SparseArray<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,28 +69,8 @@ public class MessageFormActivity extends ActionBarActivity {
                 (this.currentSendDate.get(Calendar.MONTH) + 1) + "/" +
                 this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
                 this.currentSendDate.get(Calendar.YEAR));
-        final ScrollView scrollView = (ScrollView) findViewById(R.id.formActivityId);
-        scrollView.getViewTreeObserver()
-                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        Log.i("New Layout Height: ", Integer.toString(scrollView.getHeight()));
-                        scrollView.smoothScrollTo(0,(int) findViewById(R.id.frequencyBarLabel).getY());
-                    }
-                });
-        ((SeekBar) findViewById(R.id.frequencyBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                TextView progressBarLabel = (TextView) findViewById(R.id.frequencyBarLabel);
-                String[] frequencies = getResources().getStringArray(R.array.frequencyArray);
-                progressBarLabel.setText(frequencies[progress]);
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-        displayContactShowcaseView();
+        initializeListeners();
+        initializeShowcaseViews();
     }
 
     @Override
@@ -94,10 +78,11 @@ public class MessageFormActivity extends ActionBarActivity {
         int id = item.getItemId();
         switch(id){
             case R.id.action_discard:
-                this.changeToActiveNudges(false);
+                Toast.makeText(this, "Message discarded!", Toast.LENGTH_SHORT).show();
+                changeActivity(ActiveNudgesActivity.class);
                 break;
             case R.id.action_save:
-                this.changeToActiveNudges(true);
+                this.saveMessage();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -117,40 +102,123 @@ public class MessageFormActivity extends ActionBarActivity {
         return true;
     }
 
-    /**
-     * Changes to Active Reminders activity. May save message form data
-     * depending on how the method was triggered
-     * @param saveMessage, if the data in the message for should be saved
-     */
-    protected void changeToActiveNudges(boolean saveMessage) {
-        try{
-            if (saveMessage){
+    private void initializeListeners() {
+        final ScrollView scrollView = (ScrollView) findViewById(R.id.formActivityId);
+        scrollView.getViewTreeObserver()
+                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        Log.i("New Layout Height: ", Integer.toString(scrollView.getHeight()));
+                        scrollView.smoothScrollTo(0, (int) findViewById(R.id.frequencyBarLabel).getY());
+                    }
+                });
+        ((SeekBar) findViewById(R.id.frequencyBar))
+                .setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        TextView progressBarLabel = (TextView) findViewById(R.id.frequencyBarLabel);
+                        String[] frequencies = getResources().getStringArray(R.array.frequencyArray);
+                        progressBarLabel.setText(frequencies[progress]);
+                    }
 
-                if (contactRecipientInfo.equals("")){
-                    throw new Exception();
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+                });
+        ((CheckBox) findViewById(R.id.customContactCheckBox))
+                .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    findViewById(R.id.chooseContactButton).setVisibility(View.GONE);
+                    findViewById(R.id.customNumberField).setVisibility(View.VISIBLE);
+                } else{
+                    findViewById(R.id.chooseContactButton).setVisibility(View.VISIBLE);
+                    findViewById(R.id.customNumberField).setVisibility(View.GONE);
                 }
-                String message = ((EditText) findViewById(R.id.msgText)).getEditableText().toString();
-                String frequency =((TextView) findViewById(R.id.frequencyBarLabel)).getText()
-                        .toString();
+            }
+        });
+    }
 
-                Log.i("Saving Message", new NudgeDatabaseHelper(this).
-                        writeMessageToDb(contactRecipientInfo, contactNumber, message,
-                                MessageHandler.getNextSend(this.currentSendDate, frequency, this),
-                                frequency));
-                Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                Toast.makeText(this, "Message discarded!", Toast.LENGTH_SHORT).show();
-            }
-            changeActivity(ActiveNudgesActivity.class);
+    private void initializeShowcaseViews() {
+        int[] contactShowcaseData = new int[]{R.string.choose_recipient_instruction_title,
+                R.string.choose_recipient_instruction_text,R.id.chooseDateButton};
+        int[] dateShowcaseData = new int[]{R.string.choose_send_datetime_instruction_title,
+                R.string.choose_send_datetime_instruction_text,-1};
+        showcaseViewData.put(R.id.chooseContactButton,contactShowcaseData);
+        showcaseViewData.put(R.id.chooseDateButton, dateShowcaseData);
+        displayShowcaseView(R.id.chooseContactButton, showcaseViewData.get(R.id.chooseContactButton));
+    }
+
+    private void displayShowcaseView(int target, final int[] showcaseData){
+        ShowcaseView contactShowcaseView = new ShowcaseView.Builder(this)
+                .setTarget(new ViewTarget(target, this))
+                .setContentTitle(showcaseData[0])
+                .setContentText(showcaseData[1])
+                .singleShot(target)
+                .setShowcaseEventListener(new OnShowcaseEventListener() {
+                    @Override
+                    public void onShowcaseViewHide(ShowcaseView showcaseView) {}
+                    @Override
+                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+                        showcaseView.setVisibility(View.GONE);
+                        if (showcaseData[2] != -1) {
+                            displayShowcaseView(showcaseData[2], showcaseViewData.get(showcaseData[2]));
+                        }
+                    }
+                    @Override
+                    public void onShowcaseViewShow(ShowcaseView showcaseView) {}
+                })
+                .build();
+        contactShowcaseView.setHideOnTouchOutside(true);
+        contactShowcaseView.hideButton();
+        contactShowcaseView.setStyle(R.style.ShowcaseViewDark);
+    }
+
+    /**
+     * Save message into database and return to the ActiveNudges activity
+     */
+    protected void saveMessage() {
+        if(((CheckBox) findViewById(R.id.customContactCheckBox)).isChecked()){
+            EditText customNumberField = (EditText) findViewById(R.id.customNumberField);
+            contactRecipientInfo = customNumberField.getText().toString();
+            contactNumber = customNumberField.getText().toString();
         }
-        catch(Exception e){
+        try{
+            if (contactRecipientInfo.equals("")){
+                throw new Exception();
+            }
+            String message = ((EditText) findViewById(R.id.msgText)).getEditableText().toString();
+            String frequency =((TextView) findViewById(R.id.frequencyBarLabel)).getText()
+                    .toString();
+
+            Log.i("Saving Message", new NudgeDatabaseHelper(this).
+                    writeMessageToDb(contactRecipientInfo, contactNumber, message,
+                            MessageHandler.getNextSend(this.currentSendDate, frequency, this),
+                            frequency));
+            Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
+            changeActivity(ActiveNudgesActivity.class);
+        }catch(Exception e){
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
         }
     }
 
     /**
-     * Starts an activity that allows the user to select a contact to send a 
+     *
+     * @param activityClass, the activity to be changed to
+     */
+    private void changeActivity(Class<?> activityClass){
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * Starts an activity that allows the user to select a contact to send a
      * message to
      */
     public void getContact() {
@@ -160,9 +228,9 @@ public class MessageFormActivity extends ActionBarActivity {
     }
 
     /*
-     * Handles information about the contact selected as a result of the 
+     * Handles information about the contact selected as a result of the
      * getContact() method
-     * 
+     *
      * (non-Javadoc)
      * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
      */
@@ -196,80 +264,6 @@ public class MessageFormActivity extends ActionBarActivity {
             }
             cursor.close();
         }
-    }
-
-    /**
-     * Displays the ShowcaseView to show instructions on first launch
-     */
-    private void displayContactShowcaseView(){
-        ShowcaseView contactShowcaseView = new ShowcaseView.Builder(this)
-                .setTarget(new ViewTarget(R.id.chooseContactButton, this))
-                .setContentTitle(R.string.choose_recipient_instruction_title)
-                .setContentText(R.string.choose_recipient_instruction_text)
-                .singleShot(R.id.chooseContactButton)
-                .setShowcaseEventListener(new OnShowcaseEventListener() {
-                    @Override
-                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
-
-                    }
-
-                    @Override
-                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-                        showcaseView.setVisibility(View.GONE);
-                        displayDateTimeShowcaseView();
-                    }
-
-                    @Override
-                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
-
-                    }
-                })
-                .build();
-        contactShowcaseView.setHideOnTouchOutside(true);
-        contactShowcaseView.hideButton();
-        contactShowcaseView.setStyle(R.style.ShowcaseViewDark);
-
-    }
-
-    /**
-     * Displays the ShowcaseView to show instructions on first launch
-     */
-    private void displayDateTimeShowcaseView(){
-        ShowcaseView dateShowcaseView =new ShowcaseView.Builder(this)
-                .setTarget(new ViewTarget(R.id.chooseDateButton,this))
-                .setContentTitle(R.string.choose_send_datetime_instruction_title)
-                .setContentText(R.string.choose_send_datetime_instruction_text)
-                .singleShot(R.id.chooseDateButton)
-                .setShowcaseEventListener(new OnShowcaseEventListener() {
-                    @Override
-                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
-
-                    }
-
-                    @Override
-                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-                        showcaseView.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
-
-                    }
-                })
-                .build();
-        dateShowcaseView.setHideOnTouchOutside(true);
-        dateShowcaseView.hideButton();
-        dateShowcaseView.setStyle(R.style.ShowcaseViewDark);
-    }
-
-    /**
-     *
-     * @param activityClass, the activity to be changed to
-     */
-    private void changeActivity(Class<?> activityClass){
-        Intent intent = new Intent(this, activityClass);
-        startActivity(intent);
-        finish();
     }
 
     public void showTimePickerDialog(View v) {
@@ -353,7 +347,6 @@ public class MessageFormActivity extends ActionBarActivity {
             currentActivity.currentSendDate.set(Calendar.MONTH, monthOfYear);
             currentActivity.currentSendDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             currentActivity.currentSendDate.set(Calendar.YEAR, year);
-
             TextView chooseDateText = (TextView) currentActivity.findViewById(R.id.chooseDateText);
             chooseDateText.setText("Edit Current Send Date: " + (monthOfYear + 1)
                     + "/" + dayOfMonth + "/" + year);
