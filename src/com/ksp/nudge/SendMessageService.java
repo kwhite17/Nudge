@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.ksp.database.MessageHandler;
+import com.ksp.message.MessageHandler;
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 

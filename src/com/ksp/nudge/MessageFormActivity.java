@@ -12,6 +12,8 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.SparseArray;
@@ -20,8 +22,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -33,7 +33,8 @@ import android.widget.Toast;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
-import com.ksp.database.MessageHandler;
+import com.ksp.message.Message;
+import com.ksp.message.MessageHandler;
 import com.ksp.database.NudgeDatabaseHelper;
 
 import java.text.SimpleDateFormat;
@@ -41,8 +42,7 @@ import java.util.Calendar;
 
 public class MessageFormActivity extends ActionBarActivity {
     private static final int REQUEST_CONTACTS = 1;
-    private String contactNumber = "";
-    private String contactRecipientInfo = "";
+    private Message nudge = new Message();
     protected Calendar currentSendDate = Calendar.getInstance();
     private SparseArray<int[]> showcaseViewData = new SparseArray<>();
 
@@ -118,6 +118,7 @@ public class MessageFormActivity extends ActionBarActivity {
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         TextView progressBarLabel = (TextView) findViewById(R.id.frequencyBarLabel);
                         String[] frequencies = getResources().getStringArray(R.array.frequencyArray);
+                        nudge.setFrequency(frequencies[progress]);
                         progressBarLabel.setText(frequencies[progress]);
                     }
 
@@ -129,17 +130,18 @@ public class MessageFormActivity extends ActionBarActivity {
                     public void onStopTrackingTouch(SeekBar seekBar) {
                     }
                 });
-        ((CheckBox) findViewById(R.id.customContactCheckBox))
-                .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        ((EditText) findViewById(R.id.messageTextField)).addTextChangedListener(new TextWatcher() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    findViewById(R.id.chooseContactButton).setVisibility(View.GONE);
-                    findViewById(R.id.customNumberField).setVisibility(View.VISIBLE);
-                } else{
-                    findViewById(R.id.chooseContactButton).setVisibility(View.VISIBLE);
-                    findViewById(R.id.customNumberField).setVisibility(View.GONE);
-                }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                nudge.setMessage(s.toString());
             }
         });
     }
@@ -149,7 +151,7 @@ public class MessageFormActivity extends ActionBarActivity {
                 R.string.choose_recipient_instruction_text,R.id.chooseDateButton};
         int[] dateShowcaseData = new int[]{R.string.choose_send_datetime_instruction_title,
                 R.string.choose_send_datetime_instruction_text,-1};
-        showcaseViewData.put(R.id.chooseContactButton,contactShowcaseData);
+        showcaseViewData.put(R.id.chooseContactButton, contactShowcaseData);
         showcaseViewData.put(R.id.chooseDateButton, dateShowcaseData);
         displayShowcaseView(R.id.chooseContactButton, showcaseViewData.get(R.id.chooseContactButton));
     }
@@ -183,27 +185,14 @@ public class MessageFormActivity extends ActionBarActivity {
      * Save message into database and return to the ActiveNudges activity
      */
     protected void saveMessage() {
-        if(((CheckBox) findViewById(R.id.customContactCheckBox)).isChecked()){
-            EditText customNumberField = (EditText) findViewById(R.id.customNumberField);
-            contactRecipientInfo = customNumberField.getText().toString();
-            contactNumber = customNumberField.getText().toString();
-        }
-        try{
-            if (contactRecipientInfo.equals("")){
-                throw new Exception();
-            }
-            String message = ((EditText) findViewById(R.id.msgText)).getEditableText().toString();
-            String frequency =((TextView) findViewById(R.id.frequencyBarLabel)).getText()
-                    .toString();
-
+        if (nudge.isFilled() && currentSendDate != null) {
             Log.i("Saving Message", new NudgeDatabaseHelper(this).
-                    writeMessageToDb(contactRecipientInfo, contactNumber, message,
-                            MessageHandler.getNextSend(this.currentSendDate, frequency, this),
-                            frequency));
+                    writeMessageToDatabase(nudge, MessageHandler.getNextSend(this.currentSendDate,
+                            nudge.getFrequency(), this)));
             Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             changeActivity(ActiveNudgesActivity.class);
-        }catch(Exception e){
-            Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
+        } else{
+            Toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -255,11 +244,10 @@ public class MessageFormActivity extends ActionBarActivity {
                 String contactNumberType = " (".concat((String) Phone.getTypeLabel(this.getResources(),cursor
                         .getInt(cursor.getColumnIndex(Phone.TYPE)),"")).concat( ")");
                 String contactName = cursor.getString(contactNameIndex);
-                contactRecipientInfo = contactName.concat(contactNumberType);
-                contactNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
-
+                nudge.setRecipientInfo(contactName.concat(contactNumberType));
+                nudge.setRecipientNumber(cursor.getString(cursor.getColumnIndex(Phone.NUMBER)));
                 ((TextView) this.findViewById(R.id.chooseContactText)).
-                        setText("Change Contact: ".concat(contactRecipientInfo));
+                        setText("Change Contact: ".concat(nudge.getRecipientInfo()));
 
             }
             cursor.close();

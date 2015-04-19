@@ -23,10 +23,10 @@ public final class R {
 	public static final class dimen {
 		public static final int action_bar_offset = 0x7f08002a;
 		public static final int button_margin = 0x7f08002d;
-		public static final int showcase_radius = 0x7f080041;
-		public static final int showcase_radius_inner = 0x7f080042;
-		public static final int showcase_radius_outer = 0x7f080043;
-		public static final int text_padding = 0x7f080044;
+		public static final int showcase_radius = 0x7f080042;
+		public static final int showcase_radius_inner = 0x7f080043;
+		public static final int showcase_radius_outer = 0x7f080044;
+		public static final int text_padding = 0x7f080045;
 	}
 	public static final class drawable {
 		public static final int btn_cling_normal = 0x7f020037;

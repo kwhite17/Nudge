@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
+import com.ksp.message.Message;
+import com.ksp.message.MessageHandler;
 
 public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
@@ -26,7 +28,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + NudgeMessageEntry.TABLE_NAME;
 
     public NudgeDatabaseHelper(Context context){
-        super(context,DATABASE_NAME,null,DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public void onCreate(SQLiteDatabase db) {
@@ -46,23 +48,19 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     
     /**
      * Writes the contents of a message to the database
-     * @param name, the name of the message recipient
-     * @param number, the number of the message recipient
-     * @param msg, the contents of the message
+     * @param nudge, the contents of the message and how often it should be sent
      * @param time, what time the message will be sent
-     * @param frequency, how often the message should be sent
      * @return whether or not message insertion was successful
      */
-    public String writeMessageToDb(String name, String number, String msg, String time,
-                                   String frequency) {
+    public String writeMessageToDatabase(Message nudge, String time) {
 
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues rowValues = new ContentValues();
-        rowValues.put(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER, number);
-        rowValues.put(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME, name);
+        rowValues.put(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER, nudge.getRecipientNumber());
+        rowValues.put(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME, nudge.getRecipientInfo());
         rowValues.put(NudgeMessageEntry.COLUMN_NAME_SEND_TIME, time);
-        rowValues.put(NudgeMessageEntry.COLUMN_NAME_MESSAGE, msg);
-        rowValues.put(NudgeMessageEntry.COLUMN_NAME_FREQUENCY, frequency);
+        rowValues.put(NudgeMessageEntry.COLUMN_NAME_MESSAGE, nudge.getMessage());
+        rowValues.put(NudgeMessageEntry.COLUMN_NAME_FREQUENCY, nudge.getFrequency());
         long insertId = database.insert(NudgeMessageEntry.TABLE_NAME, null, rowValues);
         return (insertId == -1) ? "Insertion failed": "Insertion successful";
     }

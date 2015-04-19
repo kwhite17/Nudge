@@ -20,32 +20,17 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:layout_row="0" />
 
-    <GridLayout
-        android:id="@+id/contactLayout"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_column="0"
-        android:layout_row="1"
-        android:rowCount="1"
-        android:columnCount="2">
 
-        <CheckBox
-            android:id="@+id/customContactCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Manual Entry"
-            android:layout_row="0"
-            android:layout_column="0" />
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/chooseContactButton"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
+            android:layout_height="@dimen/raised_button_height"
+            android:layout_width="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_columnSpan="1"
-            android:layout_row="0"
-            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_column="0"
 
             card_view:cardElevation="@dimen/cardview_default_elevation"
             card_view:cardCornerRadius="@dimen/cardview_default_radius"
@@ -63,17 +48,6 @@
 
         </android.support.v7.widget.CardView>
 
-        <EditText
-            android:id="@+id/customNumberField"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:visibility="gone"
-            android:ems="10"
-            android:inputType="phone"/>
-
-    </GridLayout>
 
     <TextView
         android:id="@+id/whenTextView"
@@ -90,7 +64,7 @@
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/chooseDateButton"
-        android:layout_height="36dp"
+        android:layout_height="@dimen/raised_button_height"
         android:layout_width="match_parent"
         android:layout_column="0"
         android:layout_columnSpan="1"
@@ -114,7 +88,7 @@
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/chooseTimeButton"
-        android:layout_height="36dp"
+        android:layout_height="@dimen/raised_button_height"
         android:layout_width="match_parent"
         android:layout_column="0"
         android:layout_columnSpan="1"
@@ -147,7 +121,7 @@
         android:layout_row="5" />
 
     <EditText
-        android:id="@+id/msgText"
+        android:id="@+id/messageTextField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

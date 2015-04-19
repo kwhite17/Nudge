@@ -196,6 +196,9 @@
     <dimen name="fab_size_mini">40dp</dimen>
     <dimen name="fab_size_normal">56dp</dimen>
     <dimen name="fab_stroke_width">1dp</dimen>
+    <!-- From: file:/home/kevin/Development/git/Nudge/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="raised_button_height">36dp</dimen>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="showcase_radius">94dp</dimen>
