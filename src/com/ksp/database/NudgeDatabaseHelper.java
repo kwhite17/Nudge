@@ -78,9 +78,8 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
                 NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME
         };
         String sortOrder = NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME + " DESC";
-        Cursor databaseCursor = database.query(NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME,
+        return database.query(NudgeMessageEntry.TABLE_NAME,
                 databaseColumns, null, null, null, null, sortOrder);
-        return databaseCursor;
     }
 
     /**

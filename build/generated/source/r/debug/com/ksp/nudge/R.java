@@ -1655,14 +1655,11 @@ containing a value of this type.
         public static final int fab_bg_normal=0x7f02003f;
         public static final int hand=0x7f020040;
         public static final int ic_action_edit=0x7f020041;
-        public static final int ic_add_white_18dp=0x7f020042;
-        public static final int ic_add_white_24dp=0x7f020043;
-        public static final int ic_delete_grey=0x7f020044;
-        public static final int ic_delete_white=0x7f020045;
-        public static final int ic_launcher=0x7f020046;
-        public static final int ic_save_white=0x7f020047;
-        public static final int nudge_icon=0x7f020048;
-        public static final int nudge_splash_graphic=0x7f020049;
+        public static final int ic_delete_grey=0x7f020042;
+        public static final int ic_delete_white=0x7f020043;
+        public static final int ic_save_white=0x7f020044;
+        public static final int nudge_logo=0x7f020045;
+        public static final int nudge_splash=0x7f020046;
     }
     public static final class id {
         public static final int action_bar=0x7f09003a;
@@ -1686,12 +1683,12 @@ containing a value of this type.
         public static final int always=0x7f09001f;
         public static final int beginning=0x7f09001c;
         public static final int checkbox=0x7f090032;
-        public static final int chooseContactButton=0x7f090053;
-        public static final int chooseContactText=0x7f090054;
-        public static final int chooseDateButton=0x7f090056;
-        public static final int chooseDateText=0x7f090057;
-        public static final int chooseTimeButton=0x7f090058;
-        public static final int chooseTimeText=0x7f090059;
+        public static final int chooseContactButton=0x7f090054;
+        public static final int chooseContactText=0x7f090053;
+        public static final int chooseDateButton=0x7f090057;
+        public static final int chooseDateText=0x7f090056;
+        public static final int chooseTimeButton=0x7f090059;
+        public static final int chooseTimeText=0x7f090058;
         public static final int collapseActionView=0x7f090020;
         public static final int decor_content_parent=0x7f090038;
         public static final int default_activity_button=0x7f09002d;
@@ -1833,20 +1830,23 @@ containing a value of this type.
         public static final int choose_send_datetime_instruction_text=0x7f0b0015;
         public static final int choose_send_datetime_instruction_title=0x7f0b0016;
         public static final int contact_button_text=0x7f0b0017;
-        public static final int developer_donation_text=0x7f0b0018;
-        public static final int frequency_instruction=0x7f0b0019;
-        public static final int instruction_message=0x7f0b001a;
-        public static final int new_nudge_instruction_text=0x7f0b001b;
-        public static final int ok=0x7f0b001c;
-        public static final int subtitle_donate_to_artist=0x7f0b001d;
-        public static final int subtitle_donate_to_developer=0x7f0b001e;
-        public static final int title_activity_about_nudge=0x7f0b001f;
-        public static final int title_activity_active_nudges=0x7f0b0020;
-        public static final int title_activity_message_form=0x7f0b0021;
-        public static final int title_activity_splash_screen=0x7f0b0022;
-        public static final int what_instruction=0x7f0b0023;
-        public static final int when_instruction=0x7f0b0024;
-        public static final int who_instruction=0x7f0b0025;
+        public static final int date_button_text=0x7f0b0018;
+        public static final int default_frequency_text=0x7f0b0019;
+        public static final int developer_donation_text=0x7f0b001a;
+        public static final int frequency_instruction=0x7f0b001b;
+        public static final int instruction_message=0x7f0b001c;
+        public static final int new_nudge_instruction_text=0x7f0b001d;
+        public static final int no_selection_text=0x7f0b001e;
+        public static final int ok=0x7f0b001f;
+        public static final int subtitle_donate_to_artist=0x7f0b0020;
+        public static final int subtitle_donate_to_developer=0x7f0b0021;
+        public static final int time_button_text=0x7f0b0022;
+        public static final int title_activity_about_nudge=0x7f0b0023;
+        public static final int title_activity_active_nudges=0x7f0b0024;
+        public static final int title_activity_message_form=0x7f0b0025;
+        public static final int what_instruction=0x7f0b0026;
+        public static final int when_instruction=0x7f0b0027;
+        public static final int who_instruction=0x7f0b0028;
     }
     public static final class style {
         public static final int ActionBarStyle=0x7f0c0000;

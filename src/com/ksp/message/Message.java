@@ -1,7 +1,5 @@
 package com.ksp.message;
 
-import java.util.Calendar;
-
 /**
  * Created by kevin on 4/18/15.
  */

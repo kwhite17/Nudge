@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
@@ -56,14 +55,6 @@ public class ActiveNudgesActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     protected void onRestart() {
         super.onRestart();
         changeActivity(this.getClass());
@@ -96,8 +87,7 @@ public class ActiveNudgesActivity extends ActionBarActivity {
         @Override
         protected Cursor doInBackground(Context... contexts) {
             NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(contexts[0]);
-            Cursor databaseCursor = databaseHelper.readMessagesFromDatabase();
-            return databaseCursor;
+            return databaseHelper.readMessagesFromDatabase();
         }
 
         protected void onPostExecute(Cursor result){

@@ -43,7 +43,7 @@ import java.util.Calendar;
 public class MessageFormActivity extends ActionBarActivity {
     private static final int REQUEST_CONTACTS = 1;
     private Message nudge = new Message();
-    protected Calendar currentSendDate = Calendar.getInstance();
+    private Calendar currentSendDate = Calendar.getInstance();
     private SparseArray<int[]> showcaseViewData = new SparseArray<>();
 
     @Override
@@ -51,24 +51,12 @@ public class MessageFormActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
 
-        CardView chooseContactButton = (CardView) findViewById(R.id.chooseContactButton);
-        TextView chooseTimeText = (TextView) findViewById(R.id.chooseTimeText);
-        TextView chooseDateText = (TextView) findViewById(R.id.chooseDateText);
         String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
                 .format(this.currentSendDate.getTime());
-        chooseContactButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getContact();
-            }
-
-        });
-        chooseTimeText.setText("Select a Time: " + timeString);
-        chooseDateText.setText("Select a Date: " +
-                (this.currentSendDate.get(Calendar.MONTH) + 1) + "/" +
-                this.currentSendDate.get(Calendar.DAY_OF_MONTH) + "/" +
-                this.currentSendDate.get(Calendar.YEAR));
+        String dateString = SimpleDateFormat.getDateInstance(java.text.DateFormat.SHORT)
+                .format(this.currentSendDate.getTime());
+        ((TextView) findViewById(R.id.chooseTimeText)).setText(timeString);
+        ((TextView) findViewById(R.id.chooseDateText)).setText(dateString);
         initializeListeners();
         initializeShowcaseViews();
     }
@@ -76,7 +64,7 @@ public class MessageFormActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch(id){
+        switch (id) {
             case R.id.action_discard:
                 Toast.makeText(this, "Message discarded!", Toast.LENGTH_SHORT).show();
                 changeActivity(ActiveNudgesActivity.class);
@@ -92,7 +80,7 @@ public class MessageFormActivity extends ActionBarActivity {
      * Returns to the main activity
      */
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         changeActivity(ActiveNudgesActivity.class);
     }
 
@@ -148,15 +136,15 @@ public class MessageFormActivity extends ActionBarActivity {
 
     private void initializeShowcaseViews() {
         int[] contactShowcaseData = new int[]{R.string.choose_recipient_instruction_title,
-                R.string.choose_recipient_instruction_text,R.id.chooseDateButton};
+                R.string.choose_recipient_instruction_text, R.id.chooseDateButton};
         int[] dateShowcaseData = new int[]{R.string.choose_send_datetime_instruction_title,
-                R.string.choose_send_datetime_instruction_text,-1};
+                R.string.choose_send_datetime_instruction_text, -1};
         showcaseViewData.put(R.id.chooseContactButton, contactShowcaseData);
         showcaseViewData.put(R.id.chooseDateButton, dateShowcaseData);
         displayShowcaseView(R.id.chooseContactButton, showcaseViewData.get(R.id.chooseContactButton));
     }
 
-    private void displayShowcaseView(int target, final int[] showcaseData){
+    private void displayShowcaseView(int target, final int[] showcaseData) {
         ShowcaseView contactShowcaseView = new ShowcaseView.Builder(this)
                 .setTarget(new ViewTarget(target, this))
                 .setContentTitle(showcaseData[0])
@@ -164,7 +152,9 @@ public class MessageFormActivity extends ActionBarActivity {
                 .singleShot(target)
                 .setShowcaseEventListener(new OnShowcaseEventListener() {
                     @Override
-                    public void onShowcaseViewHide(ShowcaseView showcaseView) {}
+                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
+                    }
+
                     @Override
                     public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
                         showcaseView.setVisibility(View.GONE);
@@ -172,8 +162,10 @@ public class MessageFormActivity extends ActionBarActivity {
                             displayShowcaseView(showcaseData[2], showcaseViewData.get(showcaseData[2]));
                         }
                     }
+
                     @Override
-                    public void onShowcaseViewShow(ShowcaseView showcaseView) {}
+                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
+                    }
                 })
                 .build();
         contactShowcaseView.setHideOnTouchOutside(true);
@@ -184,23 +176,22 @@ public class MessageFormActivity extends ActionBarActivity {
     /**
      * Save message into database and return to the ActiveNudges activity
      */
-    protected void saveMessage() {
+    private void saveMessage() {
         if (nudge.isFilled() && currentSendDate != null) {
             Log.i("Saving Message", new NudgeDatabaseHelper(this).
                     writeMessageToDatabase(nudge, MessageHandler.getNextSend(this.currentSendDate,
                             nudge.getFrequency(), this)));
             Toast.makeText(this, "Message saved!", Toast.LENGTH_SHORT).show();
             changeActivity(ActiveNudgesActivity.class);
-        } else{
+        } else {
             Toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }
     }
 
     /**
-     *
      * @param activityClass, the activity to be changed to
      */
-    private void changeActivity(Class<?> activityClass){
+    private void changeActivity(Class<?> activityClass) {
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);
         finish();
@@ -210,7 +201,7 @@ public class MessageFormActivity extends ActionBarActivity {
      * Starts an activity that allows the user to select a contact to send a
      * message to
      */
-    public void getContact() {
+    public void getContact(View v) {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
         startActivityForResult(intent, REQUEST_CONTACTS);
@@ -224,30 +215,29 @@ public class MessageFormActivity extends ActionBarActivity {
      * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
      */
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Uri result = null;
-        try{
+        try {
             result = data.getData();
-        } catch(RuntimeException e){
+        } catch (RuntimeException e) {
             Log.i("ContactSelection", "User backed out of contacts.");
         }
 
-        if (result != null){
+        if (result != null) {
             String id = result.getLastPathSegment();
             Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,
                     Phone._ID + " = ?",
-                    new String[] {id}, null);
-            int contactNameIndex= cursor.getColumnIndex(Phone.DISPLAY_NAME);
+                    new String[]{id}, null);
+            int contactNameIndex = cursor.getColumnIndex(Phone.DISPLAY_NAME);
 
-            if (cursor.moveToFirst())
-            {
-                String contactNumberType = " (".concat((String) Phone.getTypeLabel(this.getResources(),cursor
-                        .getInt(cursor.getColumnIndex(Phone.TYPE)),"")).concat( ")");
+            if (cursor.moveToFirst()) {
+                String contactNumberType = " (".concat((String) Phone.getTypeLabel(this.getResources(), cursor
+                        .getInt(cursor.getColumnIndex(Phone.TYPE)), "")).concat(")");
                 String contactName = cursor.getString(contactNameIndex);
                 nudge.setRecipientInfo(contactName.concat(contactNumberType));
                 nudge.setRecipientNumber(cursor.getString(cursor.getColumnIndex(Phone.NUMBER)));
                 ((TextView) this.findViewById(R.id.chooseContactText)).
-                        setText("Change Contact: ".concat(nudge.getRecipientInfo()));
+                        setText(nudge.getRecipientInfo());
 
             }
             cursor.close();
@@ -265,7 +255,7 @@ public class MessageFormActivity extends ActionBarActivity {
     }
 
     public static class TimePickerFragment extends DialogFragment
-            implements TimePickerDialog.OnTimeSetListener{
+            implements TimePickerDialog.OnTimeSetListener {
 
         /*
          * (non-Javadoc)
@@ -292,13 +282,12 @@ public class MessageFormActivity extends ActionBarActivity {
          */
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            MessageFormActivity currentActivity = (MessageFormActivity)this.getActivity();
+            MessageFormActivity currentActivity = (MessageFormActivity) this.getActivity();
             currentActivity.currentSendDate.set(Calendar.HOUR_OF_DAY, hourOfDay);
             currentActivity.currentSendDate.set(Calendar.MINUTE, minute);
             String timeString = SimpleDateFormat.getTimeInstance(java.text.DateFormat.SHORT)
                     .format(currentActivity.currentSendDate.getTime());
-            TextView chooseTimeText = (TextView) currentActivity.findViewById(R.id.chooseTimeText);
-            chooseTimeText.setText("Edit Current Send Time: " + timeString);
+            ((TextView) currentActivity.findViewById(R.id.chooseTimeText)).setText(timeString);
         }
     }
 
@@ -331,14 +320,13 @@ public class MessageFormActivity extends ActionBarActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
-            MessageFormActivity currentActivity = (MessageFormActivity)this.getActivity();
+            MessageFormActivity currentActivity = (MessageFormActivity) this.getActivity();
             currentActivity.currentSendDate.set(Calendar.MONTH, monthOfYear);
             currentActivity.currentSendDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             currentActivity.currentSendDate.set(Calendar.YEAR, year);
-            TextView chooseDateText = (TextView) currentActivity.findViewById(R.id.chooseDateText);
-            chooseDateText.setText("Edit Current Send Date: " + (monthOfYear + 1)
-                    + "/" + dayOfMonth + "/" + year);
+            String dateString = SimpleDateFormat.getDateInstance(java.text.DateFormat.SHORT)
+                    .format(currentActivity.currentSendDate.getTime());
+            ((TextView) currentActivity.findViewById(R.id.chooseDateText)).setText(dateString);
         }
     }
-
 }

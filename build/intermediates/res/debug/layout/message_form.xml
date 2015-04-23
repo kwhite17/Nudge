@@ -20,24 +20,40 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:layout_row="0" />
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="1"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:rowCount="1"
+        android:columnCount="2">
 
+        <TextView
+            android:id="@+id/chooseContactText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/raised_button_height"
+            android:text="@string/no_selection_text"
+            android:textStyle="bold"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:layout_column="0"/>
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/chooseContactButton"
             android:layout_height="@dimen/raised_button_height"
-            android:layout_width="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_columnSpan="1"
-            android:layout_row="1"
-            android:layout_column="0"
-
+            android:layout_width="wrap_content"
+            android:onClick="getContact"
             card_view:cardElevation="@dimen/cardview_default_elevation"
             card_view:cardCornerRadius="@dimen/cardview_default_radius"
-            card_view:cardBackgroundColor="@color/raisedButtonColor">
+            card_view:cardBackgroundColor="@color/raisedButtonColor"
+            android:layout_row="0"
+            android:layout_column="1">
 
             <TextView
-                android:id="@+id/chooseContactText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/contact_button_text"
@@ -48,6 +64,7 @@
 
         </android.support.v7.widget.CardView>
 
+    </GridLayout>
 
     <TextView
         android:id="@+id/whenTextView"
@@ -61,53 +78,98 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:layout_row="2" />
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/chooseDateButton"
-        android:layout_height="@dimen/raised_button_height"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_column="0"
+        android:layout_height="wrap_content"
         android:layout_columnSpan="1"
-        android:onClick="showDatePickerDialog"
         android:layout_row="3"
-        card_view:cardCornerRadius="@dimen/cardview_default_radius"
-        card_view:cardElevation="@dimen/cardview_default_elevation"
-        card_view:cardBackgroundColor="@color/raisedButtonColor">
+        android:layout_column="0"
+        android:rowCount="1"
+        android:columnCount="2">
 
         <TextView
             android:id="@+id/chooseDateText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAllCaps="true"
-            android:textColor="@color/raisedButtonTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/raised_button_height"
+            android:text="@string/no_selection_text"
+            android:textStyle="bold"
+            android:layout_columnWeight="1"
             android:gravity="center"
-            android:textSize="@dimen/abc_text_size_button_material"/>
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:layout_column="0"/>
 
-    </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/chooseDateButton"
+            android:layout_height="@dimen/raised_button_height"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:onClick="showDatePickerDialog"
+            card_view:cardCornerRadius="@dimen/cardview_default_radius"
+            card_view:cardElevation="@dimen/cardview_default_elevation"
+            card_view:cardBackgroundColor="@color/raisedButtonColor">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/chooseTimeButton"
-        android:layout_height="@dimen/raised_button_height"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:textColor="@color/raisedButtonTextColor"
+                android:gravity="center"
+                android:text="@string/date_button_text"
+                android:textSize="@dimen/abc_text_size_button_material"/>
+
+        </android.support.v7.widget.CardView>
+
+    </GridLayout>
+
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_column="0"
+        android:layout_height="wrap_content"
         android:layout_columnSpan="1"
         android:layout_row="4"
-        android:onClick="showTimePickerDialog"
-        card_view:cardElevation="@dimen/cardview_default_elevation"
-        card_view:cardCornerRadius="@dimen/cardview_default_radius"
-        card_view:cardBackgroundColor="@color/raisedButtonColor">
+        android:layout_column="0"
+        android:rowCount="1"
+        android:columnCount="2">
 
         <TextView
             android:id="@+id/chooseTimeText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAllCaps="true"
-            android:textColor="@color/raisedButtonTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/raised_button_height"
+            android:text="@string/no_selection_text"
+            android:textStyle="bold"
+            android:layout_columnWeight="1"
             android:gravity="center"
-            android:textSize="@dimen/abc_text_size_button_material"/>
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:layout_column="0"/>
 
-    </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/chooseTimeButton"
+            android:layout_height="@dimen/raised_button_height"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_row="0"
+            android:onClick="showTimePickerDialog"
+            card_view:cardElevation="@dimen/cardview_default_elevation"
+            card_view:cardCornerRadius="@dimen/cardview_default_radius"
+            card_view:cardBackgroundColor="@color/raisedButtonColor">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:textColor="@color/raisedButtonTextColor"
+                android:gravity="center"
+                android:text="@string/time_button_text"
+                android:textSize="@dimen/abc_text_size_button_material"/>
+
+        </android.support.v7.widget.CardView>
+
+    </GridLayout>
 
     <TextView
         android:id="@+id/whatTextView"
@@ -160,6 +222,6 @@
         android:layout_row="9"
         android:gravity="center"
         android:labelFor="@id/frequencyBar"
-        android:text="Weekly"/>
+        android:text="@string/default_frequency_text"/>
 
 </GridLayout><!-- From: file:/home/kevin/Development/git/Nudge/res/layout/message_form.xml -->

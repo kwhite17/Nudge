@@ -16,7 +16,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 
 public class SendMessageService extends IntentService {
-    public static final String SERVICE_NAME = "MESSAGE_SERVICE";
+    private static final String SERVICE_NAME = "MESSAGE_SERVICE";
     public SendMessageService() {
         super(SERVICE_NAME);
     }
@@ -45,7 +45,7 @@ public class SendMessageService extends IntentService {
      * Delivers any messages queued to be sent and updates the send times for recurring messages
      * @throws ParseException
      */
-    public void deliverOustandingMessages() throws ParseException{
+    private void deliverOustandingMessages() throws ParseException{
         NudgeDatabaseHelper dbHelper = new NudgeDatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
