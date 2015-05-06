@@ -1,25 +1,24 @@
 package com.ksp.message;
 
-import android.content.Context;
 import android.telephony.SmsManager;
-
-import com.ksp.nudge.SendMessageService;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.MONTH;
+
 public class MessageHandler {
     
     /**
      * 
-     * @param messageContext the context in which we are calculating the next send time
      * @param dateTime, the current time at which the message is to be sent
      * @param freq, the frequency with which the message is to be sent
      * @return the String representing the next time to send a message
      */
-    public static String getNextSend(String dateTime, String freq, Context messageContext) {
+    public static String getNextSend(String dateTime, String freq) {
         Calendar time = Calendar.getInstance();
         try {
             time.setTime(DateFormat.getInstance().parse(dateTime));
@@ -27,39 +26,44 @@ public class MessageHandler {
             e.printStackTrace();
         }
 
-        return getNextSend(time,freq,messageContext);
+        return getNextSend(time, freq);
     }
 
     /**
      * 
      * @param time, the Calendar representation of the current time
-     * @param messageContext the context in which we are calculating the next send time
      * @return the String representing the next the message is to be sent
      */
-    public static String getNextSend(Calendar time, String freq, Context messageContext){
+    public static String getNextSend(Calendar time, String freq){
 
         if (time.before(Calendar.getInstance())){
             switch(freq){
             case "Once":
-                time.add(Calendar.DATE, 1);
+                incrementUntilPresentOrFuture(time, DATE, 1);
                 break;
             case "Daily":
-                time.add(Calendar.DATE, 1);
+                incrementUntilPresentOrFuture(time, DATE, 1);
                 break;
             case "Weekly":
-                time.add(Calendar.DATE, 7);
+                incrementUntilPresentOrFuture(time, DATE, 7);
                 break;
             case "Monthly":
-                time.add(Calendar.MONTH, 1);
+                incrementUntilPresentOrFuture(time, MONTH, 1);
                 break;
             case "Monthly: Last Day":
-                time.add(Calendar.MONTH,1);
-                time.set(Calendar.DATE,time.getActualMaximum(Calendar.DATE));
+                incrementUntilPresentOrFuture(time, MONTH, 1);
+                time.set(DATE, time.getActualMaximum(DATE));
                 break;
             }
         }
-        SendMessageService.setServiceAlarm(messageContext, time);
         return DateFormat.getInstance().format(time.getTime());
+    }
+
+    private static void incrementUntilPresentOrFuture(Calendar time, int period, int interval) {
+        Calendar presentTime = Calendar.getInstance();
+        while(time.before(presentTime)){
+            time.add(period, interval);
+        }
     }
     
     /**

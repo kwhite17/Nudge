@@ -33,6 +33,8 @@
     </string>
     <string name="no_selection_text">None</string>
     <string name="default_frequency_text">Weekly</string>
+    <string name="editNudgeButtonText">edit</string>
+    <string name="deleteNudgeButtonText">delete</string>
     <string-array name="frequencyArray">
         <item>Once</item>
         <item>Daily</item>

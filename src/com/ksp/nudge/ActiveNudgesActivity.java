@@ -8,12 +8,21 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.ksp.database.NudgeDatabaseHelper;
+
+import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
+import static com.ksp.nudge.R.id.activeNudgeList;
+import static com.ksp.nudge.R.id.newNudgeButton;
+import static com.ksp.nudge.R.id.nudgeMessageText;
+import static com.ksp.nudge.R.id.nudgeRecipientText;
+import static com.ksp.nudge.R.id.nudgeSendDateText;
+import static com.ksp.nudge.R.layout.active_nudge_item;
+import static com.ksp.nudge.R.menu.menu_active_nudges;
+import static com.ksp.nudge.R.style.ShowcaseViewDark;
 
 
 public class ActiveNudgesActivity extends ActionBarActivity {
@@ -26,23 +35,25 @@ public class ActiveNudgesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_active_nudges);
 
         //build the list of active nudges
-        ((ListView) findViewById(R.id.activeNudgeList)).setEmptyView(findViewById(R.id.instructionText));
+        ((ListView) findViewById(activeNudgeList)).setEmptyView(findViewById(R.id.instructionText));
         new GetActiveNudgesTask().execute(this);
 
         //setup ShowcaseView for first time instructions
-        final ShowcaseView nudgeButtonShowcase = new ShowcaseView.Builder(this,true).setTarget(new ViewTarget(R.id.newNudgeButton,this))
+        final ShowcaseView nudgeButtonShowcase = new ShowcaseView.Builder(this,true)
+                .setTarget(new ViewTarget(newNudgeButton, this))
                 .setContentTitle(R.string.title_activity_message_form)
                 .setContentText(R.string.new_nudge_instruction_text)
-                .singleShot(R.id.newNudgeButton)
+                .singleShot(newNudgeButton)
                 .hideOnTouchOutside()
                 .build();
         nudgeButtonShowcase.hideButton();
-        nudgeButtonShowcase.setStyle(R.style.ShowcaseViewDark);
-        findViewById(R.id.newNudgeButton).setOnClickListener(new View.OnClickListener() {
+        nudgeButtonShowcase.setStyle(ShowcaseViewDark);
+        findViewById(newNudgeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nudgeButtonShowcase.hide();
-                changeActivity(MessageFormActivity.class);
+                Intent intent = new Intent(ActiveNudgesActivity.this, MessageFormActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -50,35 +61,19 @@ public class ActiveNudgesActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_active_nudges, menu);
+        getMenuInflater().inflate(menu_active_nudges, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
-        changeActivity(this.getClass());
-    }
-
-    @Override
-    public void onBackPressed() {
-        this.finish();
-    }
-
-    /**
-     *
-     * @param activityClass, the activity to be changed to
-     */
-    private void changeActivity(Class<?> activityClass){
-        Intent intent = new Intent(this, activityClass);
-        startActivity(intent);
+    protected void onPause(){
+        super.onPause();
         finish();
     }
 
     public static NudgeCursorAdapter getNudgeAdapter(){
         return nudgeAdapter;
     }
-
     /**
      * Class that fetches active nudges from database asynchronously
      */
@@ -91,12 +86,12 @@ public class ActiveNudgesActivity extends ActionBarActivity {
         }
 
         protected void onPostExecute(Cursor result){
-            int[] adapterColumns = new int[]{R.id.nudgeRecipientText,
-                    R.id.nudgeMessageText,R.id.nudgeSendDateText};
+            int[] adapterColumns = new int[]{nudgeRecipientText,
+                    nudgeMessageText, nudgeSendDateText};
             ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(getApplicationContext(),
-                    R.layout.active_nudge_item, result, result.getColumnNames(),
-                    adapterColumns, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-            ((ListView)findViewById(R.id.activeNudgeList)).setAdapter(ActiveNudgesActivity.nudgeAdapter);
+                    active_nudge_item, result, result.getColumnNames(),
+                    adapterColumns, FLAG_REGISTER_CONTENT_OBSERVER);
+            ((ListView)findViewById(activeNudgeList)).setAdapter(ActiveNudgesActivity.nudgeAdapter);
         }
     }
 }

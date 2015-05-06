@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.ksp.message.Message;
 import com.ksp.message.MessageHandler;
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
@@ -24,7 +25,7 @@ public class SendMessageService extends IntentService {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
         try {
-            deliverOustandingMessages();
+            deliverOutstandingMessages();
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -34,18 +35,18 @@ public class SendMessageService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         try {
-            deliverOustandingMessages();
+            deliverOutstandingMessages();
             this.stopSelf();
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
-    
+
     /**
      * Delivers any messages queued to be sent and updates the send times for recurring messages
      * @throws ParseException
      */
-    private void deliverOustandingMessages() throws ParseException{
+    private void deliverOutstandingMessages() throws ParseException{
         NudgeDatabaseHelper dbHelper = new NudgeDatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
@@ -56,31 +57,34 @@ public class SendMessageService extends IntentService {
                 NudgeMessageEntry.COLUMN_NAME_FREQUENCY,
         };
         String sortOrder = NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
-        Cursor msgCursor = db.query(NudgeMessageEntry.TABLE_NAME, projection, null, null, null, null, sortOrder);
+        Cursor messageCursor = db.query(NudgeMessageEntry.TABLE_NAME, projection, null, null, null,
+                null, sortOrder);
 
-        msgCursor.moveToFirst();
-        while (!msgCursor.isAfterLast()){
-            String id = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry._ID));
-            String recipient = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER));
-            String message = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_MESSAGE));
-            String sendDate = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_SEND_TIME));
-            String frequency = msgCursor.getString(msgCursor.getColumnIndex(NudgeMessageEntry.COLUMN_NAME_FREQUENCY));
+        messageCursor.moveToFirst();
+        while (!messageCursor.isAfterLast()){
+            Message currentNudge = Message.getInstanceFromCursor(messageCursor);
+            String id = messageCursor
+                    .getString(messageCursor.getColumnIndex(NudgeMessageEntry._ID));
 
-            if (MessageHandler.isOutstandingMessage(sendDate)){
-                MessageHandler.sendMessage(recipient, message);
+            if (MessageHandler.isOutstandingMessage(currentNudge.getSendTimeAsString())){
+                MessageHandler.sendMessage(currentNudge.getRecipientNumber(),
+                        currentNudge.getMessage());
                 NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
-                if (frequency.equals("Once")){
+                if (currentNudge.getFrequency().equals("Once")){
                     databaseHelper.deleteMessage(id);
                     ActiveNudgesActivity.getNudgeAdapter().refreshAdapter(databaseHelper);
                 } else{
-                    databaseHelper.updateSendTime(id, sendDate, frequency, this);
+                    Calendar nextSendTime = databaseHelper.updateSendTime(id,
+                            currentNudge.getSendTimeAsString(),
+                            currentNudge.getFrequency());
+                    setServiceAlarm(this, nextSendTime);
                 }
             }
-            msgCursor.moveToNext();
+            messageCursor.moveToNext();
         }
-        msgCursor.close();
+        messageCursor.close();
     }
-    
+
     /**
      * Is responsible for scheduling the next message
      * @param messageContext, the context in which this function is called
@@ -88,10 +92,11 @@ public class SendMessageService extends IntentService {
      */
     public static void setServiceAlarm(Context messageContext, Calendar messageTime) {
         Intent sendMessageIntent = new Intent(messageContext, SendMessageService.class);
-        PendingIntent pendingMessageIntent = PendingIntent.getService(messageContext, 
+        PendingIntent pendingMessageIntent = PendingIntent.getService(messageContext,
                 (int)System.currentTimeMillis(), sendMessageIntent, PendingIntent.FLAG_ONE_SHOT);
         AlarmManager messageAlarm = (AlarmManager)
                 messageContext.getSystemService(Context.ALARM_SERVICE);
-        messageAlarm.set(AlarmManager.RTC_WAKEUP, messageTime.getTimeInMillis(), pendingMessageIntent);        
+        messageAlarm.set(AlarmManager.RTC_WAKEUP, messageTime.getTimeInMillis(),
+                pendingMessageIntent);
     }
 }

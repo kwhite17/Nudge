@@ -1,16 +1,26 @@
 package com.ksp.nudge;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.database.NudgeMessagesContract;
+
+import static android.provider.BaseColumns._ID;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_MESSAGE;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
+import static com.ksp.nudge.R.id.deleteNudgeButton;
+import static com.ksp.nudge.R.id.editNudgeButton;
+import static com.ksp.nudge.R.id.nudgeMessageText;
+import static com.ksp.nudge.R.id.nudgeRecipientText;
+import static com.ksp.nudge.R.id.nudgeSendDateText;
 
 
 public class NudgeCursorAdapter extends SimpleCursorAdapter{
@@ -30,16 +40,27 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView recipientView = (TextView) view.findViewById(R.id.nudgeRecipientText);
-        TextView messageView = (TextView) view.findViewById(R.id.nudgeMessageText);
-        TextView sendDateView = (TextView) view.findViewById(R.id.nudgeSendDateText);
-        ImageButton discardButton = (ImageButton) view.findViewById(R.id.nudgeDiscardButton);
+        TextView recipientView = (TextView) view.findViewById(nudgeRecipientText);
+        TextView messageView = (TextView) view.findViewById(nudgeMessageText);
+        TextView sendDateView = (TextView) view.findViewById(nudgeSendDateText);
+        CardView discardButton = (CardView) view.findViewById(deleteNudgeButton);
+        CardView editButton = (CardView) view.findViewById(editNudgeButton);
         final NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(context);
-        final String nudgeId = cursor.getString(cursor.getColumnIndex(NudgeMessagesContract.NudgeMessageEntry._ID));
+        final String nudgeId = cursor.getString(cursor.getColumnIndex(_ID));
+        final Context activityContext = context;
+        recipientView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME)));
+        messageView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_MESSAGE)));
+        sendDateView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_SEND_TIME)));
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activityContext, MessageFormActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("EDIT_NUDGE_ID",nudgeId);
+                activityContext.startActivity(intent);
+            }
+        });
 
-        recipientView.setText("Recipient: ".concat(cursor.getString(cursor.getColumnIndex(NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME))));
-        messageView.setText("Message: ".concat(cursor.getString(cursor.getColumnIndex(NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_MESSAGE))));
-        sendDateView.setText("Next Send Time: ".concat(cursor.getString(cursor.getColumnIndex(NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME))));
         discardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
