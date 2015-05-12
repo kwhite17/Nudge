@@ -1,7 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:compat="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.ksp.nudge.ActiveNudgesActivity">
 
+    <item
+        android:id="@+id/aboutUs"
+        app:showAsAction="never"
+        android:title="About Us"/>
 </menu>
 <!-- From: file:/home/kevin/Development/git/Nudge/res/menu/menu_active_nudges.xml -->

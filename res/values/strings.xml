@@ -42,4 +42,6 @@
         <item>Monthly</item>
         <item>Monthly: Last Day</item>
     </string-array>
+    <string name="message_form_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="about_us_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

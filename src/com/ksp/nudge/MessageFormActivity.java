@@ -10,7 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -57,10 +57,13 @@ import static com.ksp.nudge.R.string.choose_send_datetime_instruction_text;
 import static com.ksp.nudge.R.string.choose_send_datetime_instruction_title;
 import static com.ksp.nudge.R.style.ShowcaseViewDark;
 import static java.text.DateFormat.SHORT;
+import static java.util.Arrays.asList;
 import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
-public class MessageFormActivity extends ActionBarActivity {
+public class MessageFormActivity extends AppCompatActivity {
     private static final int REQUEST_CONTACTS = 1;
     private Message nudge = new Message();
     private SparseArray<int[]> showcaseViewData = new SparseArray<>();
@@ -70,6 +73,9 @@ public class MessageFormActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
 
+        AdView messageFormAdView = (AdView) findViewById(R.id.messageFormAdView);
+        AdRequest messageFormAdRequest = new AdRequest.Builder().build();
+        messageFormAdView.loadAd(messageFormAdRequest);
         initializeListeners();
         initializeShowcaseViews();
         String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
@@ -207,7 +213,7 @@ public class MessageFormActivity extends ActionBarActivity {
     private void setCurrentFrequency() {
         String[] frequencies = getResources().getStringArray(frequencyArray);
         ((SeekBar)findViewById(frequencySeekBar)).
-                setProgress(Arrays.binarySearch(frequencies, nudge.getFrequency()));
+                setProgress(asList(frequencies).indexOf(nudge.getFrequency()));
     }
 
     private static String parseTimeFromCurrentSendTime(Date time) {

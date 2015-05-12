@@ -5,8 +5,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -25,7 +26,7 @@ import static com.ksp.nudge.R.menu.menu_active_nudges;
 import static com.ksp.nudge.R.style.ShowcaseViewDark;
 
 
-public class ActiveNudgesActivity extends ActionBarActivity {
+public class ActiveNudgesActivity extends AppCompatActivity {
 
     private static NudgeCursorAdapter nudgeAdapter;
 
@@ -63,6 +64,13 @@ public class ActiveNudgesActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(menu_active_nudges, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(this, AboutNudgeActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

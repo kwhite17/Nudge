@@ -18,7 +18,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -27,7 +27,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/nudgeRecipientText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="Name"
@@ -71,7 +71,7 @@
                         android:textAllCaps="true"
                         android:textColor="@color/raisedButtonColor"
                         android:gravity="center"
-                        android:text="edit"/>
+                        android:text="@string/editNudgeButtonText"/>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
@@ -90,7 +90,7 @@
                         android:textSize="@dimen/abc_text_size_button_material"
                         android:textColor="@color/raisedButtonColor"
                         android:gravity="center"
-                        android:text="delete"/>
+                        android:text="@string/deleteNudgeButtonText"/>
                 </android.support.v7.widget.CardView>
 
             </LinearLayout>

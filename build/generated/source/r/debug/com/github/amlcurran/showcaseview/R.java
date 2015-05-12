@@ -8,61 +8,61 @@ package com.github.amlcurran.showcaseview;
 
 public final class R {
 	public static final class attr {
-		public static final int showcaseViewStyle = 0x7f01002c;
-		public static final int sv_backgroundColor = 0x7f010059;
-		public static final int sv_buttonBackgroundColor = 0x7f01005c;
-		public static final int sv_buttonForegroundColor = 0x7f01005d;
-		public static final int sv_buttonText = 0x7f01005e;
-		public static final int sv_detailTextAppearance = 0x7f01005f;
-		public static final int sv_detailTextColor = 0x7f01005a;
-		public static final int sv_showcaseColor = 0x7f010061;
-		public static final int sv_tintButtonColor = 0x7f010062;
-		public static final int sv_titleTextAppearance = 0x7f010060;
-		public static final int sv_titleTextColor = 0x7f01005b;
+		public static final int showcaseViewStyle = 0x7f010034;
+		public static final int sv_backgroundColor = 0x7f010076;
+		public static final int sv_buttonBackgroundColor = 0x7f010079;
+		public static final int sv_buttonForegroundColor = 0x7f01007a;
+		public static final int sv_buttonText = 0x7f01007b;
+		public static final int sv_detailTextAppearance = 0x7f01007c;
+		public static final int sv_detailTextColor = 0x7f010077;
+		public static final int sv_showcaseColor = 0x7f01007e;
+		public static final int sv_tintButtonColor = 0x7f01007f;
+		public static final int sv_titleTextAppearance = 0x7f01007d;
+		public static final int sv_titleTextColor = 0x7f010078;
 	}
 	public static final class dimen {
-		public static final int action_bar_offset = 0x7f08002a;
-		public static final int button_margin = 0x7f08002d;
-		public static final int showcase_radius = 0x7f080042;
-		public static final int showcase_radius_inner = 0x7f080043;
-		public static final int showcase_radius_outer = 0x7f080044;
-		public static final int text_padding = 0x7f080045;
+		public static final int action_bar_offset = 0x7f070041;
+		public static final int button_margin = 0x7f070043;
+		public static final int showcase_radius = 0x7f070054;
+		public static final int showcase_radius_inner = 0x7f070055;
+		public static final int showcase_radius_outer = 0x7f070056;
+		public static final int text_padding = 0x7f070057;
 	}
 	public static final class drawable {
-		public static final int btn_cling_normal = 0x7f020037;
-		public static final int btn_cling_pressed = 0x7f020038;
-		public static final int button = 0x7f020039;
-		public static final int button_normal = 0x7f02003a;
-		public static final int cling = 0x7f02003b;
-		public static final int cling_bleached = 0x7f02003c;
-		public static final int cling_button_bg = 0x7f02003d;
-		public static final int hand = 0x7f020040;
+		public static final int btn_cling_normal = 0x7f02003b;
+		public static final int btn_cling_pressed = 0x7f02003c;
+		public static final int button = 0x7f02003d;
+		public static final int button_normal = 0x7f02003e;
+		public static final int cling = 0x7f02003f;
+		public static final int cling_bleached = 0x7f020040;
+		public static final int cling_button_bg = 0x7f020041;
+		public static final int hand = 0x7f02005e;
 	}
 	public static final class id {
-		public static final int showcase_button = 0x7f090009;
-		public static final int showcase_sub_text = 0x7f09000a;
-		public static final int showcase_title_text = 0x7f09000b;
+		public static final int showcase_button = 0x7f0d0009;
+		public static final int showcase_sub_text = 0x7f0d000a;
+		public static final int showcase_title_text = 0x7f0d000b;
 	}
 	public static final class layout {
-		public static final int handy = 0x7f03001c;
-		public static final int showcase_button = 0x7f03001e;
+		public static final int handy = 0x7f03001f;
+		public static final int showcase_button = 0x7f030024;
 	}
 	public static final class string {
-		public static final int ok = 0x7f0b001f;
+		public static final int ok = 0x7f060048;
 	}
 	public static final class style {
-		public static final int ShowcaseButton = 0x7f0c007e;
-		public static final int ShowcaseView = 0x7f0c007f;
-		public static final int ShowcaseView_Light = 0x7f0c0080;
-		public static final int TextAppearance_ShowcaseView_Detail = 0x7f0c00ac;
-		public static final int TextAppearance_ShowcaseView_Detail_Light = 0x7f0c00ad;
-		public static final int TextAppearance_ShowcaseView_Title = 0x7f0c00ae;
-		public static final int TextAppearance_ShowcaseView_Title_Light = 0x7f0c00af;
+		public static final int ShowcaseButton = 0x7f0800a1;
+		public static final int ShowcaseView = 0x7f0800a2;
+		public static final int ShowcaseView_Light = 0x7f0800a3;
+		public static final int TextAppearance_ShowcaseView_Detail = 0x7f0800ce;
+		public static final int TextAppearance_ShowcaseView_Detail_Light = 0x7f0800cf;
+		public static final int TextAppearance_ShowcaseView_Title = 0x7f0800d0;
+		public static final int TextAppearance_ShowcaseView_Title_Light = 0x7f0800d1;
 	}
 	public static final class styleable {
-		public static final int[] CustomTheme = { 0x7f01002c };
+		public static final int[] CustomTheme = { 0x7f010034 };
 		public static final int CustomTheme_showcaseViewStyle = 0;
-		public static final int[] ShowcaseView = { 0x7f010059, 0x7f01005a, 0x7f01005b, 0x7f01005c, 0x7f01005d, 0x7f01005e, 0x7f01005f, 0x7f010060, 0x7f010061, 0x7f010062 };
+		public static final int[] ShowcaseView = { 0x7f010076, 0x7f010077, 0x7f010078, 0x7f010079, 0x7f01007a, 0x7f01007b, 0x7f01007c, 0x7f01007d, 0x7f01007e, 0x7f01007f };
 		public static final int ShowcaseView_sv_backgroundColor = 0;
 		public static final int ShowcaseView_sv_buttonBackgroundColor = 3;
 		public static final int ShowcaseView_sv_buttonForegroundColor = 4;
