@@ -60,7 +60,6 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
                 activityContext.startActivity(intent);
             }
         });
-
         discardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

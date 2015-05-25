@@ -36,7 +36,6 @@ import com.ksp.message.MessageHandler;
 
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -72,19 +71,26 @@ public class MessageFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
-
-        AdView messageFormAdView = (AdView) findViewById(R.id.messageFormAdView);
-        AdRequest messageFormAdRequest = new AdRequest.Builder().build();
-        messageFormAdView.loadAd(messageFormAdRequest);
         initializeListeners();
         initializeShowcaseViews();
         String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
         if (currentNudgeId != null) {
-            retrieveMessageData(currentNudgeId);
-            populateTextFieldsFromNudge();
-            setCurrentFrequency();
+            NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
+            nudge = Message.getInstanceFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
+            ((TextView)findViewById(chooseContactText)).setText(nudge.getRecipientInfo());
+            ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
+            String[] frequencies = getResources().getStringArray(frequencyArray);
+            ((SeekBar)findViewById(frequencySeekBar)).
+                    setProgress(asList(frequencies).indexOf(nudge.getFrequency()));
         }
         setDefaultTimeFromNudge();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        AdView messageFormAdView = (AdView) findViewById(R.id.messageFormAdView);
+        messageFormAdView.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
@@ -200,22 +206,6 @@ public class MessageFormActivity extends AppCompatActivity {
         contactShowcaseView.setStyle(ShowcaseViewDark);
     }
 
-    private void retrieveMessageData(String currentNudgeId) {
-        NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
-        nudge = Message.getInstanceFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
-    }
-
-    private void populateTextFieldsFromNudge() {
-        ((TextView)findViewById(chooseContactText)).setText(nudge.getRecipientInfo());
-        ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
-    }
-
-    private void setCurrentFrequency() {
-        String[] frequencies = getResources().getStringArray(frequencyArray);
-        ((SeekBar)findViewById(frequencySeekBar)).
-                setProgress(asList(frequencies).indexOf(nudge.getFrequency()));
-    }
-
     private static String parseTimeFromCurrentSendTime(Date time) {
         return DateFormat.getTimeInstance(SHORT).format(time);
     }
@@ -313,7 +303,6 @@ public class MessageFormActivity extends AppCompatActivity {
             final Calendar c = Calendar.getInstance();
             int hour = c.get(HOUR_OF_DAY);
             int minute = c.get(MINUTE);
-
             return new TimePickerDialog(getActivity(), this, hour, minute,
                     is24HourFormat(getActivity()));
         }
@@ -352,7 +341,6 @@ public class MessageFormActivity extends AppCompatActivity {
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
             int day = c.get(Calendar.DAY_OF_MONTH);
-
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 

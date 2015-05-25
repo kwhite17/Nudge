@@ -13,24 +13,21 @@
     <string name="date_button_text">Select Date</string>
     <string name="contact_button_text">Select Contact</string>
     <string name="time_button_text">Select Time</string>
-    <string name="subtitle_donate_to_developer">Fund My Whiskey</string>
-    <string name="subtitle_donate_to_artist">Buy the Artist Beer</string>
-    <string name="developer_donation_text">If Nudge has simplified your life in any way, please consider
-    helping fund my next whiskey purchase buy making a contribution below:</string>
-    <string name="artist_donation_text">Nudge used to have a very ugly icon. Without Joey\'s help,
-    this app wouldn\'t look half as good as it does now. Whether the icon itself or the color style,
-    Joey\'s insight helped give Nudge some personality. So even if you find the functionality
-    itself mediocre, please consider making a contribution to Joey so he can make more awesome icons
-    in the future!</string>
+    <string name="subtitle_donate_to_developer">About the Developer</string>
+    <string name="subtitle_donate_to_artist">About the Artist</string>
+    <string name="developer_donation_text">Kevin is the main technical force behind Nudge. The conception
+    of this app and its various features are under his domain Checkout his other work:</string>
+    <string name="artist_donation_text">Joey is the main artistic force behind Nudge. The color
+    scheme and the much improved look (including the icon) are the fruits of his labor.
+    Checkout his other work: </string>
     <string name="new_nudge_instruction_text">Press this button start creating your first Nudge!
     </string>
     <string name="choose_recipient_instruction_title">Choose a Recipient</string>
     <string name="choose_recipient_instruction_text">Press this button to select a recipient
     from your contact list.Tap the black area to continue.</string>
     <string name="choose_send_datetime_instruction_title">Choose a Send Date and Time</string>
-    <string name="choose_send_datetime_instruction_text">Nudge starts sending your messages at this date and
-    time.Tap the black area to begin creating a message!
-    </string>
+    <string name="choose_send_datetime_instruction_text">Nudge starts sending your messages at this
+    date and time.Tap the black area to begin creating a message!</string>
     <string name="no_selection_text">None</string>
     <string name="default_frequency_text">Weekly</string>
     <string name="editNudgeButtonText">edit</string>
@@ -44,4 +41,5 @@
     </string-array>
     <string name="message_form_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="about_us_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="splash_screen_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

@@ -40,15 +40,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         new GetActiveNudgesTask().execute(this);
 
         //setup ShowcaseView for first time instructions
-        final ShowcaseView nudgeButtonShowcase = new ShowcaseView.Builder(this,true)
-                .setTarget(new ViewTarget(newNudgeButton, this))
-                .setContentTitle(R.string.title_activity_message_form)
-                .setContentText(R.string.new_nudge_instruction_text)
-                .singleShot(newNudgeButton)
-                .hideOnTouchOutside()
-                .build();
-        nudgeButtonShowcase.hideButton();
-        nudgeButtonShowcase.setStyle(ShowcaseViewDark);
+        final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
         findViewById(newNudgeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +49,19 @@ public class ActiveNudgesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private ShowcaseView initializeShowcaseView() {
+        ShowcaseView showcaseView = new ShowcaseView.Builder(this,true)
+                    .setTarget(new ViewTarget(newNudgeButton, this))
+                    .setContentTitle(R.string.title_activity_message_form)
+                    .setContentText(R.string.new_nudge_instruction_text)
+                    .singleShot(newNudgeButton)
+                    .hideOnTouchOutside()
+                    .build();
+        showcaseView.hideButton();
+        showcaseView.setStyle(ShowcaseViewDark);
+        return showcaseView;
     }
 
     @Override
@@ -71,6 +76,14 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AboutNudgeActivity.class);
         startActivity(intent);
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Returns to the main activity
+     */
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
     @Override
@@ -89,8 +102,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
 
         @Override
         protected Cursor doInBackground(Context... contexts) {
-            NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(contexts[0]);
-            return databaseHelper.readMessagesFromDatabase();
+            return new NudgeDatabaseHelper(contexts[0]).readMessagesFromDatabase();
         }
 
         protected void onPostExecute(Cursor result){

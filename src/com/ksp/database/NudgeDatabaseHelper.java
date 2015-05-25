@@ -117,6 +117,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         database.update(TABLE_NAME, sendTime, selection, selectionArgs);
         Calendar nextSendCalendar = Calendar.getInstance();
         nextSendCalendar.setTime(DateFormat.getInstance().parse(nextSendTime));
+        database.close();
         return nextSendCalendar;
     }
 
@@ -128,6 +129,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     public String writeMessageToDatabase(Message nudge) {
         SQLiteDatabase database = this.getWritableDatabase();
         long insertionResult = database.insert(TABLE_NAME, null, buildMessageProperties(nudge));
+        database.close();
         return insertionResult == -1 ? "Insertion failed": "Insertion successful";
     }
     
@@ -140,6 +142,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { id };
         database.delete(TABLE_NAME, selection, selectionArgs);
+        database.close();
     }
 
     private ContentValues buildMessageProperties(Message nudge) {
