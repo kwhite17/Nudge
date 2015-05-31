@@ -107,11 +107,11 @@ public final class R {
 		public static final int common_signin_button_text = 0x7f060029;
 		public static final int common_signin_button_text_long = 0x7f06002a;
 		public static final int commono_google_play_services_api_unavailable_text = 0x7f06002b;
-		public static final int create_calendar_message = 0x7f06003a;
-		public static final int create_calendar_title = 0x7f06003b;
-		public static final int decline = 0x7f06003d;
-		public static final int store_picture_message = 0x7f060049;
-		public static final int store_picture_title = 0x7f06004a;
+		public static final int create_calendar_message = 0x7f06003c;
+		public static final int create_calendar_title = 0x7f06003d;
+		public static final int decline = 0x7f06003f;
+		public static final int store_picture_message = 0x7f06004b;
+		public static final int store_picture_title = 0x7f06004c;
 	}
 	public static final class style {
 		public static final int Theme_IAPTheme = 0x7f0800e3;

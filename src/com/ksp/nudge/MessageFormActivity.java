@@ -50,6 +50,8 @@ import static com.ksp.nudge.R.id.formActivityId;
 import static com.ksp.nudge.R.id.frequencySeekBar;
 import static com.ksp.nudge.R.id.frequencySeekBarLabel;
 import static com.ksp.nudge.R.id.nudgeMessageTextField;
+import static com.ksp.nudge.R.string.choose_frequency_instruction_text;
+import static com.ksp.nudge.R.string.choose_frequency_instruction_title;
 import static com.ksp.nudge.R.string.choose_recipient_instruction_text;
 import static com.ksp.nudge.R.string.choose_recipient_instruction_title;
 import static com.ksp.nudge.R.string.choose_send_datetime_instruction_text;
@@ -170,14 +172,17 @@ public class MessageFormActivity extends AppCompatActivity {
         int[] contactShowcaseData = new int[]{choose_recipient_instruction_title,
                 choose_recipient_instruction_text, chooseDateButton};
         int[] dateShowcaseData = new int[]{choose_send_datetime_instruction_title,
-                choose_send_datetime_instruction_text, -1};
+                choose_send_datetime_instruction_text, frequencySeekBarLabel};
+        int[] frequencyShowcaseData = new int[]{choose_frequency_instruction_title,
+                choose_frequency_instruction_text, -1};
         showcaseViewData.put(chooseContactButton, contactShowcaseData);
         showcaseViewData.put(chooseDateButton, dateShowcaseData);
+        showcaseViewData.put(frequencySeekBarLabel, frequencyShowcaseData);
         displayShowcaseView(chooseContactButton, showcaseViewData.get(chooseContactButton));
     }
 
     private void displayShowcaseView(int target, final int[] showcaseData) {
-        ShowcaseView contactShowcaseView = new ShowcaseView.Builder(this)
+        ShowcaseView showcaseView = new ShowcaseView.Builder(this,true)
                 .setTarget(new ViewTarget(target, this))
                 .setContentTitle(showcaseData[0])
                 .setContentText(showcaseData[1])
@@ -201,9 +206,9 @@ public class MessageFormActivity extends AppCompatActivity {
                     }
                 })
                 .build();
-        contactShowcaseView.setHideOnTouchOutside(true);
-        contactShowcaseView.hideButton();
-        contactShowcaseView.setStyle(ShowcaseViewDark);
+        showcaseView.setHideOnTouchOutside(true);
+        showcaseView.hideButton();
+        showcaseView.setStyle(ShowcaseViewDark);
     }
 
     private static String parseTimeFromCurrentSendTime(Date time) {

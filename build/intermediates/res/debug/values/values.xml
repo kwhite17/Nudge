@@ -235,11 +235,11 @@
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="raised_button_height">36dp</dimen>
+    <dimen name="showcase_radius">60dp</dimen>
+    <dimen name="showcase_radius_inner">72dp</dimen>
+    <dimen name="showcase_radius_outer">84dp</dimen>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
     <eat-comment/>
-    <dimen name="showcase_radius">94dp</dimen>
-    <dimen name="showcase_radius_inner">96dp</dimen>
-    <dimen name="showcase_radius_outer">128dp</dimen>
     <dimen name="text_padding">24dp</dimen>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
@@ -303,11 +303,15 @@
     <string name="artist_donation_text">Joey is the main artistic force behind Nudge. The color
     scheme and the much improved look (including the icon) are the fruits of his labor.
     Checkout his other work: </string>
+    <string name="choose_frequency_instruction_text">This slider determines how often to send your
+    message. \'Monthly: Last Day\' sends a message the last day of each month. Tap anywhere to begin
+    creating your message!</string>
+    <string name="choose_frequency_instruction_title">Choose Frequency</string>
     <string name="choose_recipient_instruction_text">Press this button to select a recipient
     from your contact list.Tap the black area to continue.</string>
     <string name="choose_recipient_instruction_title">Choose a Recipient</string>
     <string name="choose_send_datetime_instruction_text">Nudge starts sending your messages at this
-    date and time.Tap the black area to begin creating a message!</string>
+    date and time.Tap the black area to continue</string>
     <string name="choose_send_datetime_instruction_title">Choose a Send Date and Time</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.3.0/res/values/common_strings.xml -->
     <eat-comment/>
