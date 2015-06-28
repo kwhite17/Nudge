@@ -13,6 +13,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
+
 public class BootReceiver extends BroadcastReceiver {
     public BootReceiver() {
     }
@@ -25,14 +27,13 @@ public class BootReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
-        NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(context);
-        Cursor sendTimeCursor = databaseHelper.getSendTimesFromDatabase();
+        Cursor sendTimeCursor = new NudgeDatabaseHelper(context).getSendTimesFromDatabase();
 
         //Register times in OS for SendMessageService to check for outstanding messages
         sendTimeCursor.moveToFirst();
         while (!sendTimeCursor.isAfterLast()){
             String dateTime = sendTimeCursor.getString(sendTimeCursor.
-                    getColumnIndex(NudgeMessageEntry.COLUMN_NAME_SEND_TIME));
+                    getColumnIndex(COLUMN_NAME_SEND_TIME));
             Calendar dateTimeCalendar = Calendar.getInstance();
             try {
                 dateTimeCalendar.setTime(DateFormat.getInstance().parse(dateTime));

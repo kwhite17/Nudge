@@ -9,6 +9,10 @@
         <item>Monthly</item>
         <item>Monthly: Last Day</item>
     </string-array>
+    <string-array name="urlArray">
+        <item>http://behance.net/josephsabatini</item>
+        <item>http://katanakdubs.herokuapp.com/</item>
+    </string-array>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -364,6 +368,7 @@ available. Please contact the developer for assistance.</string>
     <eat-comment/>
     <string name="default_frequency_text">Weekly</string>
     <string name="deleteNudgeButtonText">delete</string>
+    <string name="developerButtonText">Kevin\'s Website</string>
     <string name="developer_donation_text">Kevin is the main technical force behind Nudge. The conception
     of this app and its various features are under his domain Checkout his other work:</string>
     <string name="editNudgeButtonText">edit</string>
@@ -378,6 +383,7 @@ available. Please contact the developer for assistance.</string>
     <string name="ok">OK</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values/strings.xml -->
     <eat-comment/>
+    <string name="portfolioButtonText">Joey\'s Portfolio</string>
     <string name="splash_screen_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.3.0/res/values/admob_strings.xml -->
     <eat-comment/>

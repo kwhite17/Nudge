@@ -30,6 +30,8 @@ import android.widget.Toast;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.Message;
 import com.ksp.message.MessageHandler;
@@ -61,8 +63,6 @@ import static java.text.DateFormat.SHORT;
 import static java.util.Arrays.asList;
 import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 public class MessageFormActivity extends AppCompatActivity {
     private static final int REQUEST_CONTACTS = 1;
@@ -145,21 +145,17 @@ public class MessageFormActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                    }
+                    public void onStartTrackingTouch(SeekBar seekBar) {}
 
                     @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                    }
+                    public void onStopTrackingTouch(SeekBar seekBar) {}
                 });
         ((EditText) findViewById(nudgeMessageTextField)).addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -202,8 +198,7 @@ public class MessageFormActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
-                    }
+                    public void onShowcaseViewShow(ShowcaseView showcaseView) {}
                 })
                 .build();
         showcaseView.setHideOnTouchOutside(true);

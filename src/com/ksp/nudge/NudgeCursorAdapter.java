@@ -70,7 +70,7 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
     }
 
     public void refreshAdapter(NudgeDatabaseHelper databaseHelper){
-        this.getCursor().close();
+        getCursor().close();
         Cursor newCursor = databaseHelper.readMessagesFromDatabase();
         changeCursor(newCursor);
         notifyDataSetChanged();

@@ -22,6 +22,7 @@ public final class R {
     }
     public static final class array {
         public static final int frequencyArray=0x7f0b0000;
+        public static final int urlArray=0x7f0b0001;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1956,10 +1957,10 @@ containing a value of this type.
     public static final class id {
         public static final int aboutArtistText=0x7f0d0060;
         public static final int aboutArtistTitle=0x7f0d005f;
-        public static final int aboutDeveloperText=0x7f0d0062;
-        public static final int aboutDeveloperTitle=0x7f0d0061;
-        public static final int aboutUs=0x7f0d0078;
-        public static final int aboutUsAdView=0x7f0d0063;
+        public static final int aboutDeveloperText=0x7f0d0063;
+        public static final int aboutDeveloperTitle=0x7f0d0062;
+        public static final int aboutUs=0x7f0d007a;
+        public static final int aboutUsAdView=0x7f0d0065;
         public static final int action_bar=0x7f0d004b;
         public static final int action_bar_activity_content=0x7f0d0000;
         public static final int action_bar_container=0x7f0d004a;
@@ -1968,14 +1969,14 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0d002f;
         public static final int action_bar_title=0x7f0d002e;
         public static final int action_context_bar=0x7f0d004c;
-        public static final int action_discard=0x7f0d007a;
+        public static final int action_discard=0x7f0d007c;
         public static final int action_menu_divider=0x7f0d0002;
         public static final int action_menu_presenter=0x7f0d0003;
         public static final int action_mode_bar=0x7f0d0048;
         public static final int action_mode_bar_stub=0x7f0d0047;
         public static final int action_mode_close_button=0x7f0d0030;
-        public static final int action_save=0x7f0d0079;
-        public static final int activeNudgeList=0x7f0d0065;
+        public static final int action_save=0x7f0d007b;
+        public static final int activeNudgeList=0x7f0d0067;
         public static final int activity_chooser_view_content=0x7f0d0031;
         public static final int adjust_height=0x7f0d001f;
         public static final int adjust_width=0x7f0d0020;
@@ -1984,12 +1985,12 @@ containing a value of this type.
         public static final int beginning=0x7f0d001c;
         public static final int buttonPanel=0x7f0d0041;
         public static final int checkbox=0x7f0d0043;
-        public static final int chooseContactButton=0x7f0d006c;
-        public static final int chooseContactText=0x7f0d006b;
-        public static final int chooseDateButton=0x7f0d006f;
-        public static final int chooseDateText=0x7f0d006e;
-        public static final int chooseTimeButton=0x7f0d0071;
-        public static final int chooseTimeText=0x7f0d0070;
+        public static final int chooseContactButton=0x7f0d006e;
+        public static final int chooseContactText=0x7f0d006d;
+        public static final int chooseDateButton=0x7f0d0071;
+        public static final int chooseDateText=0x7f0d0070;
+        public static final int chooseTimeButton=0x7f0d0073;
+        public static final int chooseTimeText=0x7f0d0072;
         public static final int collapseActionView=0x7f0d0022;
         public static final int contentPanel=0x7f0d003c;
         public static final int custom=0x7f0d0040;
@@ -2008,33 +2009,34 @@ containing a value of this type.
         public static final int expanded_menu=0x7f0d0042;
         public static final int fab_expand_menu_button=0x7f0d0004;
         public static final int fab_label=0x7f0d0005;
-        public static final int formActivityId=0x7f0d0067;
-        public static final int frequencySeekBar=0x7f0d0075;
-        public static final int frequencySeekBarLabel=0x7f0d0076;
-        public static final int frequencyTextView=0x7f0d0074;
+        public static final int formActivityId=0x7f0d0069;
+        public static final int frequencySeekBar=0x7f0d0077;
+        public static final int frequencySeekBarLabel=0x7f0d0078;
+        public static final int frequencyTextView=0x7f0d0076;
         public static final int home=0x7f0d0006;
         public static final int homeAsUp=0x7f0d0012;
         public static final int icon=0x7f0d0036;
         public static final int ifRoom=0x7f0d0023;
         public static final int image=0x7f0d0033;
-        public static final int imageView=0x7f0d0068;
-        public static final int instructionText=0x7f0d0066;
+        public static final int imageView=0x7f0d006a;
+        public static final int instructionText=0x7f0d0068;
         public static final int left=0x7f0d0019;
         public static final int listMode=0x7f0d000e;
         public static final int list_item=0x7f0d0035;
-        public static final int messageFormAdView=0x7f0d0077;
+        public static final int messageFormAdView=0x7f0d0079;
         public static final int middle=0x7f0d001e;
         public static final int mini=0x7f0d0018;
         public static final int multiply=0x7f0d0029;
         public static final int never=0x7f0d0024;
-        public static final int newNudgeButton=0x7f0d0064;
+        public static final int newNudgeButton=0x7f0d0066;
         public static final int none=0x7f0d0013;
         public static final int normal=0x7f0d000f;
         public static final int nudgeMessageText=0x7f0d005c;
-        public static final int nudgeMessageTextField=0x7f0d0073;
+        public static final int nudgeMessageTextField=0x7f0d0075;
         public static final int nudgeRecipientText=0x7f0d005a;
         public static final int nudgeSendDateText=0x7f0d005b;
         public static final int parentPanel=0x7f0d0038;
+        public static final int portfolioButton=0x7f0d0061;
         public static final int progress_circular=0x7f0d0007;
         public static final int progress_horizontal=0x7f0d0008;
         public static final int radio=0x7f0d0045;
@@ -2059,7 +2061,7 @@ containing a value of this type.
         public static final int showcase_button=0x7f0d0009;
         public static final int showcase_sub_text=0x7f0d000a;
         public static final int showcase_title_text=0x7f0d000b;
-        public static final int splashScreenAdView=0x7f0d0069;
+        public static final int splashScreenAdView=0x7f0d006b;
         public static final int split_action_bar=0x7f0d000c;
         public static final int src_atop=0x7f0d002b;
         public static final int src_in=0x7f0d002c;
@@ -2072,9 +2074,10 @@ containing a value of this type.
         public static final int topPanel=0x7f0d0039;
         public static final int up=0x7f0d000d;
         public static final int useLogo=0x7f0d0017;
-        public static final int whatTextView=0x7f0d0072;
-        public static final int whenTextView=0x7f0d006d;
-        public static final int whoTextView=0x7f0d006a;
+        public static final int websiteButton=0x7f0d0064;
+        public static final int whatTextView=0x7f0d0074;
+        public static final int whenTextView=0x7f0d006f;
+        public static final int whoTextView=0x7f0d006c;
         public static final int withText=0x7f0d0025;
         public static final int wrap_content=0x7f0d0028;
     }
@@ -2198,26 +2201,28 @@ containing a value of this type.
         public static final int decline=0x7f06003f;
         public static final int default_frequency_text=0x7f060040;
         public static final int deleteNudgeButtonText=0x7f060041;
-        public static final int developer_donation_text=0x7f060042;
-        public static final int editNudgeButtonText=0x7f060043;
-        public static final int frequency_instruction=0x7f060044;
-        public static final int instruction_message=0x7f060045;
-        public static final int message_form_ad_unit_id=0x7f060046;
-        public static final int new_nudge_instruction_text=0x7f060047;
-        public static final int no_selection_text=0x7f060048;
-        public static final int ok=0x7f060049;
-        public static final int splash_screen_ad_unit_id=0x7f06004a;
-        public static final int store_picture_message=0x7f06004b;
-        public static final int store_picture_title=0x7f06004c;
-        public static final int subtitle_donate_to_artist=0x7f06004d;
-        public static final int subtitle_donate_to_developer=0x7f06004e;
-        public static final int time_button_text=0x7f06004f;
-        public static final int title_activity_about_nudge=0x7f060050;
-        public static final int title_activity_active_nudges=0x7f060051;
-        public static final int title_activity_message_form=0x7f060052;
-        public static final int what_instruction=0x7f060053;
-        public static final int when_instruction=0x7f060054;
-        public static final int who_instruction=0x7f060055;
+        public static final int developerButtonText=0x7f060042;
+        public static final int developer_donation_text=0x7f060043;
+        public static final int editNudgeButtonText=0x7f060044;
+        public static final int frequency_instruction=0x7f060045;
+        public static final int instruction_message=0x7f060046;
+        public static final int message_form_ad_unit_id=0x7f060047;
+        public static final int new_nudge_instruction_text=0x7f060048;
+        public static final int no_selection_text=0x7f060049;
+        public static final int ok=0x7f06004a;
+        public static final int portfolioButtonText=0x7f06004b;
+        public static final int splash_screen_ad_unit_id=0x7f06004c;
+        public static final int store_picture_message=0x7f06004d;
+        public static final int store_picture_title=0x7f06004e;
+        public static final int subtitle_donate_to_artist=0x7f06004f;
+        public static final int subtitle_donate_to_developer=0x7f060050;
+        public static final int time_button_text=0x7f060051;
+        public static final int title_activity_about_nudge=0x7f060052;
+        public static final int title_activity_active_nudges=0x7f060053;
+        public static final int title_activity_message_form=0x7f060054;
+        public static final int what_instruction=0x7f060055;
+        public static final int when_instruction=0x7f060056;
+        public static final int who_instruction=0x7f060057;
     }
     public static final class style {
         public static final int ActionBarStyle=0x7f080025;

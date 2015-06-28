@@ -8,13 +8,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.Message;
 import com.ksp.message.MessageHandler;
-import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 
 import java.text.ParseException;
 import java.util.Calendar;
+
+import static android.provider.BaseColumns._ID;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_FREQUENCY;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_MESSAGE;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
+import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME;
 
 public class SendMessageService extends IntentService {
     private static final String SERVICE_NAME = "MESSAGE_SERVICE";
@@ -47,29 +53,19 @@ public class SendMessageService extends IntentService {
      * @throws ParseException
      */
     private void deliverOutstandingMessages() throws ParseException{
-        NudgeDatabaseHelper dbHelper = new NudgeDatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] projection = {
-                NudgeMessageEntry._ID,
-                NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER,
-                NudgeMessageEntry.COLUMN_NAME_SEND_TIME,
-                NudgeMessageEntry.COLUMN_NAME_MESSAGE,
-                NudgeMessageEntry.COLUMN_NAME_FREQUENCY,
-        };
-        String sortOrder = NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
-        Cursor messageCursor = db.query(NudgeMessageEntry.TABLE_NAME, projection, null, null, null,
-                null, sortOrder);
+        NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sortOrder = COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
+        Cursor messageCursor = db.query(TABLE_NAME, null, null, null, null, null, sortOrder);
 
         messageCursor.moveToFirst();
         while (!messageCursor.isAfterLast()){
             Message currentNudge = Message.getInstanceFromCursor(messageCursor);
-            String id = messageCursor
-                    .getString(messageCursor.getColumnIndex(NudgeMessageEntry._ID));
+            String id = messageCursor.getString(messageCursor.getColumnIndex(_ID));
 
             if (MessageHandler.isOutstandingMessage(currentNudge.getSendTimeAsString())){
                 MessageHandler.sendMessage(currentNudge.getRecipientNumber(),
                         currentNudge.getMessage());
-                NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
                 if (currentNudge.getFrequency().equals("Once")){
                     databaseHelper.deleteMessage(id);
                     ActiveNudgesActivity.getNudgeAdapter().refreshAdapter(databaseHelper);

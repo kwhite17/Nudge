@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 import com.ksp.message.Message;
 import com.ksp.message.MessageHandler;
 
@@ -63,7 +62,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * @return a cursor containing all message data in the database
      */
     public Cursor readMessagesFromDatabase(){
-        SQLiteDatabase database = this.getReadableDatabase();
+        SQLiteDatabase database = getReadableDatabase();
         String[] databaseColumns = {_ID,COLUMN_NAME_RECIPIENT_NAME,COLUMN_NAME_MESSAGE,
                 COLUMN_NAME_SEND_TIME};
         String sortOrder = COLUMN_NAME_RECIPIENT_NAME + " DESC";
@@ -76,7 +75,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * @return A cursor containing all the message send times from the database
      */
     public Cursor getSendTimesFromDatabase(){
-        SQLiteDatabase database = this.getReadableDatabase();
+        SQLiteDatabase database = getReadableDatabase();
         String[] projection = new String[]{COLUMN_NAME_SEND_TIME};
         String sortOrder = COLUMN_NAME_SEND_TIME + " DESC";
         return database.query(TABLE_NAME, projection,
@@ -84,7 +83,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getNudgeEntry(String id){
-        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { id };
         return database.query(TABLE_NAME, null,
@@ -92,10 +91,10 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public String updateExistingMessage(Message nudge) {
-        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { Integer.toString(nudge.getId()) };
-        long updateResult = database.update(TABLE_NAME, buildMessageProperties(nudge),
+        long updateResult = database.update(TABLE_NAME, populateMessageFields(nudge),
                 selection, selectionArgs);
         return updateResult == -1 ? "Update failed" : "Update completed";
     }
@@ -108,7 +107,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      */
     public Calendar updateSendTime(String id, String sendDate, String frequency)
             throws ParseException {
-        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { id };
         ContentValues sendTime = new ContentValues();
@@ -127,8 +126,8 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * @return whether or not message insertion was successful
      */
     public String writeMessageToDatabase(Message nudge) {
-        SQLiteDatabase database = this.getWritableDatabase();
-        long insertionResult = database.insert(TABLE_NAME, null, buildMessageProperties(nudge));
+        SQLiteDatabase database = getWritableDatabase();
+        long insertionResult = database.insert(TABLE_NAME, null, populateMessageFields(nudge));
         database.close();
         return insertionResult == -1 ? "Insertion failed": "Insertion successful";
     }
@@ -138,21 +137,21 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * @param id, the id of the message to delete
      */
     public void deleteMessage(String id){
-        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { id };
         database.delete(TABLE_NAME, selection, selectionArgs);
         database.close();
     }
 
-    private ContentValues buildMessageProperties(Message nudge) {
-        ContentValues messageProperties = new ContentValues();
-        messageProperties.put(COLUMN_NAME_RECIPIENT_NUMBER, nudge.getRecipientNumber());
-        messageProperties.put(COLUMN_NAME_RECIPIENT_NAME, nudge.getRecipientInfo());
-        messageProperties.put(COLUMN_NAME_SEND_TIME,
+    private ContentValues populateMessageFields(Message nudge) {
+        ContentValues messageFields = new ContentValues();
+        messageFields.put(COLUMN_NAME_RECIPIENT_NUMBER, nudge.getRecipientNumber());
+        messageFields.put(COLUMN_NAME_RECIPIENT_NAME, nudge.getRecipientInfo());
+        messageFields.put(COLUMN_NAME_SEND_TIME,
                 DateFormat.getInstance().format(nudge.getSendTime().getTime()));
-        messageProperties.put(COLUMN_NAME_MESSAGE, nudge.getMessage());
-        messageProperties.put(COLUMN_NAME_FREQUENCY, nudge.getFrequency());
-        return messageProperties;
+        messageFields.put(COLUMN_NAME_MESSAGE, nudge.getMessage());
+        messageFields.put(COLUMN_NAME_FREQUENCY, nudge.getFrequency());
+        return messageFields;
     }
 }
