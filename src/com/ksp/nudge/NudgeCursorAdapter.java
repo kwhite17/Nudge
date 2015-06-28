@@ -69,6 +69,10 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
         });
     }
 
+    /**
+     * Updates the data in the adapter and notifies the necessary objects
+     * @param databaseHelper, the helper used to read the new data form the database
+     */
     public void refreshAdapter(NudgeDatabaseHelper databaseHelper){
         getCursor().close();
         Cursor newCursor = databaseHelper.readMessagesFromDatabase();

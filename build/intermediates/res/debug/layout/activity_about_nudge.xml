@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/portfolioButtonText"
+            android:text="@string/portfolio_button_text"
             android:textColor="@color/raisedButtonTextColor"
             android:textAllCaps="true"
             android:gravity="center"
@@ -95,7 +95,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/developerButtonText"
+            android:text="@string/developer_button_text"
             android:textColor="@color/raisedButtonTextColor"
             android:textAllCaps="true"
             android:gravity="center"

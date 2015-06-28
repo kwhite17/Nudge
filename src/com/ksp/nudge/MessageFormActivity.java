@@ -42,7 +42,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static android.text.format.DateFormat.is24HourFormat;
-import static com.ksp.nudge.R.array.frequencyArray;
+import static com.ksp.nudge.R.array.frequency_array;
 import static com.ksp.nudge.R.id.chooseContactButton;
 import static com.ksp.nudge.R.id.chooseContactText;
 import static com.ksp.nudge.R.id.chooseDateButton;
@@ -81,7 +81,7 @@ public class MessageFormActivity extends AppCompatActivity {
             nudge = Message.getInstanceFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
             ((TextView)findViewById(chooseContactText)).setText(nudge.getRecipientInfo());
             ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
-            String[] frequencies = getResources().getStringArray(frequencyArray);
+            String[] frequencies = getResources().getStringArray(frequency_array);
             ((SeekBar)findViewById(frequencySeekBar)).
                     setProgress(asList(frequencies).indexOf(nudge.getFrequency()));
         }
@@ -139,7 +139,7 @@ public class MessageFormActivity extends AppCompatActivity {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         TextView progressBarLabel = (TextView) findViewById(frequencySeekBarLabel);
-                        String[] frequencies = getResources().getStringArray(frequencyArray);
+                        String[] frequencies = getResources().getStringArray(frequency_array);
                         nudge.setFrequency(frequencies[progress]);
                         progressBarLabel.setText(frequencies[progress]);
                     }
@@ -243,12 +243,12 @@ public class MessageFormActivity extends AppCompatActivity {
     }
 
     /*
- * Handles information about the contact selected as a result of the
- * getContact() method
- *
- * (non-Javadoc)
- * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
- */
+     * Handles information about the contact selected as a result of the
+     * getContact() method
+     *
+     * (non-Javadoc)
+     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Uri result = null;

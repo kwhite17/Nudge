@@ -10,7 +10,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import static android.content.Intent.ACTION_VIEW;
-import static com.ksp.nudge.R.array.urlArray;
+import static com.ksp.nudge.R.array.url_array;
 import static com.ksp.nudge.R.id.aboutUsAdView;
 import static com.ksp.nudge.R.id.portfolioButton;
 
@@ -35,7 +35,7 @@ public class AboutNudgeActivity extends AppCompatActivity {
     }
 
     public void launchBrowser(View v) {
-        String[] launchUrls = getResources().getStringArray(urlArray);
+        String[] launchUrls = getResources().getStringArray(url_array);
         Intent browserIntent = new Intent(ACTION_VIEW);
         if (v.getId() == portfolioButton) {
             browserIntent.setData(Uri.parse(launchUrls[0]));

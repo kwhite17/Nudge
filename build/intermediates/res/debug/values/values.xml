@@ -2,14 +2,14 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values/strings.xml -->
     <eat-comment/>
-    <string-array name="frequencyArray">
+    <string-array name="frequency_array">
         <item>Once</item>
         <item>Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>
         <item>Monthly: Last Day</item>
     </string-array>
-    <string-array name="urlArray">
+    <string-array name="url_array">
         <item>http://behance.net/josephsabatini</item>
         <item>http://katanakdubs.herokuapp.com/</item>
     </string-array>
@@ -367,11 +367,11 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values/strings.xml -->
     <eat-comment/>
     <string name="default_frequency_text">Weekly</string>
-    <string name="deleteNudgeButtonText">delete</string>
-    <string name="developerButtonText">Kevin\'s Website</string>
+    <string name="delete_nudge_button_text">delete</string>
+    <string name="developer_button_text">Kevin\'s Website</string>
     <string name="developer_donation_text">Kevin is the main technical force behind Nudge. The conception
     of this app and its various features are under his domain Checkout his other work:</string>
-    <string name="editNudgeButtonText">edit</string>
+    <string name="edit_nudge_button_text">edit</string>
     <string name="frequency_instruction">How often should I nudge them?</string>
     <string name="instruction_message">"No active nudges. Tap \'+\' to begin!"</string>
     <string name="message_form_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
@@ -383,7 +383,7 @@ available. Please contact the developer for assistance.</string>
     <string name="ok">OK</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/res/values/strings.xml -->
     <eat-comment/>
-    <string name="portfolioButtonText">Joey\'s Portfolio</string>
+    <string name="portfolio_button_text">Joey\'s Portfolio</string>
     <string name="splash_screen_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <!-- From: file:/home/kevin/Development/git/Nudge/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.3.0/res/values/admob_strings.xml -->
     <eat-comment/>

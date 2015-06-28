@@ -68,6 +68,12 @@ public class Message {
         return DateFormat.getInstance().format(sendTime.getTime());
     }
 
+    /**
+     *
+     * @param messageCursor, a cursor containing all the information necessary to create a Message
+     *                       instance
+     * @return a new Message instance with the data from messageCursor
+     */
     public static Message getInstanceFromCursor(Cursor messageCursor){
         Message parsedMessage = new Message();
         messageCursor.moveToFirst();

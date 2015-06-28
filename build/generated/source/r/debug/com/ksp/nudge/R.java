@@ -21,8 +21,8 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040009;
     }
     public static final class array {
-        public static final int frequencyArray=0x7f0b0000;
-        public static final int urlArray=0x7f0b0001;
+        public static final int frequency_array=0x7f0b0000;
+        public static final int url_array=0x7f0b0001;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -2200,17 +2200,17 @@ containing a value of this type.
         public static final int date_button_text=0x7f06003e;
         public static final int decline=0x7f06003f;
         public static final int default_frequency_text=0x7f060040;
-        public static final int deleteNudgeButtonText=0x7f060041;
-        public static final int developerButtonText=0x7f060042;
+        public static final int delete_nudge_button_text=0x7f060041;
+        public static final int developer_button_text=0x7f060042;
         public static final int developer_donation_text=0x7f060043;
-        public static final int editNudgeButtonText=0x7f060044;
+        public static final int edit_nudge_button_text=0x7f060044;
         public static final int frequency_instruction=0x7f060045;
         public static final int instruction_message=0x7f060046;
         public static final int message_form_ad_unit_id=0x7f060047;
         public static final int new_nudge_instruction_text=0x7f060048;
         public static final int no_selection_text=0x7f060049;
         public static final int ok=0x7f06004a;
-        public static final int portfolioButtonText=0x7f06004b;
+        public static final int portfolio_button_text=0x7f06004b;
         public static final int splash_screen_ad_unit_id=0x7f06004c;
         public static final int store_picture_message=0x7f06004d;
         public static final int store_picture_title=0x7f06004e;

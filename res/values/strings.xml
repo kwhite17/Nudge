@@ -34,18 +34,18 @@
     creating your message!</string>
     <string name="no_selection_text">None</string>
     <string name="default_frequency_text">Weekly</string>
-    <string name="editNudgeButtonText">edit</string>
-    <string name="deleteNudgeButtonText">delete</string>
-    <string name="portfolioButtonText">Joey\'s Portfolio</string>
-    <string name="developerButtonText">Kevin\'s Website</string>
-    <string-array name="frequencyArray">
+    <string name="edit_nudge_button_text">edit</string>
+    <string name="delete_nudge_button_text">delete</string>
+    <string name="portfolio_button_text">Joey\'s Portfolio</string>
+    <string name="developer_button_text">Kevin\'s Website</string>
+    <string-array name="frequency_array">
         <item>Once</item>
         <item>Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>
         <item>Monthly: Last Day</item>
     </string-array>
-    <string-array name="urlArray">
+    <string-array name="url_array">
         <item>http://behance.net/josephsabatini</item>
         <item>http://katanakdubs.herokuapp.com/</item>
     </string-array>

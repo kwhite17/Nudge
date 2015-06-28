@@ -25,70 +25,13 @@
       </layout>
     </layouts>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="e603ae94-6d44-4884-a17f-45783c2ac51e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_22_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/floatingactionbutton_1_9_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/library_5_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_7_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_7_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_base_7_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_22_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity$LoadAdAsyncTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-057c0f2c823c97557af4a60003c7e33acca5fab7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-19ef0233dfc44a30bfeef9f193e6f523e827170b.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-1f81375faf34314db8e60902cc786e9194161653.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-4a883f7e9f5a70d6531434bc26e97116ebef4895.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-796ec629a6bcbd8539772c7c81bfa144dbd89358.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-b2f9643cebbc00361662feebcea787819be11dda.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-b4b48ec65f59da2e5bcbfb8b29ce94f9dd38fccf.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-dde431060a684921bf398f4371991b7f7e09b929.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-dbfc575670aedf82a5b137d94367dafe9335c266.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-0ef9674094fe17f3cfadd4e34e5ad9d679e162fc.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/outputs/apk/Nudge-debug-unaligned.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/outputs/apk/Nudge-debug.apk" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/AboutNudgeActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/AboutNudgeActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity$GetActiveNudgesTask.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity$GetActiveNudgesTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/ActiveNudgesActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/BootReceiver.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/BootReceiver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$DatePickerFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$DatePickerFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$TimePickerFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity$TimePickerFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/MessageFormActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/message/Message.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/message/Message.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/NudgeCursorAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/NudgeCursorAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/database/NudgeDatabaseHelper.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/database/NudgeDatabaseHelper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$array.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$array.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$attr.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$bool.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$bool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$color.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$dimen.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$dimen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$drawable.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$id.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$integer.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$integer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$layout.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$menu.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$raw.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$raw.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$string.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/github/amlcurran/showcaseview/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/google/android/gms/R$string.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/google/android/gms/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/google/android/gms/ads/R$string.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/google/android/gms/ads/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/google/android/gms/analytics/R$string.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/google/android/gms/analytics/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$string.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$style.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$styleable.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SendMessageService.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SendMessageService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/ksp/nudge/SplashScreenActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
@@ -97,18 +40,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/message/Message.java" afterPath="$PROJECT_DIR$/src/com/ksp/message/Message.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java" afterPath="$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/github/amlcurran/showcaseview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/github/amlcurran/showcaseview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/google/android/gms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/google/android/gms/ads/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/google/android/gms/ads/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/google/android/gms/analytics/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/google/android/gms/analytics/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/ksp/nudge/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/ksp/nudge/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ksp/nudge/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/src/com/ksp/nudge/SplashScreenActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/debug/layout/active_nudge_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/debug/layout/active_nudge_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/active_nudge_item.xml" afterPath="$PROJECT_DIR$/res/layout/active_nudge_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/debug/layout/activity_about_nudge.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/debug/layout/activity_about_nudge.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_about_nudge.xml" afterPath="$PROJECT_DIR$/res/layout/activity_about_nudge.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResources/debug/merger.xml" />
@@ -142,40 +81,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_about_nudge.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.68">
+              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_about_nudge.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/activity_about_nudge.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6819673">
-              <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+            <state vertical-scroll-proportion="-8.928572">
+              <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
               <folding>
-                <element signature="e#287#322#0" expanded="true" />
-                <element signature="e#348#383#0" expanded="true" />
-                <element signature="e#407#440#0" expanded="true" />
-                <element signature="e#467#500#0" expanded="true" />
-                <element signature="e#669#704#0" expanded="true" />
-                <element signature="e#830#863#0" expanded="true" />
-                <element signature="e#889#926#0" expanded="true" />
-                <element signature="e#1239#1272#0" expanded="true" />
-                <element signature="e#1294#1324#0" expanded="true" />
-                <element signature="e#1350#1388#0" expanded="true" />
-                <element signature="e#1711#1740#0" expanded="true" />
-                <element signature="e#2001#2034#0" expanded="true" />
-                <element signature="e#2067#2102#0" expanded="true" />
-                <element signature="e#2138#2170#0" expanded="true" />
-                <element signature="e#2378#2407#0" expanded="true" />
-                <element signature="e#2574#2612#0" expanded="true" />
-                <element signature="e#2740#2778#0" expanded="true" />
-                <element signature="e#2904#2937#0" expanded="true" />
-                <element signature="e#2963#3000#0" expanded="true" />
-                <element signature="e#3313#3346#0" expanded="true" />
-                <element signature="e#3372#3410#0" expanded="true" />
-                <element signature="e#3733#3762#0" expanded="true" />
-                <element signature="e#4026#4059#0" expanded="true" />
-                <element signature="e#4092#4127#0" expanded="true" />
-                <element signature="e#4163#4195#0" expanded="true" />
-                <element signature="e#4403#4432#0" expanded="true" />
-                <element signature="e#4599#4637#0" expanded="true" />
-                <element signature="e#4901#4935#0" expanded="true" />
+                <element signature="e#2378#2409#0" expanded="true" />
+                <element signature="e#4405#4436#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,12 +107,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <file leaf-file-name="AboutNudgeActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.4">
-              <caret line="38" column="37" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="37" />
-              <folding />
+            <state vertical-scroll-proportion="0.6285266">
+              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,8 +123,10 @@
         <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="238" column="26" selection-start-line="238" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
-              <folding />
+              <caret line="83" column="80" selection-start-line="83" selection-start-column="80" selection-end-line="83" selection-end-column="80" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -774,7 +701,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2860776684363" />
+        <entry key="$PROJECT_DIR$" value="2863139464849" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1000,9 +927,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/res/layout/activity_active_nudges.xml" />
-        <option value="$PROJECT_DIR$/src/com/ksp/message/Message.java" />
         <option value="$PROJECT_DIR$/src/com/ksp/message/MessageHandler.java" />
-        <option value="$PROJECT_DIR$/res/layout/active_nudge_item.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/layout/message_form.xml" />
         <option value="$PROJECT_DIR$/res/menu/menu_active_nudges.xml" />
@@ -1011,15 +936,17 @@
         <option value="$PROJECT_DIR$/src/com/ksp/nudge/ActiveNudgesActivity.java" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java" />
         <option value="$PROJECT_DIR$/src/com/ksp/nudge/SplashScreenActivity.java" />
         <option value="$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java" />
         <option value="$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/src/com/ksp/message/Message.java" />
+        <option value="$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/active_nudge_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_about_nudge.xml" />
         <option value="$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java" />
         <option value="$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_about_nudge.xml" />
       </list>
     </option>
   </component>
@@ -1101,64 +1028,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nudge" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nudge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1434,7 +1303,7 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32481363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32481363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928178" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1450,7 +1319,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13471779" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13471779" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3237569" sideWeight="0.48935038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3290735" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" x="1454" y="96" width="1732" height="858" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1718,16 +1587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/active_nudge_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66117644">
-          <caret line="92" column="41" selection-start-line="92" selection-start-column="41" selection-end-line="92" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/menu_message_form.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.052478135">
@@ -1771,7 +1630,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
-            <element signature="e#753#771#0" expanded="true" />
+            <element signature="e#753#771#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1786,66 +1645,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/NudgeMessagesContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3272727">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/message/MessageHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.290909">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43471074">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58347106">
-          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/SplashScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31570247">
           <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/ActiveNudgesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.059504133">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.059504133">
-          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4270073">
-          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/message/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4280992">
-          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1871,27 +1674,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/NudgeMessagesContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="238" column="26" selection-start-line="238" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.31034482">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/database/NudgeDatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
+        <state vertical-scroll-proportion="-0.2413793">
+          <caret line="134" column="83" selection-start-line="134" selection-start-column="83" selection-end-line="134" selection-end-column="83" />
+          <folding>
+            <element signature="e#2065#2066#0" expanded="false" />
+            <element signature="e#2111#2112#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/message/MessageHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8056426">
+          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/message/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.4">
-          <caret line="38" column="37" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="37" />
+        <state vertical-scroll-proportion="1.354232">
+          <caret line="74" column="70" selection-start-line="74" selection-start-column="70" selection-end-line="74" selection-end-column="70" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/NudgeCursorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.053651266">
+          <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/SendMessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8390462">
+          <caret line="83" column="7" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/BootReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.414307">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/ActiveNudgesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4828614">
+          <caret line="53" column="47" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/active_nudge_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86469674">
+          <caret line="92" column="70" selection-start-line="92" selection-start-column="70" selection-end-line="92" selection-end-column="70" />
+          <folding>
+            <element signature="e#3291#3323#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1900,37 +1759,39 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6819673">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+        <state vertical-scroll-proportion="-8.928572">
+          <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
           <folding>
-            <element signature="e#287#322#0" expanded="true" />
-            <element signature="e#348#383#0" expanded="true" />
-            <element signature="e#407#440#0" expanded="true" />
-            <element signature="e#467#500#0" expanded="true" />
-            <element signature="e#669#704#0" expanded="true" />
-            <element signature="e#830#863#0" expanded="true" />
-            <element signature="e#889#926#0" expanded="true" />
-            <element signature="e#1239#1272#0" expanded="true" />
-            <element signature="e#1294#1324#0" expanded="true" />
-            <element signature="e#1350#1388#0" expanded="true" />
-            <element signature="e#1711#1740#0" expanded="true" />
-            <element signature="e#2001#2034#0" expanded="true" />
-            <element signature="e#2067#2102#0" expanded="true" />
-            <element signature="e#2138#2170#0" expanded="true" />
-            <element signature="e#2378#2407#0" expanded="true" />
-            <element signature="e#2574#2612#0" expanded="true" />
-            <element signature="e#2740#2778#0" expanded="true" />
-            <element signature="e#2904#2937#0" expanded="true" />
-            <element signature="e#2963#3000#0" expanded="true" />
-            <element signature="e#3313#3346#0" expanded="true" />
-            <element signature="e#3372#3410#0" expanded="true" />
-            <element signature="e#3733#3762#0" expanded="true" />
-            <element signature="e#4026#4059#0" expanded="true" />
-            <element signature="e#4092#4127#0" expanded="true" />
-            <element signature="e#4163#4195#0" expanded="true" />
-            <element signature="e#4403#4432#0" expanded="true" />
-            <element signature="e#4599#4637#0" expanded="true" />
-            <element signature="e#4901#4935#0" expanded="true" />
+            <element signature="e#2378#2409#0" expanded="true" />
+            <element signature="e#4405#4436#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/MessageFormActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="80" selection-start-line="83" selection-start-column="80" selection-end-line="83" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.68">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ksp/nudge/AboutNudgeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6285266">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

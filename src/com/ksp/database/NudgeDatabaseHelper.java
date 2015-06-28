@@ -82,6 +82,11 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
                 null, null, null, null, sortOrder);
     }
 
+    /**
+     *
+     * @param id, the id of the nudge in the database
+     * @return a cursor containing the information that represents a nudge Message
+     */
     public Cursor getNudgeEntry(String id){
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
@@ -90,6 +95,11 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
                 selection, selectionArgs, null, null, null);
     }
 
+    /**
+     *
+     * @param nudge, a Message with the updated information
+     * @return a String dictating whether the nudge was successfully updated
+     */
     public String updateExistingMessage(Message nudge) {
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
@@ -122,7 +132,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Writes the contents of a message to the database
-     * @param nudge, the contents of the message and how often it should be sent
+     * @param nudge, a Message containing the data to be inserted into the database
      * @return whether or not message insertion was successful
      */
     public String writeMessageToDatabase(Message nudge) {
@@ -144,6 +154,11 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         database.close();
     }
 
+    /**
+     *
+     * @param nudge, a Message containing the data to be inserted into the database
+     * @return ContentValues mapping nudge to the appropriate database columns
+     */
     private ContentValues populateMessageFields(Message nudge) {
         ContentValues messageFields = new ContentValues();
         messageFields.put(COLUMN_NAME_RECIPIENT_NUMBER, nudge.getRecipientNumber());
