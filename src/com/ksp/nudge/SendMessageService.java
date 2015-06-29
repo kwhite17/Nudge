@@ -16,10 +16,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 
 import static android.provider.BaseColumns._ID;
-import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_FREQUENCY;
-import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_MESSAGE;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER;
-import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME;
 
 public class SendMessageService extends IntentService {
@@ -58,27 +55,23 @@ public class SendMessageService extends IntentService {
         String sortOrder = COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
         Cursor messageCursor = db.query(TABLE_NAME, null, null, null, null, null, sortOrder);
 
-        messageCursor.moveToFirst();
-        while (!messageCursor.isAfterLast()){
-            Message currentNudge = Message.getInstanceFromCursor(messageCursor);
-            String id = messageCursor.getString(messageCursor.getColumnIndex(_ID));
-
-            if (MessageHandler.isOutstandingMessage(currentNudge.getSendTimeAsString())){
+        Message[] currentNudges = Message.getMessagesFromCursor(messageCursor);
+        for (Message currentNudge: currentNudges) {
+            String id = Integer.toString(currentNudge.getId());
+            if (MessageHandler.isOutstandingMessage(currentNudge.getSendTimeAsString())) {
                 MessageHandler.sendMessage(currentNudge.getRecipientNumber(),
                         currentNudge.getMessage());
-                if (currentNudge.getFrequency().equals("Once")){
+                if (currentNudge.getFrequency().equals("Once")) {
                     databaseHelper.deleteMessage(id);
                     ActiveNudgesActivity.getNudgeAdapter().refreshAdapter(databaseHelper);
-                } else{
+                } else {
                     Calendar nextSendTime = databaseHelper.updateSendTime(id,
                             currentNudge.getSendTimeAsString(),
                             currentNudge.getFrequency());
                     setServiceAlarm(this, nextSendTime);
                 }
             }
-            messageCursor.moveToNext();
         }
-        messageCursor.close();
     }
 
     /**

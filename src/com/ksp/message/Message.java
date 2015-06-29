@@ -74,9 +74,36 @@ public class Message {
      *                       instance
      * @return a new Message instance with the data from messageCursor
      */
-    public static Message getInstanceFromCursor(Cursor messageCursor){
-        Message parsedMessage = new Message();
+    public static Message getMessageFromCursor(Cursor messageCursor){
         messageCursor.moveToFirst();
+        Message parsedMessage = buildMessageFromRow(messageCursor);
+        messageCursor.close();
+        return parsedMessage;
+    }
+
+    /**
+     *
+     * @param messageCursor, a database cursor containing the data necessary to build messages
+     * @return messages, a Message array built from the database rows in the cursor
+     */
+    public static Message[] getMessagesFromCursor(Cursor messageCursor){
+        Message[] messages = new Message[messageCursor.getCount()];
+        messageCursor.moveToFirst();
+        while (!messageCursor.isAfterLast()) {
+            messages[messageCursor.getPosition()] = buildMessageFromRow(messageCursor);
+            messageCursor.moveToNext();
+        }
+        messageCursor.close();
+        return messages;
+    }
+
+    /**
+     *
+     * @param messageCursor, a cursor pointed at a row needed to build this instance of Message
+     * @return an instance of Message containing the data from the row the cursor pointed to
+     */
+    private static Message buildMessageFromRow(Cursor messageCursor) {
+        Message parsedMessage = new Message();
         parsedMessage.setId(messageCursor.getInt(messageCursor.getColumnIndex(_ID)));
         parsedMessage.setMessage(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_MESSAGE)));
@@ -92,7 +119,6 @@ public class Message {
         } catch (ParseException e) {
             Log.e("ParseException", e.getMessage());
         }
-        messageCursor.close();
         return parsedMessage;
     }
 }

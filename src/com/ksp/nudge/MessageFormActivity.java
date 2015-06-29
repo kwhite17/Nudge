@@ -78,7 +78,7 @@ public class MessageFormActivity extends AppCompatActivity {
         String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
         if (currentNudgeId != null) {
             NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
-            nudge = Message.getInstanceFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
+            nudge = Message.getMessageFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
             ((TextView)findViewById(chooseContactText)).setText(nudge.getRecipientInfo());
             ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
             String[] frequencies = getResources().getStringArray(frequency_array);
