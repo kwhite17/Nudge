@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.ksp.message.Message;
-import com.ksp.message.MessageHandler;
+import com.ksp.nudge.ActiveNudgesActivity;
+import com.ksp.nudge.NudgeCursorAdapter;
 
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Calendar;
 
 import static android.provider.BaseColumns._ID;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_FREQUENCY;
@@ -20,6 +20,7 @@ import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NA
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME;
+import static com.ksp.message.MessageHandler.getNextSend;
 
 public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
@@ -103,7 +104,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     public String updateExistingMessage(Message nudge) {
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
-        String[] selectionArgs = { Integer.toString(nudge.getId()) };
+        String[] selectionArgs = { nudge.getId() };
         long updateResult = database.update(TABLE_NAME, populateMessageFields(nudge),
                 selection, selectionArgs);
         return updateResult == -1 ? "Update failed" : "Update completed";
@@ -111,23 +112,16 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Updates the send time of a recurring message in the database
-     * @param id, the id of the database entry to update
-     * @param sendDate, the current send time of the message
-     * @param frequency, how often the message is supposed to be sent
+     * @param nudge, the message containing the info needed to update the send time
      */
-    public Calendar updateSendTime(String id, String sendDate, String frequency)
-            throws ParseException {
+    public void updateSendTime(Message nudge) {
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
-        String[] selectionArgs = { id };
+        String[] selectionArgs = { nudge.getId() };
         ContentValues sendTime = new ContentValues();
-        String nextSendTime = MessageHandler.getNextSend(sendDate, frequency);
-        sendTime.put(COLUMN_NAME_SEND_TIME, nextSendTime);
+        sendTime.put(COLUMN_NAME_SEND_TIME, getNextSend(nudge.getSendTime(), nudge.getFrequency()));
         database.update(TABLE_NAME, sendTime, selection, selectionArgs);
-        Calendar nextSendCalendar = Calendar.getInstance();
-        nextSendCalendar.setTime(DateFormat.getInstance().parse(nextSendTime));
         database.close();
-        return nextSendCalendar;
     }
 
     /**
@@ -168,5 +162,18 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         messageFields.put(COLUMN_NAME_MESSAGE, nudge.getMessage());
         messageFields.put(COLUMN_NAME_FREQUENCY, nudge.getFrequency());
         return messageFields;
+    }
+
+    public boolean updateNudge(Message currentNudge) throws ParseException {
+        if (currentNudge.getFrequency().equals("Once")) {
+            deleteMessage(currentNudge.getId());
+            NudgeCursorAdapter nudgeAdapter = ActiveNudgesActivity.getNudgeAdapter();
+            if (nudgeAdapter != null) {
+                nudgeAdapter.refreshAdapter(this);
+            }
+            return false;
+        }
+        updateSendTime(currentNudge);
+        return true;
     }
 }

@@ -12,12 +12,14 @@ import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.Message;
 import com.ksp.message.MessageHandler;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 
-import static android.provider.BaseColumns._ID;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME;
+import static com.ksp.message.MessageHandler.isOutstandingMessage;
+import static com.ksp.message.MessageHandler.sendMessage;
 
 public class SendMessageService extends IntentService {
     private static final String SERVICE_NAME = "MESSAGE_SERVICE";
@@ -56,19 +58,12 @@ public class SendMessageService extends IntentService {
         Cursor messageCursor = db.query(TABLE_NAME, null, null, null, null, null, sortOrder);
 
         Message[] currentNudges = Message.getMessagesFromCursor(messageCursor);
-        for (Message currentNudge: currentNudges) {
-            String id = Integer.toString(currentNudge.getId());
-            if (MessageHandler.isOutstandingMessage(currentNudge.getSendTimeAsString())) {
-                MessageHandler.sendMessage(currentNudge.getRecipientNumber(),
-                        currentNudge.getMessage());
-                if (currentNudge.getFrequency().equals("Once")) {
-                    databaseHelper.deleteMessage(id);
-                    ActiveNudgesActivity.getNudgeAdapter().refreshAdapter(databaseHelper);
-                } else {
-                    Calendar nextSendTime = databaseHelper.updateSendTime(id,
-                            currentNudge.getSendTimeAsString(),
-                            currentNudge.getFrequency());
-                    setServiceAlarm(this, nextSendTime);
+        for (Message currentNudge : currentNudges) {
+            if (isOutstandingMessage(currentNudge.getSendTimeAsString())) {
+                sendMessage(currentNudge.getRecipientNumber(), currentNudge.getMessage());
+                if (databaseHelper.updateNudge(currentNudge)) {
+                    setServiceAlarm(this, MessageHandler.getNextSend(currentNudge.getSendTime(),
+                            currentNudge.getFrequency()));
                 }
             }
         }
@@ -79,13 +74,15 @@ public class SendMessageService extends IntentService {
      * @param messageContext, the context in which this function is called
      * @param messageTime, the time for the next message to be scheduled
      */
-    public static void setServiceAlarm(Context messageContext, Calendar messageTime) {
+    public static void setServiceAlarm(Context messageContext, String messageTime) throws ParseException {
+        Calendar alarmTime = Calendar.getInstance();
+        alarmTime.setTime(DateFormat.getInstance().parse(messageTime));
         Intent sendMessageIntent = new Intent(messageContext, SendMessageService.class);
         PendingIntent pendingMessageIntent = PendingIntent.getService(messageContext,
                 (int)System.currentTimeMillis(), sendMessageIntent, PendingIntent.FLAG_ONE_SHOT);
         AlarmManager messageAlarm = (AlarmManager)
                 messageContext.getSystemService(Context.ALARM_SERVICE);
-        messageAlarm.set(AlarmManager.RTC_WAKEUP, messageTime.getTimeInMillis(),
+        messageAlarm.set(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(),
                 pendingMessageIntent);
     }
 }

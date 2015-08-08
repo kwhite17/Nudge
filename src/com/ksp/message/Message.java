@@ -19,15 +19,15 @@ import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NA
  * provides about the Nudge they are attempting to create.
  */
 public class Message {
-    private int id = -1;
+    private String id;
     private String recipientInfo;
     private String recipientNumber;
     private Calendar sendTime = Calendar.getInstance();
     private String message = "";
     private String frequency = "Weekly";
 
-    public int getId() { return id; }
-    public void setId(int id) {
+    public String getId() { return id; }
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -104,7 +104,8 @@ public class Message {
      */
     private static Message buildMessageFromRow(Cursor messageCursor) {
         Message parsedMessage = new Message();
-        parsedMessage.setId(messageCursor.getInt(messageCursor.getColumnIndex(_ID)));
+        parsedMessage.setId(Integer
+                .toString(messageCursor.getInt(messageCursor.getColumnIndex(_ID))));
         parsedMessage.setMessage(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_MESSAGE)));
         parsedMessage.setFrequency(messageCursor

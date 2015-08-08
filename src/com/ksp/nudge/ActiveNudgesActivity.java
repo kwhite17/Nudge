@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,10 +36,6 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_nudges);
 
-        //build the list of active nudges
-        ((ListView) findViewById(activeNudgeList)).setEmptyView(findViewById(R.id.instructionText));
-        new GetActiveNudgesTask().execute(this);
-
         //setup ShowcaseView for first time instructions
         final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
         findViewById(newNudgeButton).setOnClickListener(new View.OnClickListener() {
@@ -49,6 +46,21 @@ public class ActiveNudgesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //build the list of active nudges
+        ((ListView) findViewById(activeNudgeList)).setEmptyView(findViewById(R.id.instructionText));
+        if (nudgeAdapter == null) {
+            Log.i("NUDGE_ADAPTER", "Adapter failed to load on startup!");
+            new GetActiveNudgesTask().execute(this);
+        } else {
+            Log.i("NUDGE_ADAPTER", "Adapter loaded on startup!");
+            nudgeAdapter.refreshAdapter(new NudgeDatabaseHelper(this));
+            ((ListView)findViewById(activeNudgeList)).setAdapter(nudgeAdapter);
+        }
     }
 
     private ShowcaseView initializeShowcaseView() {
@@ -86,15 +98,11 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         finish();
     }
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-        finish();
-    }
-
     public static NudgeCursorAdapter getNudgeAdapter(){
         return nudgeAdapter;
     }
+
+    public static void setNudgeAdapter(NudgeCursorAdapter newValue) { nudgeAdapter = newValue; }
     /**
      * Class that fetches active nudges from database asynchronously
      */

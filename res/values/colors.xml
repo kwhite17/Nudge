@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="raisedButtonColor">#00BCD4</color>
+    <color name="raisedButtonColor">#80CBC4</color>
     <color name="actionBarColor">#009688</color>
     <color name="raisedButtonTextColor">#FFFFFF</color>
+    <color name="flatButtonTextColor">#00796B</color>
+    <color name="accentColor">#00B8D4</color>
+
 </resources>

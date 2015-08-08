@@ -42,6 +42,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static android.text.format.DateFormat.is24HourFormat;
+import static android.util.Log.e;
+import static android.widget.Toast.makeText;
+import static com.ksp.message.MessageHandler.getNextSend;
 import static com.ksp.nudge.R.array.frequency_array;
 import static com.ksp.nudge.R.id.chooseContactButton;
 import static com.ksp.nudge.R.id.chooseContactText;
@@ -103,7 +106,12 @@ public class MessageFormActivity extends AppCompatActivity {
                 toastAndChangeActivity("Message discarded!", ActiveNudgesActivity.class);
                 break;
             case R.id.action_save:
-                saveMessage();
+                try {
+                    saveMessage();
+                } catch (ParseException e) {
+                    makeText(this, "Oops! Save failed!", Toast.LENGTH_SHORT).show();
+                    e("Nudge Save Failure", e.getMessage());
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -226,7 +234,7 @@ public class MessageFormActivity extends AppCompatActivity {
      * @param toastMessage, the temporary message presented to the user
      */
     private void toastAndChangeActivity(String toastMessage, Class<?> activityClass) {
-        Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
+        makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);
         finish();
@@ -368,26 +376,20 @@ public class MessageFormActivity extends AppCompatActivity {
     /**
      * Save message into database and return to the ActiveNudges activity
      */
-    private void saveMessage() {
+    private void saveMessage() throws ParseException {
         if (nudge.isFilled()) {
-            String nextSendTime = MessageHandler.getNextSend(nudge.getSendTime(),
-                    nudge.getFrequency());
-            try {
-                nudge.setSendTime(nextSendTime);
-            } catch (ParseException e) {
-                Log.e("ParseException", e.getMessage());
-            }
-            if (nudge.getId() == -1){
+            nudge.setSendTime(getNextSend(nudge.getSendTime(), nudge.getFrequency()));
+            if (nudge.getId() == null){
                 Log.i("Saving New Nudge",
                         new NudgeDatabaseHelper(this).writeMessageToDatabase(nudge));
             } else{
                 Log.i("Updating Current Nudge",
                         new NudgeDatabaseHelper(this).updateExistingMessage(nudge));
             }
-            SendMessageService.setServiceAlarm(this, nudge.getSendTime());
+            SendMessageService.setServiceAlarm(this, nudge.getSendTimeAsString());
             toastAndChangeActivity("Message saved!", ActiveNudgesActivity.class);
         } else {
-            Toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
+            makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -5,6 +5,8 @@
     <ListView
         android:id="@+id/activeNudgeList"
         android:layout_width="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
         android:layout_height="wrap_content">
     </ListView>
 

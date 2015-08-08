@@ -32,12 +32,9 @@ public class BootReceiver extends BroadcastReceiver {
         //Register times in OS for SendMessageService to check for outstanding messages
         sendTimeCursor.moveToFirst();
         while (!sendTimeCursor.isAfterLast()){
-            String dateTime = sendTimeCursor.getString(sendTimeCursor.
-                    getColumnIndex(COLUMN_NAME_SEND_TIME));
-            Calendar dateTimeCalendar = Calendar.getInstance();
             try {
-                dateTimeCalendar.setTime(DateFormat.getInstance().parse(dateTime));
-                SendMessageService.setServiceAlarm(context, dateTimeCalendar);
+                SendMessageService.setServiceAlarm(context, sendTimeCursor.getString(sendTimeCursor.
+                        getColumnIndex(COLUMN_NAME_SEND_TIME)));
             } catch (ParseException e) {
                 Log.e(e.getMessage(), "Rescheduling Message on Reboot Error");
             }
