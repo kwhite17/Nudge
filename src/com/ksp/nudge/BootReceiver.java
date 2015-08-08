@@ -7,11 +7,8 @@ import android.database.Cursor;
 import android.util.Log;
 
 import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.database.NudgeMessagesContract.NudgeMessageEntry;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Calendar;
 
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
 

@@ -101,7 +101,6 @@ public class ActiveNudgesActivity extends AppCompatActivity {
     public static NudgeCursorAdapter getNudgeAdapter(){
         return nudgeAdapter;
     }
-
     public static void setNudgeAdapter(NudgeCursorAdapter newValue) { nudgeAdapter = newValue; }
     /**
      * Class that fetches active nudges from database asynchronously

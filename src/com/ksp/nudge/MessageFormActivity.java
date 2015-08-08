@@ -34,7 +34,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.Message;
-import com.ksp.message.MessageHandler;
 
 import java.text.DateFormat;
 import java.text.ParseException;

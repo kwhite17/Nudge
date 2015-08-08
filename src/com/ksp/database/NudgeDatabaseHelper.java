@@ -89,7 +89,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * @return a cursor containing the information that represents a nudge Message
      */
     public Cursor getNudgeEntry(String id){
-        SQLiteDatabase database = getWritableDatabase();
+        SQLiteDatabase database = getReadableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { id };
         return database.query(TABLE_NAME, null,
@@ -107,6 +107,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = { nudge.getId() };
         long updateResult = database.update(TABLE_NAME, populateMessageFields(nudge),
                 selection, selectionArgs);
+        database.close();
         return updateResult == -1 ? "Update failed" : "Update completed";
     }
 

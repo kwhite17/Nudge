@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ListView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -15,7 +14,6 @@ import com.google.android.gms.ads.AdView;
 import com.ksp.database.NudgeDatabaseHelper;
 
 import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
-import static com.ksp.nudge.R.id.activeNudgeList;
 import static com.ksp.nudge.R.id.nudgeMessageText;
 import static com.ksp.nudge.R.id.nudgeRecipientText;
 import static com.ksp.nudge.R.id.nudgeSendDateText;
