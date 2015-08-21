@@ -44,6 +44,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
                 nudgeButtonShowcase.hide();
                 Intent intent = new Intent(ActiveNudgesActivity.this, MessageFormActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
