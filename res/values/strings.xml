@@ -49,7 +49,7 @@
         <item>http://behance.net/josephsabatini</item>
         <item>http://katanakdubs.herokuapp.com/</item>
     </string-array>
-    <string name="message_form_ad_unit_id">ca-app-pub-8660715961699709/2910822472</string>
-    <string name="about_us_ad_unit_id">ca-app-pub-8660715961699709/9199531671</string>
-    <string name="splash_screen_ad_unit_id">ca-app-pub-8660715961699709/7651854476</string>
+    <string name="message_form_ad_unit_id"></string>
+    <string name="about_us_ad_unit_id"></string>
+    <string name="splash_screen_ad_unit_id"></string>
 </resources>
