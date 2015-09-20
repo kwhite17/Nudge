@@ -25,6 +25,6 @@
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/splash_screen_ad_unit_id"/>
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
 
 </RelativeLayout>

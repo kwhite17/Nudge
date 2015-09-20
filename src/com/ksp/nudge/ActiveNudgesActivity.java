@@ -88,6 +88,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = new Intent(this, AboutNudgeActivity.class);
         startActivity(intent);
+        finish();
         return super.onOptionsItemSelected(item);
     }
 

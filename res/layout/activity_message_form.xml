@@ -4,9 +4,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/formActivityId"
-            android:overScrollMode="ifContentScrolls"
+            android:overScrollMode="always"
+            android:fillViewport="true"
             tools:context="com.ksp.nudge.MessageFormActivity">
 
-    <include layout="@layout/message_form"></include>
+    <include android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/message_form"/>
 
 </ScrollView>
