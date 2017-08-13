@@ -18,6 +18,7 @@ import com.ksp.database.NudgeDatabaseHelper;
 
 import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 import static com.ksp.nudge.R.id.activeNudgeList;
+import static com.ksp.nudge.R.id.default_activity_button;
 import static com.ksp.nudge.R.id.newNudgeButton;
 import static com.ksp.nudge.R.id.nudgeMessageText;
 import static com.ksp.nudge.R.id.nudgeRecipientText;
@@ -86,7 +87,14 @@ public class ActiveNudgesActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(this, AboutNudgeActivity.class);
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.aboutUs:
+                intent = new Intent(this, AboutNudgeActivity.class);
+                break;
+            default:
+                intent = new Intent(this, PrivacyPolicyActivity.class);
+        }
         startActivity(intent);
         finish();
         return super.onOptionsItemSelected(item);

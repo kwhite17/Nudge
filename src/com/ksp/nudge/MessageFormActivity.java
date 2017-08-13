@@ -30,8 +30,6 @@ import android.widget.Toast;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.Message;
 
@@ -93,8 +91,6 @@ public class MessageFormActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        AdView messageFormAdView = (AdView) findViewById(R.id.messageFormAdView);
-        messageFormAdView.loadAd(new AdRequest.Builder().build());
     }
 
     @Override

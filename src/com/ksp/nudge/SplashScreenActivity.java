@@ -8,16 +8,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.ksp.database.NudgeDatabaseHelper;
 
 import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 import static com.ksp.nudge.R.id.nudgeMessageText;
 import static com.ksp.nudge.R.id.nudgeRecipientText;
 import static com.ksp.nudge.R.id.nudgeSendDateText;
-import static com.ksp.nudge.R.id.splashScreenAdView;
 import static com.ksp.nudge.R.layout.active_nudge_item;
 import static com.ksp.nudge.R.layout.activity_splash_screen;
 
@@ -33,29 +29,6 @@ public class SplashScreenActivity extends Activity{
         setContentView(activity_splash_screen);
         new GetActiveNudgesTask().execute(this);
         changeToActiveNudges();
-        AdView aboutUsAdView = (AdView) findViewById(splashScreenAdView);
-        aboutUsAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                super.onAdFailedToLoad(errorCode);
-            }
-
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-            }
-
-            @Override
-            public void onAdOpened() {
-                super.onAdOpened();
-            }
-        });
-        aboutUsAdView.loadAd(new AdRequest.Builder().build());
     }
 
     private void changeToActiveNudges() {

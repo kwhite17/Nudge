@@ -6,12 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import static android.content.Intent.ACTION_VIEW;
 import static com.ksp.nudge.R.array.url_array;
-import static com.ksp.nudge.R.id.aboutUsAdView;
 import static com.ksp.nudge.R.id.portfolioButton;
 
 
@@ -26,13 +22,8 @@ public class AboutNudgeActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        loadAd();
     }
 
-    private void loadAd() {
-        AdView adView = (AdView) findViewById(aboutUsAdView);
-        adView.loadAd(new AdRequest.Builder().build());
-    }
 
     public void launchBrowser(View v) {
         String[] launchUrls = getResources().getStringArray(url_array);
