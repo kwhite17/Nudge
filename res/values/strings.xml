@@ -49,9 +49,6 @@
         <item>http://behance.net/josephsabatini</item>
         <item>http://katanakdubs.herokuapp.com/</item>
     </string-array>
-    <string name="message_form_ad_unit_id"></string>
-    <string name="about_us_ad_unit_id"></string>
-    <string name="splash_screen_ad_unit_id"></string>
     <string name="privacyPolicyDescriptionString">This privacy policy governs your use of the software application Nudge (“Application”) for mobile devices that was created by Katana Software Productions. The Application is used to send scheduled text messages to a user-designated recipient.</string>
     <string name="applicationInformationHeaderString">What information does the Application obtain and how is it used?</string>
     <string name="userProvidedInformationHeaderString">User Provided Information</string>
