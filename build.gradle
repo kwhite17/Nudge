@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 apply plugin: 'com.android.application'
@@ -21,15 +21,15 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.android.support:cardview-v7:22.1.1'
+    compile 'com.android.support:appcompat-v7:27.0.1'
+    compile 'com.android.support:cardview-v7:27.0.1'
     compile 'com.getbase:floatingactionbutton:1.9.0'
     compile 'com.github.amlcurran.showcaseview:library:5.0.0'
     compile 'com.klinkerapps:android-smsmms:4.2.3'
 }
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 26
     buildToolsVersion '26.0.2'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7

@@ -38,11 +38,11 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_active_nudges);
 
         //setup ShowcaseView for first time instructions
-        final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
+//        final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
         findViewById(newNudgeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nudgeButtonShowcase.hide();
+//                nudgeButtonShowcase.hide();
                 Intent intent = new Intent(ActiveNudgesActivity.this, MessageFormActivity.class);
                 startActivity(intent);
                 finish();
@@ -74,7 +74,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
                     .hideOnTouchOutside()
                     .build();
         showcaseView.hideButton();
-        showcaseView.setStyle(ShowcaseViewDark);
+//        showcaseView.setStyle(ShowcaseViewDark);
         return showcaseView;
     }
 

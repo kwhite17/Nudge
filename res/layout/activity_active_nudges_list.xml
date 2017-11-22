@@ -5,10 +5,9 @@
     <ListView
         android:id="@+id/activeNudgeList"
         android:layout_width="match_parent"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"></ListView>
 
     <TextView
         android:id="@+id/instructionText"
