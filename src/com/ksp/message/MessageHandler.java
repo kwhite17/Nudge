@@ -1,6 +1,11 @@
 package com.ksp.message;
 
-import android.telephony.SmsManager;
+import android.content.Context;
+import android.util.Log;
+
+import com.klinker.android.send_message.Message;
+import com.klinker.android.send_message.Settings;
+import com.klinker.android.send_message.Transaction;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -67,18 +72,28 @@ public class MessageHandler {
     }
     
     /**
-     * Sends an SMS message to the recipient
-     * @param phoneNumber, the repicient's phone number
-     * @param message, the message to send to the recipient
+     * Sends an SMS/MMS message to the recipient(s)
+     * @param numberString, the CSV of recipient phone numbers
+     * @param body, the message to send to the recipient(s)
+     * @param context
      */
-    public static void sendMessage(String phoneNumber,String message){
-        SmsManager textManager = SmsManager.getDefault();
-        textManager.sendTextMessage(phoneNumber, null, message, null, null);
+    public static void sendMessage(Context context, String numberString, String body){
+        String[] phoneNumbers = numberString.split(",");
+        Settings settings = new Settings();
+        settings.setUseSystemSending(true);
+        if (phoneNumbers.length > 1) {
+            settings.setGroup(true);
+        }
+        Transaction transaction = new Transaction(context, settings);
+        for (String number : phoneNumbers) {
+            Message message = new Message(body, number);
+            transaction.sendNewMessage(message, message.hashCode());
+        }
     }
     
     /**
      * 
-     * @param sendDate, the time the Message is to be sent
+     * @param sendDate, the time the NudgeInfo is to be sent
      * @return a boolean indicating if it is time for the message to be sent
      * @throws ParseException
      */

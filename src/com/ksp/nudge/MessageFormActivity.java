@@ -5,9 +5,8 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,34 +16,39 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.android.ex.chips.BaseRecipientAdapter;
+import com.android.ex.chips.RecipientEditTextView;
+import com.android.ex.chips.RecipientEntry;
+import com.android.ex.chips.recipientchip.DrawableRecipientChip;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.message.Message;
+import com.ksp.message.NudgeInfo;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static android.text.format.DateFormat.is24HourFormat;
 import static android.util.Log.e;
-import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 import static android.widget.Toast.makeText;
 import static com.ksp.message.MessageHandler.getNextSend;
 import static com.ksp.nudge.R.array.frequency_array;
-import static com.ksp.nudge.R.id.autocomplete_item_number_id;
 import static com.ksp.nudge.R.id.chooseContactText;
 import static com.ksp.nudge.R.id.chooseDateButton;
 import static com.ksp.nudge.R.id.chooseDateText;
@@ -53,7 +57,6 @@ import static com.ksp.nudge.R.id.formActivityId;
 import static com.ksp.nudge.R.id.frequencySeekBar;
 import static com.ksp.nudge.R.id.frequencySeekBarLabel;
 import static com.ksp.nudge.R.id.nudgeMessageTextField;
-import static com.ksp.nudge.R.layout.autocomplete_contact_item;
 import static com.ksp.nudge.R.string.choose_frequency_instruction_text;
 import static com.ksp.nudge.R.string.choose_frequency_instruction_title;
 import static com.ksp.nudge.R.string.choose_recipient_instruction_text;
@@ -67,7 +70,7 @@ import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
 
 public class MessageFormActivity extends AppCompatActivity {
-    private Message nudge = new Message();
+    private NudgeInfo nudge = new NudgeInfo();
     private SparseArray<int[]> showcaseViewData = new SparseArray<>();
 
     @Override
@@ -76,34 +79,15 @@ public class MessageFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_message_form);
         initializeListeners();
 //        initializeShowcaseViews();
-        final AutoCompleteTextView textView = findViewById(chooseContactText);
-        Cursor c = getContentResolver()
-                .query(Phone.CONTENT_URI, null,
-                        Phone.DISPLAY_NAME + " IS NOT NULL AND " + Phone.NORMALIZED_NUMBER
-                                + " IS NOT NULL", null, "display_name ASC");
-        AutocompleteCursorAdapter adapter = new AutocompleteCursorAdapter(this,
-                autocomplete_contact_item, c, c.getColumnNames(),
-                new int[] {autocomplete_item_number_id, autocomplete_item_number_id},
-                FLAG_REGISTER_CONTENT_OBSERVER);
+        final RecipientEditTextView textView = findViewById(chooseContactText);
+        textView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        BaseRecipientAdapter adapter = new BaseRecipientAdapter(BaseRecipientAdapter.QUERY_TYPE_PHONE, this);
+        adapter.setShowMobileOnly(false);
         textView.setAdapter(adapter);
-        textView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView nameView = view.findViewById(R.id.autocomplete_item_name_id);
-                TextView numberView = view.findViewById(R.id.autocomplete_item_number_id);
-                TextView typeView = view.findViewById(R.id.autocomplete_item_type_id);
-                String info = typeView.getText().equals("") ? nameView.getText().toString() :
-                        nameView.getText().toString().concat(" (")
-                                .concat(typeView.getText().toString()).concat(")");
-                nudge.setRecipientInfo(info);
-                nudge.setRecipientNumber(numberView.getText().toString());
-                textView.setText(info);
-            }
-        });
         String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
         if (currentNudgeId != null) {
             NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
-            nudge = Message.getMessageFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
+            nudge = NudgeInfo.getMessageFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
             ((TextView)findViewById(chooseContactText)).setText(nudge.getRecipientInfo());
             ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
             String[] frequencies = getResources().getStringArray(frequency_array);
@@ -123,7 +107,7 @@ public class MessageFormActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_discard:
-                toastAndChangeActivity("Message discarded!", ActiveNudgesActivity.class);
+                toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
                 break;
             case R.id.action_save:
                 try {
@@ -142,7 +126,7 @@ public class MessageFormActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        toastAndChangeActivity("Message discarded!", ActiveNudgesActivity.class);
+        toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
     }
 
     @Override
@@ -157,7 +141,6 @@ public class MessageFormActivity extends AppCompatActivity {
                 .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
-                        Log.i("New Layout Height: ", Integer.toString(scrollView.getHeight()));
                         scrollView.smoothScrollTo(0,
                                 (int) findViewById(frequencySeekBarLabel).getY());
                     }
@@ -350,6 +333,28 @@ public class MessageFormActivity extends AppCompatActivity {
      * Save message into database and return to the ActiveNudges activity
      */
     private void saveMessage() throws ParseException {
+        final RecipientEditTextView textView = findViewById(chooseContactText);
+        DrawableRecipientChip[] chips = textView.getRecipients();
+        String[] names = new String[chips.length];
+        String[] numbers = new String[chips.length];
+        for (int i = 0; i < chips.length; i++) {
+            RecipientEntry entry = chips[i].getEntry();
+            numbers[i] = entry.getDestination();
+            names[i] = entry.getDisplayName() + " (" + ContactsContract.CommonDataKinds.Phone.getTypeLabel(this.getResources(), entry.getDestinationType(), "") + ")";
+        }
+        String numberString = "";
+        for (int i = 0; i < numbers.length; i++) {
+            numberString = numberString.concat(numbers[i]);
+            if (i < numbers.length - 1) {
+                numberString = numberString.concat(",");
+            }
+        }
+        nudge.setRecipientNumber(numberString);
+        if (names.length > 1) {
+            nudge.setRecipientInfo(names[0] + " and " + Integer.toString(names.length - 1) + " others");
+        } else {
+            nudge.setRecipientInfo(names[0]);
+        }
         if (nudge.isFilled()) {
             nudge.setSendTime(getNextSend(nudge.getSendTime(), nudge.getFrequency()));
             if (nudge.getId() == null){
@@ -360,7 +365,7 @@ public class MessageFormActivity extends AppCompatActivity {
                         new NudgeDatabaseHelper(this).updateExistingMessage(nudge));
             }
             SendMessageService.setServiceAlarm(this, nudge.getSendTimeAsString());
-            toastAndChangeActivity("Message saved!", ActiveNudgesActivity.class);
+            toastAndChangeActivity("NudgeInfo saved!", ActiveNudgesActivity.class);
         } else {
             makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }

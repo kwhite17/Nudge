@@ -58,7 +58,7 @@ public class SplashScreenActivity extends Activity{
         protected void onPostExecute(Cursor result){
             int[] adapterColumns = new int[]{nudgeRecipientText,
                     nudgeMessageText, nudgeSendDateText};
-            ActiveNudgesActivity.setNudgeAdapter(new NudgeCursorAdapter(getApplicationContext(),
+            ActiveNudgesActivity.setNudgeAdapter(new NudgeCursorAdapter(SplashScreenActivity.this,
                     active_nudge_item, result, result.getColumnNames(),
                     adapterColumns, FLAG_REGISTER_CONTENT_OBSERVER));
             adapterSet = true;

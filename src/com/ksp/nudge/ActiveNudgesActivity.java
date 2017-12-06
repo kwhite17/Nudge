@@ -125,7 +125,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         protected void onPostExecute(Cursor result){
             int[] adapterColumns = new int[]{nudgeRecipientText,
                     nudgeMessageText, nudgeSendDateText};
-            ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(getApplicationContext(),
+            ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(ActiveNudgesActivity.this,
                     active_nudge_item, result, result.getColumnNames(),
                     adapterColumns, FLAG_REGISTER_CONTENT_OBSERVER);
             ((ListView)findViewById(activeNudgeList)).setAdapter(ActiveNudgesActivity.nudgeAdapter);

@@ -15,10 +15,10 @@ import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NA
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_SEND_TIME;
 
 /**
- * The Message class is data structure responsible for maintaining all the information a user
+ * The NudgeInfo class is data structure responsible for maintaining all the information a user
  * provides about the Nudge they are attempting to create.
  */
-public class Message {
+public class NudgeInfo {
     private String id;
     private String recipientInfo;
     private String recipientNumber;
@@ -70,56 +70,56 @@ public class Message {
 
     /**
      *
-     * @param messageCursor, a cursor containing all the information necessary to create a Message
+     * @param messageCursor, a cursor containing all the information necessary to create a NudgeInfo
      *                       instance
-     * @return a new Message instance with the data from messageCursor
+     * @return a new NudgeInfo instance with the data from messageCursor
      */
-    public static Message getMessageFromCursor(Cursor messageCursor){
+    public static NudgeInfo getMessageFromCursor(Cursor messageCursor){
         messageCursor.moveToFirst();
-        Message parsedMessage = buildMessageFromRow(messageCursor);
+        NudgeInfo parsedNudgeInfo = buildMessageFromRow(messageCursor);
         messageCursor.close();
-        return parsedMessage;
+        return parsedNudgeInfo;
     }
 
     /**
      *
      * @param messageCursor, a database cursor containing the data necessary to build messages
-     * @return messages, a Message array built from the database rows in the cursor
+     * @return messages, a NudgeInfo array built from the database rows in the cursor
      */
-    public static Message[] getMessagesFromCursor(Cursor messageCursor){
-        Message[] messages = new Message[messageCursor.getCount()];
+    public static NudgeInfo[] getMessagesFromCursor(Cursor messageCursor){
+        NudgeInfo[] nudgeInfos = new NudgeInfo[messageCursor.getCount()];
         messageCursor.moveToFirst();
         while (!messageCursor.isAfterLast()) {
-            messages[messageCursor.getPosition()] = buildMessageFromRow(messageCursor);
+            nudgeInfos[messageCursor.getPosition()] = buildMessageFromRow(messageCursor);
             messageCursor.moveToNext();
         }
         messageCursor.close();
-        return messages;
+        return nudgeInfos;
     }
 
     /**
      *
-     * @param messageCursor, a cursor pointed at a row needed to build this instance of Message
-     * @return an instance of Message containing the data from the row the cursor pointed to
+     * @param messageCursor, a cursor pointed at a row needed to build this instance of NudgeInfo
+     * @return an instance of NudgeInfo containing the data from the row the cursor pointed to
      */
-    private static Message buildMessageFromRow(Cursor messageCursor) {
-        Message parsedMessage = new Message();
-        parsedMessage.setId(Integer
+    private static NudgeInfo buildMessageFromRow(Cursor messageCursor) {
+        NudgeInfo parsedNudgeInfo = new NudgeInfo();
+        parsedNudgeInfo.setId(Integer
                 .toString(messageCursor.getInt(messageCursor.getColumnIndex(_ID))));
-        parsedMessage.setMessage(messageCursor
+        parsedNudgeInfo.setMessage(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_MESSAGE)));
-        parsedMessage.setFrequency(messageCursor
+        parsedNudgeInfo.setFrequency(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_FREQUENCY)));
-        parsedMessage.setRecipientNumber(messageCursor
+        parsedNudgeInfo.setRecipientNumber(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NUMBER)));
-        parsedMessage.setRecipientInfo(messageCursor
+        parsedNudgeInfo.setRecipientInfo(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME)));
         try {
-            parsedMessage.setSendTime(messageCursor
+            parsedNudgeInfo.setSendTime(messageCursor
                     .getString(messageCursor.getColumnIndex(COLUMN_NAME_SEND_TIME)));
         } catch (ParseException e) {
             Log.e("ParseException", e.getMessage());
         }
-        return parsedMessage;
+        return parsedNudgeInfo;
     }
 }

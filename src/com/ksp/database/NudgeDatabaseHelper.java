@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.ksp.message.Message;
+import com.ksp.message.NudgeInfo;
 import com.ksp.nudge.ActiveNudgesActivity;
 import com.ksp.nudge.NudgeCursorAdapter;
 
@@ -86,7 +86,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     /**
      *
      * @param id, the id of the nudge in the database
-     * @return a cursor containing the information that represents a nudge Message
+     * @return a cursor containing the information that represents a nudge NudgeInfo
      */
     public Cursor getNudgeEntry(String id){
         SQLiteDatabase database = getReadableDatabase();
@@ -98,10 +98,10 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      *
-     * @param nudge, a Message with the updated information
+     * @param nudge, a NudgeInfo with the updated information
      * @return a String dictating whether the nudge was successfully updated
      */
-    public String updateExistingMessage(Message nudge) {
+    public String updateExistingMessage(NudgeInfo nudge) {
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { nudge.getId() };
@@ -115,7 +115,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * Updates the send time of a recurring message in the database
      * @param nudge, the message containing the info needed to update the send time
      */
-    public void updateSendTime(Message nudge) {
+    public void updateSendTime(NudgeInfo nudge) {
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { nudge.getId() };
@@ -127,10 +127,10 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Writes the contents of a message to the database
-     * @param nudge, a Message containing the data to be inserted into the database
+     * @param nudge, a NudgeInfo containing the data to be inserted into the database
      * @return whether or not message insertion was successful
      */
-    public String writeMessageToDatabase(Message nudge) {
+    public String writeMessageToDatabase(NudgeInfo nudge) {
         SQLiteDatabase database = getWritableDatabase();
         long insertionResult = database.insert(TABLE_NAME, null, populateMessageFields(nudge));
         database.close();
@@ -151,10 +151,10 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
 
     /**
      *
-     * @param nudge, a Message containing the data to be inserted into the database
+     * @param nudge, a NudgeInfo containing the data to be inserted into the database
      * @return ContentValues mapping nudge to the appropriate database columns
      */
-    private ContentValues populateMessageFields(Message nudge) {
+    private ContentValues populateMessageFields(NudgeInfo nudge) {
         ContentValues messageFields = new ContentValues();
         messageFields.put(COLUMN_NAME_RECIPIENT_NUMBER, nudge.getRecipientNumber());
         messageFields.put(COLUMN_NAME_RECIPIENT_NAME, nudge.getRecipientInfo());
@@ -165,7 +165,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         return messageFields;
     }
 
-    public boolean updateNudge(Message currentNudge) throws ParseException {
+    public boolean updateNudge(NudgeInfo currentNudge) throws ParseException {
         if (currentNudge.getFrequency().equals("Once")) {
             deleteMessage(currentNudge.getId());
             NudgeCursorAdapter nudgeAdapter = ActiveNudgesActivity.getNudgeAdapter();
