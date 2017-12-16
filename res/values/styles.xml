@@ -5,6 +5,7 @@
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -17,15 +18,16 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
-        <!--<item name="android:background">@color/appBackgroundColor</item>-->
     </style>
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
         <item name="android:background">@color/actionBarColor</item>
         <item name="background">@color/actionBarColor</item>
+        <item name="android:colorPrimary">@color/materialWhiteDark</item>
+        <item name="colorPrimary">@color/materialWhiteDark</item>
     </style>
     
     <style name="ShowcaseViewDark" parent="ShowcaseView">
-        <item name="sv_backgroundColor">@color/background_material_dark</item>
+        <item name="sv_backgroundColor">@color/materialWhiteDark</item>
     </style>
 </resources>

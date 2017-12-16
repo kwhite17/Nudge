@@ -5,11 +5,8 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,29 +18,37 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.android.ex.chips.BaseRecipientAdapter;
+import com.android.ex.chips.RecipientEditTextView;
+import com.android.ex.chips.RecipientEntry;
+import com.android.ex.chips.recipientchip.DrawableRecipientChip;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.message.Message;
+import com.ksp.message.NudgeInfo;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static android.text.format.DateFormat.is24HourFormat;
 import static android.util.Log.e;
 import static android.widget.Toast.makeText;
 import static com.ksp.message.MessageHandler.getNextSend;
 import static com.ksp.nudge.R.array.frequency_array;
-import static com.ksp.nudge.R.id.chooseContactButton;
 import static com.ksp.nudge.R.id.chooseContactText;
 import static com.ksp.nudge.R.id.chooseDateButton;
 import static com.ksp.nudge.R.id.chooseDateText;
@@ -65,8 +70,7 @@ import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
 
 public class MessageFormActivity extends AppCompatActivity {
-    private static final int REQUEST_CONTACTS = 1;
-    private Message nudge = new Message();
+    private NudgeInfo nudge = new NudgeInfo();
     private SparseArray<int[]> showcaseViewData = new SparseArray<>();
 
     @Override
@@ -74,11 +78,16 @@ public class MessageFormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_form);
         initializeListeners();
-        initializeShowcaseViews();
+//        initializeShowcaseViews();
+        final RecipientEditTextView textView = findViewById(chooseContactText);
+        textView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        BaseRecipientAdapter adapter = new BaseRecipientAdapter(BaseRecipientAdapter.QUERY_TYPE_PHONE, this);
+        adapter.setShowMobileOnly(false);
+        textView.setAdapter(adapter);
         String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
         if (currentNudgeId != null) {
             NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
-            nudge = Message.getMessageFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
+            nudge = NudgeInfo.getMessageFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
             ((TextView)findViewById(chooseContactText)).setText(nudge.getRecipientInfo());
             ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
             String[] frequencies = getResources().getStringArray(frequency_array);
@@ -98,7 +107,7 @@ public class MessageFormActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_discard:
-                toastAndChangeActivity("Message discarded!", ActiveNudgesActivity.class);
+                toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
                 break;
             case R.id.action_save:
                 try {
@@ -117,7 +126,7 @@ public class MessageFormActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        toastAndChangeActivity("Message discarded!", ActiveNudgesActivity.class);
+        toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
     }
 
     @Override
@@ -127,12 +136,11 @@ public class MessageFormActivity extends AppCompatActivity {
     }
 
     private void initializeListeners() {
-        final ScrollView scrollView = (ScrollView) findViewById(formActivityId);
+        final ScrollView scrollView = findViewById(formActivityId);
         scrollView.getViewTreeObserver()
                 .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
-                        Log.i("New Layout Height: ", Integer.toString(scrollView.getHeight()));
                         scrollView.smoothScrollTo(0,
                                 (int) findViewById(frequencySeekBarLabel).getY());
                     }
@@ -141,7 +149,7 @@ public class MessageFormActivity extends AppCompatActivity {
                 .setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        TextView progressBarLabel = (TextView) findViewById(frequencySeekBarLabel);
+                        TextView progressBarLabel = findViewById(frequencySeekBarLabel);
                         String[] frequencies = getResources().getStringArray(frequency_array);
                         nudge.setFrequency(frequencies[progress]);
                         progressBarLabel.setText(frequencies[progress]);
@@ -174,10 +182,10 @@ public class MessageFormActivity extends AppCompatActivity {
                 choose_send_datetime_instruction_text, frequencySeekBarLabel};
         int[] frequencyShowcaseData = new int[]{choose_frequency_instruction_title,
                 choose_frequency_instruction_text, -1};
-        showcaseViewData.put(chooseContactButton, contactShowcaseData);
+        showcaseViewData.put(chooseContactText, contactShowcaseData);
         showcaseViewData.put(chooseDateButton, dateShowcaseData);
         showcaseViewData.put(frequencySeekBarLabel, frequencyShowcaseData);
-        displayShowcaseView(chooseContactButton, showcaseViewData.get(chooseContactButton));
+        displayShowcaseView(chooseContactText, showcaseViewData.get(chooseContactText));
     }
 
     private void displayShowcaseView(int target, final int[] showcaseData) {
@@ -233,53 +241,6 @@ public class MessageFormActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);
         finish();
-    }
-
-    /**
-     * Starts an activity that allows the user to select a contact to send a
-     * message to
-     */
-    public void getContact(View v) {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
-        startActivityForResult(intent, REQUEST_CONTACTS);
-    }
-
-    /*
-     * Handles information about the contact selected as a result of the
-     * getContact() method
-     *
-     * (non-Javadoc)
-     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Uri result = null;
-        try {
-            result = data.getData();
-        } catch (RuntimeException e) {
-            Log.i("ContactSelection", "User backed out of contacts.");
-        }
-
-        if (result != null) {
-            String id = result.getLastPathSegment();
-            Cursor cursor = getContentResolver().query(Phone.CONTENT_URI, null,
-                    Phone._ID + " = ?",
-                    new String[]{id}, null);
-            int contactNameIndex = cursor.getColumnIndex(Phone.DISPLAY_NAME);
-
-            if (cursor.moveToFirst()) {
-                String contactNumberType = " (".concat((String) Phone.getTypeLabel(getResources(),
-                        cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), "")).concat(")");
-                String contactName = cursor.getString(contactNameIndex);
-                nudge.setRecipientInfo(contactName.concat(contactNumberType));
-                nudge.setRecipientNumber(cursor.getString(cursor.getColumnIndex(Phone.NUMBER)));
-                ((TextView) findViewById(R.id.chooseContactText)).
-                        setText(nudge.getRecipientInfo());
-
-            }
-            cursor.close();
-        }
     }
 
     public void showTimePickerDialog(View v) {
@@ -372,6 +333,28 @@ public class MessageFormActivity extends AppCompatActivity {
      * Save message into database and return to the ActiveNudges activity
      */
     private void saveMessage() throws ParseException {
+        final RecipientEditTextView textView = findViewById(chooseContactText);
+        DrawableRecipientChip[] chips = textView.getRecipients();
+        String[] names = new String[chips.length];
+        String[] numbers = new String[chips.length];
+        for (int i = 0; i < chips.length; i++) {
+            RecipientEntry entry = chips[i].getEntry();
+            numbers[i] = entry.getDestination();
+            names[i] = entry.getDisplayName() + " (" + ContactsContract.CommonDataKinds.Phone.getTypeLabel(this.getResources(), entry.getDestinationType(), "") + ")";
+        }
+        String numberString = "";
+        for (int i = 0; i < numbers.length; i++) {
+            numberString = numberString.concat(numbers[i]);
+            if (i < numbers.length - 1) {
+                numberString = numberString.concat(",");
+            }
+        }
+        nudge.setRecipientNumber(numberString);
+        if (names.length > 1) {
+            nudge.setRecipientInfo(names[0] + " and " + Integer.toString(names.length - 1) + " others");
+        } else {
+            nudge.setRecipientInfo(names[0]);
+        }
         if (nudge.isFilled()) {
             nudge.setSendTime(getNextSend(nudge.getSendTime(), nudge.getFrequency()));
             if (nudge.getId() == null){
@@ -382,7 +365,7 @@ public class MessageFormActivity extends AppCompatActivity {
                         new NudgeDatabaseHelper(this).updateExistingMessage(nudge));
             }
             SendMessageService.setServiceAlarm(this, nudge.getSendTimeAsString());
-            toastAndChangeActivity("Message saved!", ActiveNudgesActivity.class);
+            toastAndChangeActivity("NudgeInfo saved!", ActiveNudgesActivity.class);
         } else {
             makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }

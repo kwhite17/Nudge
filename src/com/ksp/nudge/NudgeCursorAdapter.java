@@ -40,11 +40,11 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView recipientView = (TextView) view.findViewById(nudgeRecipientText);
-        TextView messageView = (TextView) view.findViewById(nudgeMessageText);
-        TextView sendDateView = (TextView) view.findViewById(nudgeSendDateText);
-        CardView discardButton = (CardView) view.findViewById(deleteNudgeButton);
-        CardView editButton = (CardView) view.findViewById(editNudgeButton);
+        TextView recipientView = view.findViewById(nudgeRecipientText);
+        TextView messageView = view.findViewById(nudgeMessageText);
+        TextView sendDateView = view.findViewById(nudgeSendDateText);
+        CardView discardButton = view.findViewById(deleteNudgeButton);
+        CardView editButton = view.findViewById(editNudgeButton);
         final NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(context);
         final String nudgeId = cursor.getString(cursor.getColumnIndex(_ID));
         final Context activityContext = context;

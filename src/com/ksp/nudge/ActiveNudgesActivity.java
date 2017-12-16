@@ -38,11 +38,11 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_active_nudges);
 
         //setup ShowcaseView for first time instructions
-        final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
+//        final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
         findViewById(newNudgeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nudgeButtonShowcase.hide();
+//                nudgeButtonShowcase.hide();
                 Intent intent = new Intent(ActiveNudgesActivity.this, MessageFormActivity.class);
                 startActivity(intent);
                 finish();
@@ -74,7 +74,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
                     .hideOnTouchOutside()
                     .build();
         showcaseView.hideButton();
-        showcaseView.setStyle(ShowcaseViewDark);
+//        showcaseView.setStyle(ShowcaseViewDark);
         return showcaseView;
     }
 
@@ -125,7 +125,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         protected void onPostExecute(Cursor result){
             int[] adapterColumns = new int[]{nudgeRecipientText,
                     nudgeMessageText, nudgeSendDateText};
-            ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(getApplicationContext(),
+            ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(ActiveNudgesActivity.this,
                     active_nudge_item, result, result.getColumnNames(),
                     adapterColumns, FLAG_REGISTER_CONTENT_OBSERVER);
             ((ListView)findViewById(activeNudgeList)).setAdapter(ActiveNudgesActivity.nudgeAdapter);

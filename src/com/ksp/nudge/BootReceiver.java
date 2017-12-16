@@ -33,7 +33,7 @@ public class BootReceiver extends BroadcastReceiver {
                 SendMessageService.setServiceAlarm(context, sendTimeCursor.getString(sendTimeCursor.
                         getColumnIndex(COLUMN_NAME_SEND_TIME)));
             } catch (ParseException e) {
-                Log.e(e.getMessage(), "Rescheduling Message on Reboot Error");
+                Log.e(e.getMessage(), "Rescheduling NudgeInfo on Reboot Error");
             }
             sendTimeCursor.moveToNext();
         }

@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.message.Message;
+import com.ksp.message.NudgeInfo;
 import com.ksp.message.MessageHandler;
 
 import java.text.DateFormat;
@@ -57,10 +57,10 @@ public class SendMessageService extends IntentService {
         String sortOrder = COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
         Cursor messageCursor = db.query(TABLE_NAME, null, null, null, null, null, sortOrder);
 
-        Message[] currentNudges = Message.getMessagesFromCursor(messageCursor);
-        for (Message currentNudge : currentNudges) {
+        NudgeInfo[] currentNudges = NudgeInfo.getMessagesFromCursor(messageCursor);
+        for (NudgeInfo currentNudge : currentNudges) {
             if (isOutstandingMessage(currentNudge.getSendTimeAsString())) {
-                sendMessage(currentNudge.getRecipientNumber(), currentNudge.getMessage());
+                sendMessage(this, currentNudge.getRecipientNumber(), currentNudge.getMessage());
                 if (databaseHelper.updateNudge(currentNudge)) {
                     setServiceAlarm(this, MessageHandler.getNextSend(currentNudge.getSendTime(),
                             currentNudge.getFrequency()));
