@@ -1,6 +1,7 @@
 package com.ksp.message;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 
 import com.klinker.android.send_message.Message;
@@ -9,6 +10,7 @@ import com.klinker.android.send_message.Transaction;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -90,15 +92,6 @@ public class MessageHandler {
             transaction.sendNewMessage(message, message.hashCode());
         }
     }
-    
-    /**
-     * 
-     * @param sendDate, the time the NudgeInfo is to be sent
-     * @return a boolean indicating if it is time for the message to be sent
-     * @throws ParseException
-     */
-    public static boolean isOutstandingMessage(String sendDate) throws ParseException {
-        return DateFormat.getInstance().parse(sendDate).compareTo(new Date()) <= 0;
-    }
+
 }
 

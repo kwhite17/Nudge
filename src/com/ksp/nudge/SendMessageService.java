@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.NudgeInfo;
@@ -14,17 +15,33 @@ import com.ksp.message.MessageHandler;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NUMBER;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.TABLE_NAME;
-import static com.ksp.message.MessageHandler.isOutstandingMessage;
 import static com.ksp.message.MessageHandler.sendMessage;
 
 public class SendMessageService extends IntentService {
     private static final String SERVICE_NAME = "MESSAGE_SERVICE";
     public SendMessageService() {
         super(SERVICE_NAME);
+    }
+
+    /**
+     *
+     * @param sendDate, the time the NudgeInfo is to be sent
+     * @return a boolean indicating if it is time for the message to be sent
+     * @throws ParseException
+     */
+    private static boolean isOutstandingMessage(Calendar sendDate) throws ParseException {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return !sendDate.toInstant().isBefore(Instant.now());
+        }
+        return sendDate.getTimeInMillis() <= Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis();
     }
 
     @Override
@@ -55,11 +72,12 @@ public class SendMessageService extends IntentService {
         NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         String sortOrder = COLUMN_NAME_RECIPIENT_NUMBER + " DESC";
-        Cursor messageCursor = db.query(TABLE_NAME, null, null, null, null, null, sortOrder);
+        Cursor messageCursor = db.query(TABLE_NAME, null, null, null, null,
+                null, sortOrder);
 
         NudgeInfo[] currentNudges = NudgeInfo.getMessagesFromCursor(messageCursor);
         for (NudgeInfo currentNudge : currentNudges) {
-            if (isOutstandingMessage(currentNudge.getSendTimeAsString())) {
+            if (isOutstandingMessage(currentNudge.getSendTime())) {
                 sendMessage(this, currentNudge.getRecipientNumber(), currentNudge.getMessage());
                 if (databaseHelper.updateNudge(currentNudge)) {
                     setServiceAlarm(this, MessageHandler.getNextSend(currentNudge.getSendTime(),
@@ -75,14 +93,22 @@ public class SendMessageService extends IntentService {
      * @param messageTime, the time for the next message to be scheduled
      */
     public static void setServiceAlarm(Context messageContext, String messageTime) throws ParseException {
-        Calendar alarmTime = Calendar.getInstance();
-        alarmTime.setTime(DateFormat.getInstance().parse(messageTime));
+        DateFormat formatter = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, Locale.getDefault());
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
         Intent sendMessageIntent = new Intent(messageContext, SendMessageService.class);
-        PendingIntent pendingMessageIntent = PendingIntent.getService(messageContext,
-                (int)System.currentTimeMillis(), sendMessageIntent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingMessageIntent;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            pendingMessageIntent = PendingIntent.getService(messageContext,
+                    (int) Instant.now().toEpochMilli(), sendMessageIntent, PendingIntent.FLAG_ONE_SHOT);
+        } else {
+            pendingMessageIntent = PendingIntent.getService(messageContext,
+                    (int) System.currentTimeMillis(), sendMessageIntent, PendingIntent.FLAG_ONE_SHOT);
+        }
         AlarmManager messageAlarm = (AlarmManager)
                 messageContext.getSystemService(Context.ALARM_SERVICE);
-        messageAlarm.set(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(),
-                pendingMessageIntent);
+        if (messageAlarm != null) {
+            messageAlarm.set(AlarmManager.RTC_WAKEUP, formatter.parse(messageTime).getTime(),
+                    pendingMessageIntent);
+        }
     }
 }
