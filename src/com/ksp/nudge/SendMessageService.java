@@ -3,6 +3,7 @@ package com.ksp.nudge;
 import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.PendingIntent;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -37,11 +38,8 @@ public class SendMessageService extends IntentService {
      * @return a boolean indicating if it is time for the message to be sent
      * @throws ParseException
      */
-    private static boolean isOutstandingMessage(Calendar sendDate) throws ParseException {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            return !sendDate.toInstant().isBefore(Instant.now());
-        }
-        return sendDate.getTimeInMillis() <= Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis();
+    private static boolean isOutstandingMessage(Date sendDate) throws ParseException {
+        return sendDate.compareTo(new Date()) < 0;
     }
 
     @Override
@@ -77,7 +75,7 @@ public class SendMessageService extends IntentService {
 
         NudgeInfo[] currentNudges = NudgeInfo.getMessagesFromCursor(messageCursor);
         for (NudgeInfo currentNudge : currentNudges) {
-            if (isOutstandingMessage(currentNudge.getSendTime())) {
+            if (isOutstandingMessage(NudgeInfo.NUDGE_DATE_FORMAT.parse(currentNudge.getSendTimeAsString()))) {
                 sendMessage(this, currentNudge.getRecipientNumber(), currentNudge.getMessage());
                 if (databaseHelper.updateNudge(currentNudge)) {
                     setServiceAlarm(this, MessageHandler.getNextSend(currentNudge.getSendTime(),
@@ -93,8 +91,7 @@ public class SendMessageService extends IntentService {
      * @param messageTime, the time for the next message to be scheduled
      */
     public static void setServiceAlarm(Context messageContext, String messageTime) throws ParseException {
-        DateFormat formatter = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, Locale.getDefault());
-        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        DateFormat formatter = (DateFormat) NudgeInfo.NUDGE_DATE_FORMAT.clone();
         Intent sendMessageIntent = new Intent(messageContext, SendMessageService.class);
         PendingIntent pendingMessageIntent;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -107,7 +104,7 @@ public class SendMessageService extends IntentService {
         AlarmManager messageAlarm = (AlarmManager)
                 messageContext.getSystemService(Context.ALARM_SERVICE);
         if (messageAlarm != null) {
-            messageAlarm.set(AlarmManager.RTC_WAKEUP, formatter.parse(messageTime).getTime(),
+            messageAlarm.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, formatter.parse(messageTime).getTime(),
                     pendingMessageIntent);
         }
     }

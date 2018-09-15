@@ -63,8 +63,8 @@ public class MessageHandler {
                 break;
             }
         }
-        return DateFormat.getInstance().format(time.getTime());
-    }
+        return NudgeInfo.NUDGE_DATE_FORMAT.format(time.getTime());
+}
 
     private static void incrementUntilPresentOrFuture(Calendar time, int period, int interval) {
         Calendar presentTime = Calendar.getInstance();

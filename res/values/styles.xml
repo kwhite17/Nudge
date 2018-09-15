@@ -26,8 +26,4 @@
         <item name="android:colorPrimary">@color/materialWhiteDark</item>
         <item name="colorPrimary">@color/materialWhiteDark</item>
     </style>
-    
-    <style name="ShowcaseViewDark" parent="ShowcaseView">
-        <item name="sv_backgroundColor">@color/materialWhiteDark</item>
-    </style>
 </resources>

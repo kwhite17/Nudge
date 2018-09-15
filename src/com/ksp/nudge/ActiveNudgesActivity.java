@@ -12,20 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import com.github.amlcurran.showcaseview.ShowcaseView;
-import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.ksp.database.NudgeDatabaseHelper;
 
 import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 import static com.ksp.nudge.R.id.activeNudgeList;
-import static com.ksp.nudge.R.id.default_activity_button;
 import static com.ksp.nudge.R.id.newNudgeButton;
 import static com.ksp.nudge.R.id.nudgeMessageText;
 import static com.ksp.nudge.R.id.nudgeRecipientText;
 import static com.ksp.nudge.R.id.nudgeSendDateText;
 import static com.ksp.nudge.R.layout.active_nudge_item;
 import static com.ksp.nudge.R.menu.menu_active_nudges;
-import static com.ksp.nudge.R.style.ShowcaseViewDark;
 
 
 public class ActiveNudgesActivity extends AppCompatActivity {
@@ -63,19 +59,6 @@ public class ActiveNudgesActivity extends AppCompatActivity {
             nudgeAdapter.refreshAdapter(new NudgeDatabaseHelper(this));
             ((ListView)findViewById(activeNudgeList)).setAdapter(nudgeAdapter);
         }
-    }
-
-    private ShowcaseView initializeShowcaseView() {
-        ShowcaseView showcaseView = new ShowcaseView.Builder(this,true)
-                    .setTarget(new ViewTarget(newNudgeButton, this))
-                    .setContentTitle(R.string.title_activity_message_form)
-                    .setContentText(R.string.new_nudge_instruction_text)
-                    .singleShot(newNudgeButton)
-                    .hideOnTouchOutside()
-                    .build();
-        showcaseView.hideButton();
-//        showcaseView.setStyle(ShowcaseViewDark);
-        return showcaseView;
     }
 
     @Override

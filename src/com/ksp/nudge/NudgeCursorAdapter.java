@@ -48,9 +48,19 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
         final NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(context);
         final String nudgeId = cursor.getString(cursor.getColumnIndex(_ID));
         final Context activityContext = context;
-        recipientView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME)));
         messageView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_MESSAGE)));
         sendDateView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_SEND_TIME)));
+        String nameText = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME));
+        String[] names = nameText.split(",");
+        if (names.length > 2) {
+            nameText = names[0] + " and " + Integer.toString(names.length - 1) + " others";
+        } else if (names.length == 2) {
+            nameText = names[0] + " and " + 1 + " others";
+        } else {
+            nameText = names[0];
+        }
+        recipientView.setText(nameText);
+
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

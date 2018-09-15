@@ -6,6 +6,7 @@ import android.util.Log;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Locale;
 
 import static android.provider.BaseColumns._ID;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_FREQUENCY;
@@ -19,6 +20,8 @@ import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NA
  * provides about the Nudge they are attempting to create.
  */
 public class NudgeInfo {
+    public static final DateFormat NUDGE_DATE_FORMAT = DateFormat.getDateTimeInstance(DateFormat.SHORT,
+            DateFormat.SHORT, Locale.getDefault());
     private String id;
     private String recipientInfo;
     private String recipientNumber;
@@ -45,7 +48,7 @@ public class NudgeInfo {
 
     public Calendar getSendTime() { return sendTime; }
     public void setSendTime(String dateTime) throws ParseException {
-        sendTime.setTime(DateFormat.getInstance().parse(dateTime));
+        sendTime.setTime(NUDGE_DATE_FORMAT.parse(dateTime));
     }
 
     public String getMessage() { return message; }
@@ -65,7 +68,7 @@ public class NudgeInfo {
     }
 
     public String getSendTimeAsString() {
-        return DateFormat.getInstance().format(sendTime.getTime());
+        return NUDGE_DATE_FORMAT.format(sendTime.getTime());
     }
 
     /**
