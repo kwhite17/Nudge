@@ -10,6 +10,9 @@ import com.ksp.message.NudgeInfo;
 import com.ksp.nudge.ActiveNudgesActivity;
 import com.ksp.nudge.NudgeCursorAdapter;
 
+import org.joda.time.DateTimeZone;
+import org.joda.time.Instant;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 
@@ -115,12 +118,13 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      * Updates the send time of a recurring message in the database
      * @param nudge, the message containing the info needed to update the send time
      */
-    public void updateSendTime(NudgeInfo nudge) {
+    private void updateSendTime(NudgeInfo nudge) {
         SQLiteDatabase database = getWritableDatabase();
         String selection = _ID + " LIKE ?";
         String[] selectionArgs = { nudge.getId() };
         ContentValues sendTime = new ContentValues();
-        sendTime.put(COLUMN_NAME_SEND_TIME, getNextSend(nudge.getSendTime(), nudge.getFrequency()));
+        Instant nextSend = getNextSend(nudge.getSendTime(), nudge.getFrequency());
+        sendTime.put(COLUMN_NAME_SEND_TIME, nextSend.getMillis());
         database.update(TABLE_NAME, sendTime, selection, selectionArgs);
         database.close();
     }
@@ -132,7 +136,8 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
      */
     public String writeMessageToDatabase(NudgeInfo nudge) {
         SQLiteDatabase database = getWritableDatabase();
-        long insertionResult = database.insert(TABLE_NAME, null, populateMessageFields(nudge));
+        long insertionResult = database.insert(TABLE_NAME, null,
+                populateMessageFields(nudge));
         database.close();
         return insertionResult == -1 ? "Insertion failed": "Insertion successful";
     }
@@ -158,8 +163,7 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
         ContentValues messageFields = new ContentValues();
         messageFields.put(COLUMN_NAME_RECIPIENT_NUMBER, nudge.getRecipientNumber());
         messageFields.put(COLUMN_NAME_RECIPIENT_NAME, nudge.getRecipientInfo());
-        messageFields.put(COLUMN_NAME_SEND_TIME,
-                DateFormat.getInstance().format(nudge.getSendTime().getTime()));
+        messageFields.put(COLUMN_NAME_SEND_TIME, nudge.getSendTime().getMillis());
         messageFields.put(COLUMN_NAME_MESSAGE, nudge.getMessage());
         messageFields.put(COLUMN_NAME_FREQUENCY, nudge.getFrequency());
         return messageFields;

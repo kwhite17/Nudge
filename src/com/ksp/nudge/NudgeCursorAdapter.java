@@ -12,6 +12,15 @@ import android.widget.TextView;
 
 import com.ksp.database.NudgeDatabaseHelper;
 
+import org.joda.time.DateTimeZone;
+import org.joda.time.Instant;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+
+import java.text.DateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import static android.provider.BaseColumns._ID;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_MESSAGE;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_RECIPIENT_NAME;
@@ -49,17 +58,8 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
         final String nudgeId = cursor.getString(cursor.getColumnIndex(_ID));
         final Context activityContext = context;
         messageView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_MESSAGE)));
-        sendDateView.setText(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_SEND_TIME)));
-        String nameText = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME));
-        String[] names = nameText.split(",");
-        if (names.length > 2) {
-            nameText = names[0] + " and " + Integer.toString(names.length - 1) + " others";
-        } else if (names.length == 2) {
-            nameText = names[0] + " and " + 1 + " others";
-        } else {
-            nameText = names[0];
-        }
-        recipientView.setText(nameText);
+        sendDateView.setText(getSendDateString(cursor));
+        recipientView.setText(buildContactString(cursor));
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +77,27 @@ public class NudgeCursorAdapter extends SimpleCursorAdapter{
                 refreshAdapter(databaseHelper);
             }
         });
+    }
+
+    private String getSendDateString(Cursor cursor) {
+        Instant instant = Instant.ofEpochMilli(Long.parseLong(cursor
+                .getString(cursor.getColumnIndex(COLUMN_NAME_SEND_TIME))));
+        return DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT,
+                Locale.getDefault()).format(new LocalDateTime(instant.getMillis(),
+                DateTimeZone.getDefault()).toDate());
+    }
+
+    private String buildContactString(Cursor cursor) {
+        String nameText = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME));
+        String[] names = nameText.split(",");
+        if (names.length > 2) {
+            nameText = names[0] + " and " + Integer.toString(names.length - 1) + " others";
+        } else if (names.length == 2) {
+            nameText = names[0] + " and " + 1 + " others";
+        } else {
+            nameText = names[0];
+        }
+        return nameText;
     }
 
     /**

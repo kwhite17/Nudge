@@ -1,21 +1,17 @@
 package com.ksp.message;
 
 import android.content.Context;
-import android.os.Build;
-import android.util.Log;
 
 import com.klinker.android.send_message.Message;
 import com.klinker.android.send_message.Settings;
 import com.klinker.android.send_message.Transaction;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
-
-import static java.util.Calendar.DATE;
-import static java.util.Calendar.MONTH;
+import org.joda.time.Days;
+import org.joda.time.Instant;
+import org.joda.time.LocalDateTime;
+import org.joda.time.Months;
+import org.joda.time.Period;
+import org.joda.time.Weeks;
 
 public class MessageHandler {
     
@@ -25,15 +21,8 @@ public class MessageHandler {
      * @param freq, the frequency with which the message is to be sent
      * @return the String representing the next time to send a message
      */
-    public static String getNextSend(String dateTime, String freq) {
-        Calendar time = Calendar.getInstance();
-        try {
-            time.setTime(DateFormat.getInstance().parse(dateTime));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return getNextSend(time, freq);
+    public static Instant getNextSend(String dateTime, String freq) {
+        return getNextSend(Instant.ofEpochMilli(Long.parseLong(dateTime)), freq);
     }
 
     /**
@@ -41,36 +30,34 @@ public class MessageHandler {
      * @param time, the Calendar representation of the current time
      * @return the String representing the next the message is to be sent
      */
-    public static String getNextSend(Calendar time, String freq){
+    public static Instant getNextSend(Instant time, String freq){
 
-        if (time.before(Calendar.getInstance())){
+        if (time.isBeforeNow()){
             switch(freq){
             case "Once":
-                incrementUntilPresentOrFuture(time, DATE, 1);
-                break;
             case "Daily":
-                incrementUntilPresentOrFuture(time, DATE, 1);
-                break;
+                return incrementUntilPresentOrFuture(time, Days.ONE.toPeriod());
             case "Weekly":
-                incrementUntilPresentOrFuture(time, DATE, 7);
-                break;
+                return incrementUntilPresentOrFuture(time, Weeks.ONE.toPeriod());
             case "Monthly":
-                incrementUntilPresentOrFuture(time, MONTH, 1);
-                break;
+                return incrementUntilPresentOrFuture(time, Months.ONE.toPeriod());
             case "Monthly: Last Day":
-                incrementUntilPresentOrFuture(time, MONTH, 1);
-                time.set(DATE, time.getActualMaximum(DATE));
-                break;
+                Instant finalInstant = incrementUntilPresentOrFuture(time, Months.ONE.toPeriod());
+                return new LocalDateTime(finalInstant.getMillis()).
+                        dayOfMonth().withMaximumValue()
+                        .toDateTime()
+                        .toInstant();
             }
         }
-        return NudgeInfo.NUDGE_DATE_FORMAT.format(time.getTime());
-}
+        return time;
+    }
 
-    private static void incrementUntilPresentOrFuture(Calendar time, int period, int interval) {
-        Calendar presentTime = Calendar.getInstance();
-        while(time.before(presentTime)){
-            time.add(period, interval);
+    private static Instant incrementUntilPresentOrFuture(Instant time, Period period) {
+        Instant finalTime = time;
+        while(finalTime.isBeforeNow()){
+            finalTime = finalTime.plus(period.toStandardDuration());
         }
+        return finalTime;
     }
     
     /**

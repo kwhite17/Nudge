@@ -1,12 +1,9 @@
 package com.ksp.message;
 
 import android.database.Cursor;
-import android.util.Log;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Locale;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Instant;
 
 import static android.provider.BaseColumns._ID;
 import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NAME_FREQUENCY;
@@ -20,12 +17,11 @@ import static com.ksp.database.NudgeMessagesContract.NudgeMessageEntry.COLUMN_NA
  * provides about the Nudge they are attempting to create.
  */
 public class NudgeInfo {
-    public static final DateFormat NUDGE_DATE_FORMAT = DateFormat.getDateTimeInstance(DateFormat.SHORT,
-            DateFormat.SHORT, Locale.getDefault());
     private String id;
     private String recipientInfo;
     private String recipientNumber;
-    private Calendar sendTime = Calendar.getInstance();
+    private Instant sendTime = Instant.ofEpochMilli(DateTimeZone.getDefault()
+            .convertLocalToUTC(System.currentTimeMillis(), false));
     private String message = "";
     private String frequency = "Weekly";
 
@@ -46,9 +42,14 @@ public class NudgeInfo {
         this.recipientNumber = recipientNumber;
     }
 
-    public Calendar getSendTime() { return sendTime; }
-    public void setSendTime(String dateTime) throws ParseException {
-        sendTime.setTime(NUDGE_DATE_FORMAT.parse(dateTime));
+    public Instant getSendTime() {
+        return sendTime;
+    }
+    private void setSendTime(String dateTime) {
+        sendTime = Instant.ofEpochMilli(Long.parseLong(dateTime));
+    }
+    public void setSendTime(long instant) {
+        sendTime = sendTime.withMillis(instant);
     }
 
     public String getMessage() { return message; }
@@ -65,10 +66,6 @@ public class NudgeInfo {
 
     public boolean isFilled() {
         return recipientInfo != null && recipientNumber != null;
-    }
-
-    public String getSendTimeAsString() {
-        return NUDGE_DATE_FORMAT.format(sendTime.getTime());
     }
 
     /**
@@ -117,12 +114,8 @@ public class NudgeInfo {
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NUMBER)));
         parsedNudgeInfo.setRecipientInfo(messageCursor
                 .getString(messageCursor.getColumnIndex(COLUMN_NAME_RECIPIENT_NAME)));
-        try {
-            parsedNudgeInfo.setSendTime(messageCursor
-                    .getString(messageCursor.getColumnIndex(COLUMN_NAME_SEND_TIME)));
-        } catch (ParseException e) {
-            Log.e("ParseException", e.getMessage());
-        }
+        parsedNudgeInfo.setSendTime(messageCursor
+                .getString(messageCursor.getColumnIndex(COLUMN_NAME_SEND_TIME)));
         return parsedNudgeInfo;
     }
 }

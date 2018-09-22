@@ -30,6 +30,10 @@ import com.android.ex.chips.recipientchip.DrawableRecipientChip;
 import com.ksp.database.NudgeDatabaseHelper;
 import com.ksp.message.NudgeInfo;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Instant;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -55,6 +59,7 @@ import static java.util.Calendar.MINUTE;
 
 public class MessageFormActivity extends AppCompatActivity {
     private NudgeInfo nudge = new NudgeInfo();
+    private Instant tempInstant = Instant.now();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,19 +173,21 @@ public class MessageFormActivity extends AppCompatActivity {
             }
         });
     }
-    private static String parseTimeFromCurrentSendTime(Date time) {
-        return DateFormat.getTimeInstance(SHORT, Locale.getDefault()).format(time);
+    private static String parseTimeFromCurrentSendTime(long time) {
+        return DateFormat.getTimeInstance(SHORT, Locale.getDefault()).format(new Date(time));
     }
 
-    private static String parseDateFromCurrentSendTime(Date time) {
-        return DateFormat.getDateInstance(SHORT, Locale.getDefault()).format(time);
+    private static String parseDateFromCurrentSendTime(long time) {
+        return DateFormat.getDateInstance(SHORT, Locale.getDefault()).format(new Date(time));
     }
 
     private void setDefaultTimeFromNudge() {
         ((TextView) findViewById(chooseTimeText))
-                .setText(parseTimeFromCurrentSendTime(nudge.getSendTime().getTime()));
+                .setText(parseTimeFromCurrentSendTime(DateTimeZone.getDefault()
+                        .convertUTCToLocal(nudge.getSendTime().getMillis())));
         ((TextView) findViewById(chooseDateText))
-                .setText(parseDateFromCurrentSendTime(nudge.getSendTime().getTime()));
+                .setText(parseDateFromCurrentSendTime(DateTimeZone.getDefault()
+                        .convertUTCToLocal(nudge.getSendTime().getMillis())));
     }
 
     /**
@@ -233,10 +240,9 @@ public class MessageFormActivity extends AppCompatActivity {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             MessageFormActivity currentActivity = (MessageFormActivity) getActivity();
-            Calendar sendTime = currentActivity.nudge.getSendTime();
-            sendTime.set(HOUR_OF_DAY, hourOfDay);
-            sendTime.set(MINUTE, minute);
-            String timeString = parseTimeFromCurrentSendTime(sendTime.getTime());
+            currentActivity.tempInstant = Instant.ofEpochMilli(currentActivity.tempInstant.toDateTime()
+                    .withHourOfDay(hourOfDay).withMinuteOfHour(minute).getMillis());
+            String timeString = parseTimeFromCurrentSendTime(currentActivity.tempInstant.getMillis());
             ((TextView) currentActivity.findViewById(chooseTimeText)).setText(timeString);
         }
     }
@@ -271,11 +277,10 @@ public class MessageFormActivity extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
             MessageFormActivity currentActivity = (MessageFormActivity) getActivity();
-            Calendar sendTime = currentActivity.nudge.getSendTime();
-            sendTime.set(Calendar.MONTH, monthOfYear);
-            sendTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            sendTime.set(Calendar.YEAR, year);
-            String dateString = parseDateFromCurrentSendTime(sendTime.getTime());
+            DateTime dateTime = new DateTime(year, monthOfYear, dayOfMonth, 0 ,0);
+            currentActivity.tempInstant = Instant.ofEpochMilli(dateTime.getMillis());
+            String dateString = parseDateFromCurrentSendTime(currentActivity.nudge
+                    .getSendTime().getMillis());
             ((TextView) currentActivity.findViewById(chooseDateText)).setText(dateString);
         }
     }
@@ -310,7 +315,7 @@ public class MessageFormActivity extends AppCompatActivity {
         nudge.setRecipientNumber(numberString);
         nudge.setRecipientInfo(namesString);
         if (nudge.isFilled()) {
-            nudge.setSendTime(getNextSend(nudge.getSendTime(), nudge.getFrequency()));
+            nudge.setSendTime(getNextSend(tempInstant, nudge.getFrequency()).getMillis());
             if (nudge.getId() == null){
                 Log.i("Saving New Nudge",
                         new NudgeDatabaseHelper(this).writeMessageToDatabase(nudge));
@@ -318,7 +323,7 @@ public class MessageFormActivity extends AppCompatActivity {
                 Log.i("Updating Current Nudge",
                         new NudgeDatabaseHelper(this).updateExistingMessage(nudge));
             }
-            SendMessageService.setServiceAlarm(this, nudge.getSendTimeAsString());
+            SendMessageService.setServiceAlarm(this, nudge.getSendTime().getMillis());
             toastAndChangeActivity("NudgeInfo saved!", ActiveNudgesActivity.class);
         } else {
             makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
