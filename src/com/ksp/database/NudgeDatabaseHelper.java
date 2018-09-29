@@ -172,10 +172,6 @@ public class NudgeDatabaseHelper extends SQLiteOpenHelper {
     public boolean updateNudge(NudgeInfo currentNudge) throws ParseException {
         if (currentNudge.getFrequency().equals("Once")) {
             deleteMessage(currentNudge.getId());
-            NudgeCursorAdapter nudgeAdapter = ActiveNudgesActivity.getNudgeAdapter();
-            if (nudgeAdapter != null) {
-                nudgeAdapter.refreshAdapter(this);
-            }
             return false;
         }
         updateSendTime(currentNudge);

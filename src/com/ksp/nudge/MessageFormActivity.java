@@ -1,11 +1,15 @@
 package com.ksp.nudge;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -35,7 +39,6 @@ import org.joda.time.DateTimeZone;
 import org.joda.time.Instant;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -58,6 +61,7 @@ import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
 
 public class MessageFormActivity extends AppCompatActivity {
+    private static final int REQUEST_NUDGE_CREATION = 1;
     private NudgeInfo nudge = new NudgeInfo();
     private Instant tempInstant = Instant.now();
 
@@ -99,6 +103,36 @@ public class MessageFormActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        validatePermissions();
+    }
+
+    private void validatePermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS},
+                    REQUEST_NUDGE_CREATION);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_NUDGE_CREATION:
+                if (grantResults.length <= 0) {
+                    toastAndChangeActivity("Can't create Nudge without permissions",
+                            ActiveNudgesActivity.class);
+                } else {
+                    for (int result : grantResults) {
+                        if (result != PackageManager.PERMISSION_GRANTED) {
+                            toastAndChangeActivity("Can't create Nudge without permissions",
+                                    ActiveNudgesActivity.class);
+                            break;
+                        }
+                    }
+                }
+                break;
+        }
     }
 
     @Override
@@ -109,12 +143,7 @@ public class MessageFormActivity extends AppCompatActivity {
                 toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
                 break;
             case R.id.action_save:
-                try {
-                    saveMessage();
-                } catch (ParseException e) {
-                    makeText(this, "Oops! Save failed!", Toast.LENGTH_SHORT).show();
-                    e("Nudge Save Failure", e.getMessage());
-                }
+                saveMessage();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -277,10 +306,9 @@ public class MessageFormActivity extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
             MessageFormActivity currentActivity = (MessageFormActivity) getActivity();
-            DateTime dateTime = new DateTime(year, monthOfYear, dayOfMonth, 0 ,0);
+            DateTime dateTime = new DateTime(year, monthOfYear + 1, dayOfMonth, 0 ,0);
             currentActivity.tempInstant = Instant.ofEpochMilli(dateTime.getMillis());
-            String dateString = parseDateFromCurrentSendTime(currentActivity.nudge
-                    .getSendTime().getMillis());
+            String dateString = parseDateFromCurrentSendTime(currentActivity.tempInstant.getMillis());
             ((TextView) currentActivity.findViewById(chooseDateText)).setText(dateString);
         }
     }
@@ -288,7 +316,7 @@ public class MessageFormActivity extends AppCompatActivity {
     /**
      * Save message into database and return to the ActiveNudges activity
      */
-    private void saveMessage() throws ParseException {
+    private void saveMessage() {
         final RecipientEditTextView textView = findViewById(chooseContactText);
         DrawableRecipientChip[] chips = textView.getRecipients();
         String[] names = new String[chips.length];
@@ -323,7 +351,7 @@ public class MessageFormActivity extends AppCompatActivity {
                 Log.i("Updating Current Nudge",
                         new NudgeDatabaseHelper(this).updateExistingMessage(nudge));
             }
-            SendMessageService.setServiceAlarm(this, nudge.getSendTime().getMillis());
+            SendMessageWorker.scheduleMessage(nudge.getId(), nudge.getSendTime().getMillis());
             toastAndChangeActivity("NudgeInfo saved!", ActiveNudgesActivity.class);
         } else {
             makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
