@@ -1,4 +1,4 @@
-package com.ksp.nudge;
+package com.ksp.nudge.activity;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
@@ -13,7 +13,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,8 +30,13 @@ import com.android.ex.chips.BaseRecipientAdapter;
 import com.android.ex.chips.RecipientEditTextView;
 import com.android.ex.chips.RecipientEntry;
 import com.android.ex.chips.recipientchip.DrawableRecipientChip;
-import com.ksp.database.NudgeDatabaseHelper;
-import com.ksp.message.NudgeInfo;
+import com.ksp.nudge.NudgeApp;
+import com.ksp.nudge.R;
+import com.ksp.nudge.db.NudgeDatabaseHelper;
+import com.ksp.nudge.model.Nudge;
+import com.ksp.nudge.model.NudgeConfig;
+import com.ksp.nudge.model.Recipient;
+import com.ksp.nudge.service.SendMessageService;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -44,9 +48,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import static android.text.format.DateFormat.is24HourFormat;
-import static android.util.Log.e;
 import static android.widget.Toast.makeText;
-import static com.ksp.message.MessageHandler.getNextSend;
+import static com.ksp.nudge.NudgeUtils.getNextSend;
 import static com.ksp.nudge.R.array.frequency_array;
 import static com.ksp.nudge.R.id.chooseContactText;
 import static com.ksp.nudge.R.id.chooseDateText;
@@ -62,7 +65,7 @@ import static java.util.Calendar.MINUTE;
 
 public class MessageFormActivity extends AppCompatActivity {
     private static final int REQUEST_NUDGE_CREATION = 1;
-    private NudgeInfo nudge = new NudgeInfo();
+    private Nudge nudge = Nudge.getDefaultInstance();
     private Instant tempInstant = Instant.now();
 
     @Override
@@ -78,24 +81,24 @@ public class MessageFormActivity extends AppCompatActivity {
         textView.setAdapter(adapter);
         String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
         if (currentNudgeId != null) {
-            NudgeDatabaseHelper databaseHelper = new NudgeDatabaseHelper(this);
-            nudge = NudgeInfo.getMessageFromCursor(databaseHelper.getNudgeEntry(currentNudgeId));
-            ((EditText)findViewById(nudgeMessageTextField)).setText(nudge.getMessage());
+            nudge = NudgeDatabaseHelper.buildNudgeFromId(NudgeApp.get().getDatabase().nudgeDao()
+                    .getNudgeById(Integer.valueOf(currentNudgeId)));
+            NudgeConfig nudgeConfig = nudge.getNudgeConfig();
+            ((EditText)findViewById(nudgeMessageTextField)).setText(nudgeConfig.getMessage());
             String[] frequencies = getResources().getStringArray(frequency_array);
             ((SeekBar)findViewById(frequencySeekBar)).
-                    setProgress(asList(frequencies).indexOf(nudge.getFrequency()));
+                    setProgress(asList(frequencies).indexOf(nudgeConfig.getFrequency()));
             textView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                 @Override
                 public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                     if (textView.getWidth() > 0 && textView.getRecipients().length == 0) {
-                        String[] numbers = nudge.getRecipientNumber().split(",");
-                        String[] names = nudge.getRecipientInfo().split(",");
-                        for (int i = 0; i < names.length; i++) {
-                            textView.submitItem(names[i], numbers[i]);
+                        for (Recipient recipient : nudge.getRecipients()) {
+                            textView.submitItem(recipient.getName(), recipient.getPhoneNumber());
                         }
                     }
                 }
             });
+            NudgeDatabaseHelper.deleteEditableRecipients(nudge.getRecipients());
         }
         setDefaultTimeFromNudge();
     }
@@ -109,8 +112,7 @@ public class MessageFormActivity extends AppCompatActivity {
     private void validatePermissions() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS},
-                    REQUEST_NUDGE_CREATION);
+                    new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS}, REQUEST_NUDGE_CREATION);
         }
     }
 
@@ -140,7 +142,7 @@ public class MessageFormActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_discard:
-                toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
+                toastAndChangeActivity("Nudge discarded!", ActiveNudgesActivity.class);
                 break;
             case R.id.action_save:
                 saveMessage();
@@ -154,7 +156,7 @@ public class MessageFormActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        toastAndChangeActivity("NudgeInfo discarded!", ActiveNudgesActivity.class);
+        toastAndChangeActivity("Nudge discarded!", ActiveNudgesActivity.class);
     }
 
     @Override
@@ -179,7 +181,7 @@ public class MessageFormActivity extends AppCompatActivity {
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         TextView progressBarLabel = findViewById(frequencySeekBarLabel);
                         String[] frequencies = getResources().getStringArray(frequency_array);
-                        nudge.setFrequency(frequencies[progress]);
+                        nudge.getNudgeConfig().setFrequency(frequencies[progress]);
                         progressBarLabel.setText(frequencies[progress]);
                     }
 
@@ -198,7 +200,7 @@ public class MessageFormActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                nudge.setMessage(s.toString());
+                nudge.getNudgeConfig().setMessage(s.toString());
             }
         });
     }
@@ -211,12 +213,10 @@ public class MessageFormActivity extends AppCompatActivity {
     }
 
     private void setDefaultTimeFromNudge() {
-        ((TextView) findViewById(chooseTimeText))
-                .setText(parseTimeFromCurrentSendTime(DateTimeZone.getDefault()
-                        .convertUTCToLocal(nudge.getSendTime().getMillis())));
-        ((TextView) findViewById(chooseDateText))
-                .setText(parseDateFromCurrentSendTime(DateTimeZone.getDefault()
-                        .convertUTCToLocal(nudge.getSendTime().getMillis())));
+        long currentTime = nudge.getNudgeConfig().getSendTime() == null ? Instant.now().getMillis() :
+                nudge.getNudgeConfig().getSendTime().getMillis();
+        ((TextView) findViewById(chooseTimeText)).setText(parseTimeFromCurrentSendTime(currentTime));
+        ((TextView) findViewById(chooseDateText)).setText(parseDateFromCurrentSendTime(currentTime));
     }
 
     /**
@@ -319,39 +319,17 @@ public class MessageFormActivity extends AppCompatActivity {
     private void saveMessage() {
         final RecipientEditTextView textView = findViewById(chooseContactText);
         DrawableRecipientChip[] chips = textView.getRecipients();
-        String[] names = new String[chips.length];
-        String[] numbers = new String[chips.length];
-        for (int i = 0; i < chips.length; i++) {
-            RecipientEntry entry = chips[i].getEntry();
-            numbers[i] = entry.getDestination();
-            names[i] = entry.getDisplayName();
+        for (DrawableRecipientChip chip : chips) {
+            RecipientEntry entry = chip.getEntry();
+            Recipient recipient = new Recipient();
+            recipient.setPhoneNumber(entry.getDestination());
+            recipient.setName(entry.getDisplayName());
+            nudge.getRecipients().add(recipient);
         }
-        String numberString = "";
-        for (int i = 0; i < numbers.length; i++) {
-            numberString = numberString.concat(numbers[i]);
-            if (i < numbers.length - 1) {
-                numberString = numberString.concat(",");
-            }
-        }
-        String namesString = "";
-        for (int i = 0; i < names.length; i++) {
-            namesString = namesString.concat(names[i]);
-            if (i < numbers.length - 1) {
-                namesString = namesString.concat(",");
-            }
-        }
-        nudge.setRecipientNumber(numberString);
-        nudge.setRecipientInfo(namesString);
-        if (nudge.isFilled()) {
-            nudge.setSendTime(getNextSend(tempInstant, nudge.getFrequency()).getMillis());
-            if (nudge.getId() == null){
-                Log.i("Saving New Nudge",
-                        new NudgeDatabaseHelper(this).writeMessageToDatabase(nudge));
-            } else{
-                Log.i("Updating Current Nudge",
-                        new NudgeDatabaseHelper(this).updateExistingMessage(nudge));
-            }
-            SendMessageWorker.scheduleMessage(nudge.getId(), nudge.getSendTime().getMillis());
+        if (NudgeDatabaseHelper.isFilled(nudge)) {
+            nudge.getNudgeConfig().setSendTime(getNextSend(tempInstant, nudge.getNudgeConfig().getFrequency()));
+            NudgeDatabaseHelper.insertNudge(nudge);
+            SendMessageService.setServiceAlarm(this, nudge.getNudgeConfig().getSendTime());
             toastAndChangeActivity("NudgeInfo saved!", ActiveNudgesActivity.class);
         } else {
             makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();

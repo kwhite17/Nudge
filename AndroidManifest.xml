@@ -15,24 +15,26 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name=".NudgeApp"
         android:allowBackup="true"
         android:icon="@drawable/nudge_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MessageFormActivity"
+            android:name=".activity.MessageFormActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:label="@string/title_activity_message_form" >
         </activity>
 
         <activity
-            android:name=".ActiveNudgesActivity"
+            android:name=".activity.ActiveNudgesActivity"
             android:label="@string/title_activity_active_nudges" >
         </activity>
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activity.SplashScreenActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,14 +44,35 @@
         </activity>
 
         <activity
-            android:name=".AboutNudgeActivity"
+            android:name=".activity.AboutNudgeActivity"
             android:label="@string/title_activity_about_nudge" >
         </activity>
 
         <activity
-            android:name=".PrivacyPolicyActivity"
+            android:name=".activity.PrivacyPolicyActivity"
             android:label="Nudge Privacy Policy" >
         </activity>
+
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:directBootAware="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".service.SendMessageReceiver"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+
+        <service
+            android:name=".service.SendMessageService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
 
         <service android:name="com.android.mms.transaction.TransactionService"/>
 

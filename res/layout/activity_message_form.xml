@@ -6,7 +6,7 @@
             android:id="@+id/formActivityId"
             android:overScrollMode="always"
             android:fillViewport="true"
-            tools:context="com.ksp.nudge.MessageFormActivity">
+            tools:context="com.ksp.nudge.activity.MessageFormActivity">
 
     <include android:layout_height="wrap_content"
         android:layout_width="match_parent"

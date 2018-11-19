@@ -1,20 +1,18 @@
-package com.ksp.nudge;
+package com.ksp.nudge.activity;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.ksp.database.NudgeDatabaseHelper;
+import com.ksp.nudge.db.NudgeArrayAdapter;
+import com.ksp.nudge.db.NudgeDatabaseHelper;
+import com.ksp.nudge.model.Nudge;
 
-import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
-import static com.ksp.nudge.R.id.nudgeMessageText;
-import static com.ksp.nudge.R.id.nudgeRecipientText;
-import static com.ksp.nudge.R.id.nudgeSendDateText;
-import static com.ksp.nudge.R.layout.active_nudge_item;
+import java.util.List;
+
 import static com.ksp.nudge.R.layout.activity_splash_screen;
 
 
@@ -48,19 +46,16 @@ public class SplashScreenActivity extends Activity{
     /**
      * Class that fetches active nudges from database asynchronously
      */
-    private class GetActiveNudgesTask extends AsyncTask<Context,Void,Cursor> {
+    private class GetActiveNudgesTask extends AsyncTask<Context,Void,List<Nudge>> {
 
         @Override
-        protected Cursor doInBackground(Context... contexts) {
-            return new NudgeDatabaseHelper(contexts[0]).readMessagesFromDatabase();
+        protected List<Nudge> doInBackground(Context... contexts) {
+            return NudgeDatabaseHelper.getPendingNudges();
         }
 
-        protected void onPostExecute(Cursor result){
-            int[] adapterColumns = new int[]{nudgeRecipientText,
-                    nudgeMessageText, nudgeSendDateText};
-            ActiveNudgesActivity.setNudgeAdapter(new NudgeCursorAdapter(SplashScreenActivity.this,
-                    active_nudge_item, result, result.getColumnNames(),
-                    adapterColumns, FLAG_REGISTER_CONTENT_OBSERVER));
+        protected void onPostExecute(List<Nudge> result){
+            ActiveNudgesActivity.setNudgeAdapter(new NudgeArrayAdapter(SplashScreenActivity.this,
+                    result));
             adapterSet = true;
         }
     }

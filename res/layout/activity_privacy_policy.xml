@@ -5,7 +5,7 @@
     android:id="@+id/privacyPolicyActivityId"
     android:overScrollMode="always"
     android:fillViewport="true"
-    tools:context="com.ksp.nudge.PrivacyPolicyActivity">
+    tools:context="com.ksp.nudge.activity.PrivacyPolicyActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -1,44 +1,36 @@
-package com.ksp.nudge;
+package com.ksp.nudge.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import com.ksp.database.NudgeDatabaseHelper;
+import com.ksp.nudge.db.NudgeArrayAdapter;
+import com.ksp.nudge.R;
+import com.ksp.nudge.db.NudgeDatabaseHelper;
 
-import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 import static com.ksp.nudge.R.id.activeNudgeList;
 import static com.ksp.nudge.R.id.newNudgeButton;
-import static com.ksp.nudge.R.id.nudgeMessageText;
-import static com.ksp.nudge.R.id.nudgeRecipientText;
-import static com.ksp.nudge.R.id.nudgeSendDateText;
-import static com.ksp.nudge.R.layout.active_nudge_item;
 import static com.ksp.nudge.R.menu.menu_active_nudges;
 
 
 public class ActiveNudgesActivity extends AppCompatActivity {
 
-    private static NudgeCursorAdapter nudgeAdapter;
+    private static NudgeArrayAdapter nudgeAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_active_nudges);
 
-        //setup ShowcaseView for first time instructions
-//        final ShowcaseView nudgeButtonShowcase = initializeShowcaseView();
         findViewById(newNudgeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                nudgeButtonShowcase.hide();
                 Intent intent = new Intent(ActiveNudgesActivity.this, MessageFormActivity.class);
                 startActivity(intent);
                 finish();
@@ -51,14 +43,7 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         super.onResume();
         //build the list of active nudges
         ((ListView) findViewById(activeNudgeList)).setEmptyView(findViewById(R.id.instructionText));
-        if (nudgeAdapter == null) {
-            Log.i("NUDGE_ADAPTER", "Adapter failed to load on startup!");
-            new GetActiveNudgesTask().execute(this);
-        } else {
-            Log.i("NUDGE_ADAPTER", "Adapter loaded on startup!");
-            nudgeAdapter.refreshAdapter(new NudgeDatabaseHelper(this));
-            ((ListView)findViewById(activeNudgeList)).setAdapter(nudgeAdapter);
-        }
+        new GetActiveNudgesTask().execute(this);
     }
 
     @Override
@@ -91,27 +76,20 @@ public class ActiveNudgesActivity extends AppCompatActivity {
         finish();
     }
 
-    public static NudgeCursorAdapter getNudgeAdapter(){
-        return nudgeAdapter;
-    }
-    public static void setNudgeAdapter(NudgeCursorAdapter newValue) { nudgeAdapter = newValue; }
+    public static void setNudgeAdapter(NudgeArrayAdapter newValue) { nudgeAdapter = newValue; }
     /**
      * Class that fetches active nudges from database asynchronously
      */
-    private class GetActiveNudgesTask extends AsyncTask<Context,Void,Cursor>{
+    private class GetActiveNudgesTask extends AsyncTask<Context, Void, NudgeArrayAdapter>{
 
         @Override
-        protected Cursor doInBackground(Context... contexts) {
-            return new NudgeDatabaseHelper(contexts[0]).readMessagesFromDatabase();
+        protected NudgeArrayAdapter doInBackground(Context... contexts) {
+            nudgeAdapter = new NudgeArrayAdapter(contexts[0], NudgeDatabaseHelper.getPendingNudges());
+            return nudgeAdapter;
         }
 
-        protected void onPostExecute(Cursor result){
-            int[] adapterColumns = new int[]{nudgeRecipientText,
-                    nudgeMessageText, nudgeSendDateText};
-            ActiveNudgesActivity.nudgeAdapter = new NudgeCursorAdapter(ActiveNudgesActivity.this,
-                    active_nudge_item, result, result.getColumnNames(),
-                    adapterColumns, FLAG_REGISTER_CONTENT_OBSERVER);
-            ((ListView)findViewById(activeNudgeList)).setAdapter(ActiveNudgesActivity.nudgeAdapter);
+        protected void onPostExecute(NudgeArrayAdapter result){
+            ((ListView) findViewById(activeNudgeList)).setAdapter(result);
         }
     }
 }

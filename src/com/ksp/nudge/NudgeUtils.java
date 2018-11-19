@@ -1,10 +1,11 @@
-package com.ksp.message;
+package com.ksp.nudge;
 
 import android.content.Context;
 
 import com.klinker.android.send_message.Message;
 import com.klinker.android.send_message.Settings;
 import com.klinker.android.send_message.Transaction;
+import com.ksp.nudge.model.Recipient;
 
 import org.joda.time.Days;
 import org.joda.time.Instant;
@@ -13,7 +14,9 @@ import org.joda.time.Months;
 import org.joda.time.Period;
 import org.joda.time.Weeks;
 
-public class MessageHandler {
+import java.util.List;
+
+public class NudgeUtils {
     
     /**
      * 
@@ -62,20 +65,19 @@ public class MessageHandler {
     
     /**
      * Sends an SMS/MMS message to the recipient(s)
-     * @param numberString, the CSV of recipient phone numbers
+     * @param recipients, the list of recipients to message
      * @param body, the message to send to the recipient(s)
      * @param context
      */
-    public static void sendMessage(Context context, String numberString, String body){
-        String[] phoneNumbers = numberString.split(",");
+    public static void sendMessage(Context context, List<Recipient> recipients, String body){
         Settings settings = new Settings();
         settings.setUseSystemSending(true);
-        if (phoneNumbers.length > 1) {
+        if (recipients.size() > 1) {
             settings.setGroup(true);
         }
         Transaction transaction = new Transaction(context, settings);
-        for (String number : phoneNumbers) {
-            Message message = new Message(body, number);
+        for (Recipient recipient : recipients) {
+            Message message = new Message(body, recipient.getPhoneNumber());
             transaction.sendNewMessage(message, message.hashCode());
         }
     }
