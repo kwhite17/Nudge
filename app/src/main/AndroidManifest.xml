@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ksp.nudge">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:name=".NudgeApp"
+        android:allowBackup="true"
+        android:icon="@drawable/nudge_logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activity.MessageFormActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:label="@string/title_activity_message_form" >
+        </activity>
+
+        <activity
+            android:name=".activity.ActiveNudgesActivity"
+            android:label="@string/title_activity_active_nudges" >
+        </activity>
+
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.AboutNudgeActivity"
+            android:label="@string/title_activity_about_nudge" >
+        </activity>
+
+        <activity
+            android:name=".activity.PrivacyPolicyActivity"
+            android:label="Nudge Privacy Policy" >
+        </activity>
+
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:directBootAware="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".service.SendMessageReceiver"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+
+        <service
+            android:name=".service.SendMessageService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
+        <service android:name="com.android.mms.transaction.TransactionService"/>
+
+    </application>
+
+</manifest>
