@@ -20,7 +20,7 @@ public interface RecipientDao {
     List<Recipient> getRecipientsByNudgeId(long nudgeId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertRecipients(Recipient... recipients);
+    List<Long> insertRecipients(Recipient... recipients);
 
     @Delete
     void deleteRecipients(Recipient... recipients);

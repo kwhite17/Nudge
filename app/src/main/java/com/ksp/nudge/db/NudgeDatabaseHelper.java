@@ -93,7 +93,7 @@ public class NudgeDatabaseHelper {
         return true;
     }
 
-    public static void deleteEditableRecipients(List<Recipient> recipients) {
+    public static void deleteOldRecipients(List<Recipient> recipients) {
         NudgeDatabase database = NudgeApp.get().getDatabase();
         database.recipientDao().deleteRecipients(recipients.toArray(new Recipient[0]));
     }

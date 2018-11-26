@@ -8,9 +8,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -43,10 +40,16 @@ import org.joda.time.DateTime;
 import org.joda.time.Instant;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import static android.text.format.DateFormat.is24HourFormat;
 import static java.text.DateFormat.SHORT;
@@ -56,16 +59,17 @@ import static java.util.Calendar.MINUTE;
 public class MessageFormActivity extends AppCompatActivity {
   private static final int REQUEST_NUDGE_CREATION = 1;
 
-  private final String[] frequencies = getResources().getStringArray(R.array.frequency_array);
-
+  private String[] frequencies;
+  private List<Recipient> oldRecipients = new ArrayList<>();
   private Instant tempInstant = Instant.now();
-  private NudgeFrequency frequency;
+  private NudgeFrequency frequency = NudgeFrequency.WEEKLY;
   private String message;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_message_form);
+    frequencies = getResources().getStringArray(R.array.frequency_array);
     initializeListeners();
     final RecipientEditTextView textView = findViewById(R.id.chooseContactText);
     textView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
@@ -73,19 +77,20 @@ public class MessageFormActivity extends AppCompatActivity {
     BaseRecipientAdapter adapter = new BaseRecipientAdapter(BaseRecipientAdapter.QUERY_TYPE_PHONE, this);
     adapter.setShowMobileOnly(false);
     textView.setAdapter(adapter);
-    String currentNudgeId = getIntent().getStringExtra("EDIT_NUDGE_ID");
-    if (currentNudgeId != null) {
+    Long currentNudgeId = getIntent().getLongExtra("EDIT_NUDGE_ID", -1);
+    if (currentNudgeId != -1) {
       updateInitialFormValues(textView, currentNudgeId);
     }
     setInitialScheduledTime();
   }
 
-  private void updateInitialFormValues(final RecipientEditTextView textView, String currentNudgeId) {
+  private void updateInitialFormValues(final RecipientEditTextView textView, Long currentNudgeId) {
     final Nudge savedNudge = NudgeDatabaseHelper.buildNudgeFromId(NudgeApp.get().getDatabase().nudgeDao()
-        .getNudgeById(Integer.valueOf(currentNudgeId)));
+        .getNudgeById(currentNudgeId));
     NudgeConfig nudgeConfig = savedNudge.getNudgeConfig();
 
     tempInstant = nudgeConfig.getSendTime();
+    oldRecipients = savedNudge.getRecipients();
     ((EditText) findViewById(R.id.nudgeMessageTextField)).setText(nudgeConfig.getMessage());
     ((SeekBar) findViewById(R.id.frequencySeekBar)).
         setProgress(Arrays.binarySearch(frequencies, nudgeConfig.getFrequency().getDisplayText()));
@@ -99,7 +104,6 @@ public class MessageFormActivity extends AppCompatActivity {
         }
       }
     });
-    NudgeDatabaseHelper.deleteEditableRecipients(savedNudge.getRecipients());
   }
 
   @Override
@@ -323,7 +327,9 @@ public class MessageFormActivity extends AppCompatActivity {
   private void saveMessage() {
     final RecipientEditTextView textView = findViewById(R.id.chooseContactText);
     DrawableRecipientChip[] chips = textView.getRecipients();
+
     if (NudgeDatabaseHelper.isFilled(message, frequency, chips)) {
+      NudgeDatabaseHelper.deleteOldRecipients(oldRecipients);
       NudgeConfig config = NudgeConfig.builder()
           .setSendTime(NudgeUtils.getNextSend(tempInstant, frequency))
           .setFrequency(frequency)

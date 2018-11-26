@@ -3,10 +3,11 @@ package com.ksp.nudge.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.ksp.nudge.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import static android.content.Intent.ACTION_VIEW;
 

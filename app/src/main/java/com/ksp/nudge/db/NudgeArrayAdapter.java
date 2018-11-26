@@ -2,7 +2,6 @@ package com.ksp.nudge.db;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,8 @@ import org.joda.time.LocalDateTime;
 import java.text.DateFormat;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.cardview.widget.CardView;
 
 
 public class NudgeArrayAdapter extends ArrayAdapter<Nudge> {

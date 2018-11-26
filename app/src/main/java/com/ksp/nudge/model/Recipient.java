@@ -2,6 +2,7 @@ package com.ksp.nudge.model;
 
 import com.google.auto.value.AutoValue;
 
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -23,7 +24,8 @@ import androidx.room.PrimaryKey;
 public abstract class Recipient {
     @AutoValue.CopyAnnotations
     @PrimaryKey(autoGenerate = true)
-    public abstract long getId();
+    @Nullable
+    public abstract Long getId();
     public abstract String getPhoneNumber();
     public abstract String getName();
     public abstract long getNudgeId();
@@ -45,7 +47,7 @@ public abstract class Recipient {
 
     @AutoValue.Builder
     public abstract static class Builder {
-        public  abstract Builder setId(long id);
+        public abstract Builder setId(Long id);
 
         public abstract Builder setPhoneNumber(String phoneNumber);
 
@@ -56,16 +58,8 @@ public abstract class Recipient {
         public abstract Recipient build();
     }
 
-    public Recipient withPhoneNumber(String phoneNumber) {
-        return toBuilder().setPhoneNumber(phoneNumber).build();
-    }
-
-    public Recipient withName(String name) {
-        return toBuilder().setName(name).build();
-    }
-
-    public Recipient withNudgeId(long nudgeId) {
-        return toBuilder().setNudgeId(nudgeId).build();
+    public Recipient withId(Long id) {
+        return toBuilder().setId(id).build();
     }
 
 }

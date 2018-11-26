@@ -4,6 +4,7 @@ import com.google.auto.value.AutoValue;
 
 import org.joda.time.Instant;
 
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,7 +17,8 @@ import androidx.room.PrimaryKey;
 public abstract class NudgeConfig {
     @AutoValue.CopyAnnotations
     @PrimaryKey(autoGenerate = true)
-    public abstract long getId();
+    @Nullable
+    public abstract Long getId();
 
     public abstract String getMessage();
 
@@ -24,7 +26,9 @@ public abstract class NudgeConfig {
 
     public abstract Instant getSendTime();
 
-    public static NudgeConfig create(long id, String message, NudgeFrequency frequency, Instant sendTime) {
+
+    public static NudgeConfig create(Long id, String message, NudgeFrequency frequency, Instant
+        sendTime) {
         return new AutoValue_NudgeConfig.Builder()
                 .setId(id)
                 .setMessage(message)
@@ -41,7 +45,7 @@ public abstract class NudgeConfig {
 
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract Builder setId(long id);
+        public abstract Builder setId(Long id);
 
         public abstract Builder setMessage(String message);
 
@@ -62,5 +66,8 @@ public abstract class NudgeConfig {
 
     public NudgeConfig withSendTime(Instant sendTime) {
         return toBuilder().setSendTime(sendTime).build();
+    }
+    public NudgeConfig withId(Long id) {
+        return toBuilder().setId(id).build();
     }
 }

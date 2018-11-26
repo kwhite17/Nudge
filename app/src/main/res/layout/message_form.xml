@@ -38,17 +38,6 @@
             android:layout_gravity="center"
             android:gravity="left"/>
 
-        <!--<MultiAutoCompleteTextView-->
-            <!--android:id="@+id/chooseContactText"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="@dimen/raised_button_height"-->
-            <!--android:completionThreshold="2"-->
-            <!--android:completionHint="Enter Name"-->
-            <!--android:layout_weight="1"-->
-            <!--android:gravity="left"-->
-            <!--android:layout_gravity="center" />-->
-
-
     </LinearLayout>
 
     <TextView
@@ -80,7 +69,7 @@
             android:gravity="center"
             android:layout_gravity="center"/>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/chooseDateButton"
             android:layout_height="@dimen/raised_button_height"
@@ -100,7 +89,7 @@
                 android:text="@string/date_button_text"
                 android:textSize="@dimen/abc_text_size_button_material"/>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
@@ -121,7 +110,7 @@
             android:gravity="center"
             android:layout_gravity="center" />
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/chooseTimeButton"
             android:layout_height="@dimen/raised_button_height"
@@ -141,7 +130,7 @@
                 android:text="@string/time_button_text"
                 android:textSize="@dimen/abc_text_size_button_material"/>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

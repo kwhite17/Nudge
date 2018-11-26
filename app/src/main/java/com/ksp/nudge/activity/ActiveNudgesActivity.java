@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +12,8 @@ import android.widget.ListView;
 import com.ksp.nudge.R;
 import com.ksp.nudge.db.NudgeArrayAdapter;
 import com.ksp.nudge.db.NudgeDatabaseHelper;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ActiveNudgesActivity extends AppCompatActivity {

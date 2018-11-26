@@ -1,16 +1,15 @@
 package com.ksp.nudge;
 
-import android.app.Application;
-
 import com.ksp.nudge.db.NudgeDatabase;
 
+import androidx.multidex.MultiDexApplication;
 import androidx.room.Room;
 
 /**
  * Created by kevin on 9/24/2018.
  */
 
-public class NudgeApp extends Application {
+public class NudgeApp extends MultiDexApplication {
 
     private static NudgeApp INSTANCE;
 
